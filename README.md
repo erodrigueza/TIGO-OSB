@@ -1,4 +1,4 @@
-Bonafont
+TIGO GTM
 ========
 
 Proyecto Tigo Guatemala
