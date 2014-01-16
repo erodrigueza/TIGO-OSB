@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tigo="http://www.tigo.com.gt/MapResponseStructure"
+	targetNamespace="http://www.tigo.com.gt/MapResponseStructure"
+	elementFormDefault="qualified">
+	<xsd:element name="InputData">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ResponseCode" type="xsd:string" />
+				<xsd:element name="ConsumerSystem" type="xsd:string" />
+				<xsd:element name="SourceSystem" type="xsd:string" />
+				<xsd:element name="Message" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ResponseData">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CodeResponse" type="xsd:string" />
+				<xsd:element name="MessageResponse" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

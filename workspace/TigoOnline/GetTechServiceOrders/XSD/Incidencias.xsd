@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-. --><xs:schema xmlns:tns="http://www.bytesw.com/ns/tigo/sac/incidencias" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.bytesw.com/ns/tigo/sac/incidencias">
+
+<xs:element name="ConsultarInfoReclamoSeguroRequest" type="tns:ConsultarInfoReclamoSeguroRequest"></xs:element>
+
+<xs:element name="ConsultarInfoReclamoSeguroResponse" type="tns:ConsultarInfoReclamoSeguroResponse"></xs:element>
+
+<xs:element name="ConsultarOrdenServicioTecnicoRequest" type="tns:ConsultarOrdenServicioTecnicoRequest"></xs:element>
+
+<xs:element name="ConsultarOrdenServicioTecnicoResponse" type="tns:ConsultarOrdenServicioTecnicoResponse"></xs:element>
+
+<xs:element name="ConsultarTicketsRequest" type="tns:ConsultarTicketsRequest"></xs:element>
+
+<xs:element name="ConsultarTicketsResponse" type="tns:ConsultarTicketsResponse"></xs:element>
+
+<xs:complexType name="ConsultarOrdenServicioTecnicoRequest">
+<xs:sequence>
+<xs:element name="usuario" type="xs:string"></xs:element>
+<xs:element name="numeroTelefono" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ConsultarOrdenServicioTecnicoResponse">
+<xs:sequence>
+<xs:element name="OrdenServicioTecnico" type="tns:ordenServicioTecnicoDto" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ordenServicioTecnicoDto">
+<xs:sequence>
+<xs:element name="anio" type="xs:int"></xs:element>
+<xs:element name="complementoProblemaIdentificado" type="xs:string" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="dia" type="xs:int"></xs:element>
+<xs:element name="estado" type="xs:string" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="fecha" type="xs:dateTime" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="mes" type="xs:int"></xs:element>
+<xs:element name="nombreAgencia" type="xs:string" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="problemaIdentificado" type="xs:string" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="solucionReparacion" type="xs:string" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="tecnicoActual" type="xs:string" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="tecnicoRecepcion" type="xs:string" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="valorReparacion" type="xs:decimal" nillable="true" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ConsultarTicketsRequest">
+<xs:sequence>
+<xs:element name="usuario" type="xs:string"></xs:element>
+<xs:element name="numeroTelefono" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="estado" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="fechaFinal" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="fechaInicial" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="numeroCaso" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ConsultarTicketsResponse">
+<xs:sequence>
+<xs:element name="Tickets" type="tns:ticketDto" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ticketDto">
+<xs:sequence>
+<xs:element name="descripcion" type="xs:string" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="estado" type="xs:string" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="numero" type="xs:int" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ConsultarInfoReclamoSeguroRequest">
+<xs:sequence>
+<xs:element name="usuario" type="xs:string"></xs:element>
+<xs:element name="numeroTelefono" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ConsultarInfoReclamoSeguroResponse">
+<xs:sequence>
+<xs:element name="InfoReclamo" type="tns:infoAparatoReclamoDto" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="infoAparatoReclamoDto">
+<xs:sequence>
+<xs:element name="ListadoAparatos" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Aparato" type="tns:aparatoReclamoDto" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="cantidadReclamos" type="xs:int" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="fechaInicioContrato" type="xs:date" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="mensaje" type="xs:string" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="mesesCompromiso" type="xs:int" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="mesesCompromisoPendientes" type="xs:int" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="mesesTranscurridos" type="xs:int" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="modelo" type="xs:string" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="modeloPromocion" type="xs:string" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="precioActual" type="xs:decimal" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="precioActualMostrar" type="xs:decimal" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="precioPromocion" type="xs:decimal" nillable="true" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="aparatoReclamoDto">
+<xs:sequence>
+<xs:element name="codigoAparato" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="costoReposicion" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="diferencial" type="xs:decimal" minOccurs="0"></xs:element>
+<xs:element name="linkImagen" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="precioAparato" type="xs:decimal" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

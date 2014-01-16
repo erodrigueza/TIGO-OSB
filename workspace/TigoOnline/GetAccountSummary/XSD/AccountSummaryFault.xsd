@@ -1,0 +1,34 @@
+<xsd:schema targetNamespace="http://www.tigo.com/TigoOnLine/AccountSummaryFault" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.tigo.com/TigoOnLine/AccountSummaryFault" xmlns:xs="http://www.tigo.com/TigoOnLine/AccountSummaryFault" xmlns:er="http://www.tigo.com/Core/Common/Error/V1" xmlns:header="http://xmlns.tigo.com/ResponseHeader/V3">
+
+
+	<xsd:import schemaLocation="../../Common/XSD/Error.xsd" namespace="http://www.tigo.com/Core/Common/Error/V1">
+	</xsd:import>
+
+	<xsd:import schemaLocation="../../Common/XSD/ResponseHeaderV3.xsd" namespace="http://xmlns.tigo.com/ResponseHeader/V3"/>
+	<xsd:element name="getAccountSummaryFault">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="er:Error"/>
+			</xsd:sequence>
+			</xsd:complexType>
+	</xsd:element>
+	
+	
+
+	<xsd:element name="GetAccountSummaryFault">
+	<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="header:ResponseHeader"/>
+				<xsd:element name="RequestBody">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="getAccountSummaryFault"/>
+						</xsd:sequence>
+						</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+</xsd:schema>

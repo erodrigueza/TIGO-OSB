@@ -1,0 +1,44 @@
+<wsdl:definitions name="MappingResponse" targetNamespace="http://xmlns.oracle.com/POC/MapResponse/MappingResponse" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:client="http://xmlns.oracle.com/POC/MapResponse/MappingResponse" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://www.tigo.com.gt/MapResponseStructure">
+	<wsdl:documentation>
+		<abstractWSDL>https://wlstest-srv.tigo.com.gt:8002/soa-infra/services/ManageWorkOrders/MapResponse!1.0/MappingResponse.wsdl</abstractWSDL>
+	</wsdl:documentation>
+	<plnk:partnerLinkType name="MappingResponse">
+		<plnk:role name="MappingResponseProvider">
+			<plnk:portType name="client:MappingResponse"/>
+		</plnk:role>
+	</plnk:partnerLinkType>
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<import namespace="http://www.tigo.com.gt/MapResponseStructure" schemaLocation="../XSD/MapResponse.xsd"/>
+		</schema>
+	</wsdl:types>
+	<wsdl:message name="MappingResponseRequestMessage">
+		<wsdl:part name="payload" element="ns1:InputData"/>
+	</wsdl:message>
+	<wsdl:message name="MappingResponseResponseMessage">
+		<wsdl:part name="payload" element="ns1:ResponseData"/>
+	</wsdl:message>
+	<wsdl:portType name="MappingResponse">
+		<wsdl:operation name="process">
+			<wsdl:input message="client:MappingResponseRequestMessage"/>
+			<wsdl:output message="client:MappingResponseResponseMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="MappingResponseBinding" type="client:MappingResponse">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="process">
+			<soap:operation style="document" soapAction="process"/>
+			<wsdl:input>
+				<soap:body use="literal" namespace="http://xmlns.oracle.com/POC/MapResponse/MappingResponse"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" namespace="http://xmlns.oracle.com/POC/MapResponse/MappingResponse"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="mappingresponse_client_ep">
+		<wsdl:port name="MappingResponse_pt" binding="client:MappingResponseBinding">
+			<soap:address location="http://172.30.9.9:8001/soa-infra/services/ManageWorkOrders/MapResponse/mappingresponse_client_ep"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

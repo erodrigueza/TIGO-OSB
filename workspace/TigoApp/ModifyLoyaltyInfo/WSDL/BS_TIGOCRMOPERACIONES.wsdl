@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+	targetNamespace="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:tns="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/"
+	xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified"
+			targetNamespace="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/">
+			<s:element name="setCardLogin">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="cardnumber"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="password"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="requestsource"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="setCardLoginResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="setCardLoginResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="2" maxOccurs="2" />
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="getCardData">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="cardnumber"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="datatype"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="requestsource"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="transactionid"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="getCardDataResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="getCardDataResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="2" maxOccurs="2" />
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="getCardWhiteListStatus">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="cardnumber"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="requestsource"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="getCardWhiteListStatusResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="getCardWhiteListStatusResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="2" maxOccurs="2" />
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="setCardPackage">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="cardnumber"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="package"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="requestsource"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="setCardPackageResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="setCardPackageResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="2" maxOccurs="2" />
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="getCardBalance">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="cardnumber"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="requestsource"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="getCardBalanceResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="getCardBalanceResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="2" maxOccurs="2" />
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="getCardBalanceSheet">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="cardnumber"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="requestsource"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="getCardBalanceSheetResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="getCardBalanceSheetResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="2" maxOccurs="2" />
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="setCardAffiliation">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="cardnumber"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cardholder"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cardname"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cardlastname"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cardbirthday"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cardgender"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cardemail"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cardphone"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="cardfields"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="requestsource"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="setCardAffiliationResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="setCardAffiliationResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="2" maxOccurs="2" />
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="setCardMessage">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="cardnumber"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="messagesource"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="messagecontent"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="requestsource"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="setCardMessageResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="setCardMessageResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="2" maxOccurs="2" />
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DataSet" nillable="true">
+				<s:complexType>
+					<s:sequence>
+						<s:any minOccurs="2" maxOccurs="2" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="setCardLoginSoapIn">
+		<wsdl:part name="parameters" element="tns:setCardLogin" />
+	</wsdl:message>
+	<wsdl:message name="setCardLoginSoapOut">
+		<wsdl:part name="parameters" element="tns:setCardLoginResponse" />
+	</wsdl:message>
+	<wsdl:message name="getCardDataSoapIn">
+		<wsdl:part name="parameters" element="tns:getCardData" />
+	</wsdl:message>
+	<wsdl:message name="getCardDataSoapOut">
+		<wsdl:part name="parameters" element="tns:getCardDataResponse" />
+	</wsdl:message>
+	<wsdl:message name="getCardWhiteListStatusSoapIn">
+		<wsdl:part name="parameters" element="tns:getCardWhiteListStatus" />
+	</wsdl:message>
+	<wsdl:message name="getCardWhiteListStatusSoapOut">
+		<wsdl:part name="parameters" element="tns:getCardWhiteListStatusResponse" />
+	</wsdl:message>
+	<wsdl:message name="setCardPackageSoapIn">
+		<wsdl:part name="parameters" element="tns:setCardPackage" />
+	</wsdl:message>
+	<wsdl:message name="setCardPackageSoapOut">
+		<wsdl:part name="parameters" element="tns:setCardPackageResponse" />
+	</wsdl:message>
+	<wsdl:message name="getCardBalanceSoapIn">
+		<wsdl:part name="parameters" element="tns:getCardBalance" />
+	</wsdl:message>
+	<wsdl:message name="getCardBalanceSoapOut">
+		<wsdl:part name="parameters" element="tns:getCardBalanceResponse" />
+	</wsdl:message>
+	<wsdl:message name="getCardBalanceSheetSoapIn">
+		<wsdl:part name="parameters" element="tns:getCardBalanceSheet" />
+	</wsdl:message>
+	<wsdl:message name="getCardBalanceSheetSoapOut">
+		<wsdl:part name="parameters" element="tns:getCardBalanceSheetResponse" />
+	</wsdl:message>
+	<wsdl:message name="setCardAffiliationSoapIn">
+		<wsdl:part name="parameters" element="tns:setCardAffiliation" />
+	</wsdl:message>
+	<wsdl:message name="setCardAffiliationSoapOut">
+		<wsdl:part name="parameters" element="tns:setCardAffiliationResponse" />
+	</wsdl:message>
+	<wsdl:message name="setCardMessageSoapIn">
+		<wsdl:part name="parameters" element="tns:setCardMessage" />
+	</wsdl:message>
+	<wsdl:message name="setCardMessageSoapOut">
+		<wsdl:part name="parameters" element="tns:setCardMessageResponse" />
+	</wsdl:message>
+	<wsdl:message name="setCardLoginHttpGetIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="password" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="setCardLoginHttpGetOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="getCardDataHttpGetIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="datatype" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="transactionid" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="getCardDataHttpGetOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="getCardWhiteListStatusHttpGetIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="getCardWhiteListStatusHttpGetOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="setCardPackageHttpGetIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="package" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="setCardPackageHttpGetOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="getCardBalanceHttpGetIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="getCardBalanceHttpGetOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="getCardBalanceSheetHttpGetIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="getCardBalanceSheetHttpGetOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="setCardAffiliationHttpGetIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="cardholder" type="s:string" />
+		<wsdl:part name="cardname" type="s:string" />
+		<wsdl:part name="cardlastname" type="s:string" />
+		<wsdl:part name="cardbirthday" type="s:string" />
+		<wsdl:part name="cardgender" type="s:string" />
+		<wsdl:part name="cardemail" type="s:string" />
+		<wsdl:part name="cardphone" type="s:string" />
+		<wsdl:part name="cardfields" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="setCardAffiliationHttpGetOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="setCardMessageHttpGetIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="messagesource" type="s:string" />
+		<wsdl:part name="messagecontent" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="setCardMessageHttpGetOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="setCardLoginHttpPostIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="password" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="setCardLoginHttpPostOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="getCardDataHttpPostIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="datatype" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="transactionid" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="getCardDataHttpPostOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="getCardWhiteListStatusHttpPostIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="getCardWhiteListStatusHttpPostOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="setCardPackageHttpPostIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="package" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="setCardPackageHttpPostOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="getCardBalanceHttpPostIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="getCardBalanceHttpPostOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="getCardBalanceSheetHttpPostIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="getCardBalanceSheetHttpPostOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="setCardAffiliationHttpPostIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="cardholder" type="s:string" />
+		<wsdl:part name="cardname" type="s:string" />
+		<wsdl:part name="cardlastname" type="s:string" />
+		<wsdl:part name="cardbirthday" type="s:string" />
+		<wsdl:part name="cardgender" type="s:string" />
+		<wsdl:part name="cardemail" type="s:string" />
+		<wsdl:part name="cardphone" type="s:string" />
+		<wsdl:part name="cardfields" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="setCardAffiliationHttpPostOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:message name="setCardMessageHttpPostIn">
+		<wsdl:part name="cardnumber" type="s:string" />
+		<wsdl:part name="messagesource" type="s:string" />
+		<wsdl:part name="messagecontent" type="s:string" />
+		<wsdl:part name="requestsource" type="s:string" />
+		<wsdl:part name="key" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="setCardMessageHttpPostOut">
+		<wsdl:part name="Body" element="tns:DataSet" />
+	</wsdl:message>
+	<wsdl:portType name="TIGOCRMOPERACIONESSoap">
+		<wsdl:operation name="setCardLogin">
+			<wsdl:input message="tns:setCardLoginSoapIn" />
+			<wsdl:output message="tns:setCardLoginSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getCardData">
+			<wsdl:input message="tns:getCardDataSoapIn" />
+			<wsdl:output message="tns:getCardDataSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getCardWhiteListStatus">
+			<wsdl:input message="tns:getCardWhiteListStatusSoapIn" />
+			<wsdl:output message="tns:getCardWhiteListStatusSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="setCardPackage">
+			<wsdl:input message="tns:setCardPackageSoapIn" />
+			<wsdl:output message="tns:setCardPackageSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalance">
+			<wsdl:input message="tns:getCardBalanceSoapIn" />
+			<wsdl:output message="tns:getCardBalanceSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalanceSheet">
+			<wsdl:input message="tns:getCardBalanceSheetSoapIn" />
+			<wsdl:output message="tns:getCardBalanceSheetSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="setCardAffiliation">
+			<wsdl:input message="tns:setCardAffiliationSoapIn" />
+			<wsdl:output message="tns:setCardAffiliationSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="setCardMessage">
+			<wsdl:input message="tns:setCardMessageSoapIn" />
+			<wsdl:output message="tns:setCardMessageSoapOut" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="TIGOCRMOPERACIONESHttpGet">
+		<wsdl:operation name="setCardLogin">
+			<wsdl:input message="tns:setCardLoginHttpGetIn" />
+			<wsdl:output message="tns:setCardLoginHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getCardData">
+			<wsdl:input message="tns:getCardDataHttpGetIn" />
+			<wsdl:output message="tns:getCardDataHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getCardWhiteListStatus">
+			<wsdl:input message="tns:getCardWhiteListStatusHttpGetIn" />
+			<wsdl:output message="tns:getCardWhiteListStatusHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="setCardPackage">
+			<wsdl:input message="tns:setCardPackageHttpGetIn" />
+			<wsdl:output message="tns:setCardPackageHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalance">
+			<wsdl:input message="tns:getCardBalanceHttpGetIn" />
+			<wsdl:output message="tns:getCardBalanceHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalanceSheet">
+			<wsdl:input message="tns:getCardBalanceSheetHttpGetIn" />
+			<wsdl:output message="tns:getCardBalanceSheetHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="setCardAffiliation">
+			<wsdl:input message="tns:setCardAffiliationHttpGetIn" />
+			<wsdl:output message="tns:setCardAffiliationHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="setCardMessage">
+			<wsdl:input message="tns:setCardMessageHttpGetIn" />
+			<wsdl:output message="tns:setCardMessageHttpGetOut" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="TIGOCRMOPERACIONESHttpPost">
+		<wsdl:operation name="setCardLogin">
+			<wsdl:input message="tns:setCardLoginHttpPostIn" />
+			<wsdl:output message="tns:setCardLoginHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getCardData">
+			<wsdl:input message="tns:getCardDataHttpPostIn" />
+			<wsdl:output message="tns:getCardDataHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getCardWhiteListStatus">
+			<wsdl:input message="tns:getCardWhiteListStatusHttpPostIn" />
+			<wsdl:output message="tns:getCardWhiteListStatusHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="setCardPackage">
+			<wsdl:input message="tns:setCardPackageHttpPostIn" />
+			<wsdl:output message="tns:setCardPackageHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalance">
+			<wsdl:input message="tns:getCardBalanceHttpPostIn" />
+			<wsdl:output message="tns:getCardBalanceHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalanceSheet">
+			<wsdl:input message="tns:getCardBalanceSheetHttpPostIn" />
+			<wsdl:output message="tns:getCardBalanceSheetHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="setCardAffiliation">
+			<wsdl:input message="tns:setCardAffiliationHttpPostIn" />
+			<wsdl:output message="tns:setCardAffiliationHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="setCardMessage">
+			<wsdl:input message="tns:setCardMessageHttpPostIn" />
+			<wsdl:output message="tns:setCardMessageHttpPostOut" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="TIGOCRMOPERACIONESSoap" type="tns:TIGOCRMOPERACIONESSoap">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="setCardLogin">
+			<soap:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/setCardLogin"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardData">
+			<soap:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/getCardData"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardWhiteListStatus">
+			<soap:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/getCardWhiteListStatus"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCardPackage">
+			<soap:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/setCardPackage"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalance">
+			<soap:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/getCardBalance"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalanceSheet">
+			<soap:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/getCardBalanceSheet"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCardAffiliation">
+			<soap:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/setCardAffiliation"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCardMessage">
+			<soap:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/setCardMessage"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="TIGOCRMOPERACIONESSoap12" type="tns:TIGOCRMOPERACIONESSoap">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="setCardLogin">
+			<soap12:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/setCardLogin"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardData">
+			<soap12:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/getCardData"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardWhiteListStatus">
+			<soap12:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/getCardWhiteListStatus"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCardPackage">
+			<soap12:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/setCardPackage"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalance">
+			<soap12:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/getCardBalance"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalanceSheet">
+			<soap12:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/getCardBalanceSheet"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCardAffiliation">
+			<soap12:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/setCardAffiliation"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCardMessage">
+			<soap12:operation
+				soapAction="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/setCardMessage"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="TIGOCRMOPERACIONESHttpGet" type="tns:TIGOCRMOPERACIONESHttpGet">
+		<http:binding verb="GET" />
+		<wsdl:operation name="setCardLogin">
+			<http:operation location="/setCardLogin" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardData">
+			<http:operation location="/getCardData" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardWhiteListStatus">
+			<http:operation location="/getCardWhiteListStatus" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCardPackage">
+			<http:operation location="/setCardPackage" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalance">
+			<http:operation location="/getCardBalance" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalanceSheet">
+			<http:operation location="/getCardBalanceSheet" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCardAffiliation">
+			<http:operation location="/setCardAffiliation" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCardMessage">
+			<http:operation location="/setCardMessage" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="TIGOCRMOPERACIONESHttpPost" type="tns:TIGOCRMOPERACIONESHttpPost">
+		<http:binding verb="POST" />
+		<wsdl:operation name="setCardLogin">
+			<http:operation location="/setCardLogin" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardData">
+			<http:operation location="/getCardData" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardWhiteListStatus">
+			<http:operation location="/getCardWhiteListStatus" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCardPackage">
+			<http:operation location="/setCardPackage" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalance">
+			<http:operation location="/getCardBalance" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCardBalanceSheet">
+			<http:operation location="/getCardBalanceSheet" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCardAffiliation">
+			<http:operation location="/setCardAffiliation" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCardMessage">
+			<http:operation location="/setCardMessage" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="TIGOCRMOPERACIONES">
+		<wsdl:port name="TIGOCRMOPERACIONESSoap" binding="tns:TIGOCRMOPERACIONESSoap">
+			<soap:address
+				location="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/operaciones.asmx" />
+		</wsdl:port>
+		<wsdl:port name="TIGOCRMOPERACIONESSoap12" binding="tns:TIGOCRMOPERACIONESSoap12">
+			<soap12:address
+				location="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/operaciones.asmx" />
+		</wsdl:port>
+		<wsdl:port name="TIGOCRMOPERACIONESHttpGet" binding="tns:TIGOCRMOPERACIONESHttpGet">
+			<http:address
+				location="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/operaciones.asmx" />
+		</wsdl:port>
+		<wsdl:port name="TIGOCRMOPERACIONESHttpPost" binding="tns:TIGOCRMOPERACIONESHttpPost">
+			<http:address
+				location="https://apps.beneficios.tigo.com.gt/WSTIGOCRMOPERACIONES/operaciones.asmx" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

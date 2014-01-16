@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/services/security/config" xmlns:aler="http://www.bea.com/wli/monitoring/alert">
+  <ser:coreEntry isProxy="true" isEnabled="true" isAutoPublish="false" isTracingEnabled="false">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="TigoOnline/GetAccountSummary/WSDL/PS_GetAccountSummary"/>
+      <con:binding>
+        <con:name>PS_GetAccountSummarySOAP</con:name>
+        <con:namespace>http://xmlns.tigo.com/TigoOnline/Service/PS_GetAccountSummary/</con:namespace>
+      </con:binding>
+      <con:selector type="SOAP body"/>
+    </ser:binding>
+    <ser:monitoring isEnabled="true">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Service</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>warning</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>major</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/TigoOnline/GetAccountSummary/PS/GetAccountSummary</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>true</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router errorHandler="_onErrorHandler-2668237321759673267--7a041ffb.141580d2dbb.-7ccd">
+    <con:pipeline type="request" name="GetAccountSummaryPipelinePair_request">
+      <con:stage name="invokeGetAccountSummaryStage">
+        <con:comment>Realiza la invocación al servicio de GetAccountSumary que no requeire envio de header</con:comment>
+        <con:context>
+          <con2:varNsDecl namespace="http://www.tigo.com/TigoOnLine/AccountSummaryRequest" prefix="acc"/>
+          <con2:varNsDecl namespace="http://xmlns.tigo.com/RequestHeader/V3" prefix="v3"/>
+        </con:context>
+        <con:actions>
+          <con1:assign varName="serviceBodyRequest">
+            <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7ba1</con2:id>
+            <con1:expr>
+              <con2:xqueryText>$body/acc:GetAccountSummaryRequest/acc:RequestBody</con2:xqueryText>
+            </con1:expr>
+          </con1:assign>
+          <con1:assign varName="serviceHeaderRequest">
+            <con2:id>_ActionId-919661976390608057-3ed3c4f7.1419b0664ee.-7f8d</con2:id>
+            <con1:expr>
+              <con2:xqueryText>$body/acc:GetAccountSummaryRequest/v3:RequestHeader</con2:xqueryText>
+            </con1:expr>
+          </con1:assign>
+          <con1:assign varName="varRequest">
+            <con2:id>_ActionId-8926577697658931717--36e46e37.1414e435ed1.-7ff0</con2:id>
+            <con1:expr>
+              <con2:xqueryText>$body/acc:GetAccountSummaryRequest/acc:RequestBody/acc:getAccountSummaryRequest</con2:xqueryText>
+            </con1:expr>
+          </con1:assign>
+          <con1:assign varName="credentials">
+            <con2:id>_ActionId-3946123196326546017--43129d64.142c3a875f6.-7eaa</con2:id>
+            <con1:expr>
+              <con2:xqueryText>fn-bea:lookupBasicCredentials("TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal")</con2:xqueryText>
+            </con1:expr>
+          </con1:assign>
+          <con1:assign varName="varRequestHeader">
+            <con2:id>_ActionId-3946123196326546017--43129d64.142c3a875f6.-7eda</con2:id>
+            <con1:expr>
+              <con2:xqueryText><![CDATA[<soap:Header xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<wsse:Security soap:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+		<wsse:UsernameToken wsu:Id="UsernameToken-3" xmlns:con="http://www.bea.com/wli/sb/services/security/config">
+			<wsse:Username>{ $credentials/con:username/text() }</wsse:Username>
+			<wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">{ $credentials/con:password/text() }</wsse:Password>
+		</wsse:UsernameToken>
+	</wsse:Security>
+</soap:Header>]]></con2:xqueryText>
+            </con1:expr>
+          </con1:assign>
+          <con1:wsCallout>
+            <con2:id>_ActionId-7458432657308449246-457200c6.14144502001.-7f6e</con2:id>
+            <con1:service xsi:type="ref:BusinessServiceRef" ref="TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con1:operation>GetAccountSummaryLocal</con1:operation>
+            <con1:request>
+              <con1:body>$varRequest</con1:body>
+              <con1:header>$varRequestHeader</con1:header>
+            </con1:request>
+            <con1:response>
+              <con1:body>varResponse</con1:body>
+              <con1:header>varResponseHeader</con1:header>
+            </con1:response>
+            <con1:requestTransform/>
+            <con1:responseTransform/>
+          </con1:wsCallout>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="GetAccountSummaryPipelinePair_response">
+      <con:stage name="responseGetAccountSummaryStage">
+        <con:comment>se realiza la asignación del response, del servicio getAccountSummary que no tiene header, asi mismo se evalua si la respuesta del servicio es con excepcion o  consulta satisfactoria</con:comment>
+        <con:context>
+          <con2:varNsDecl namespace="http://xmlns.tigo.com/ResponseHeader/V3" prefix="v3"/>
+          <con2:varNsDecl namespace="http://xmlns.tigo.com/RequestHeader/V3" prefix="v31"/>
+          <con2:varNsDecl namespace="http://www.tigo.com/TigoOnLine/AccountSummaryResponse" prefix="acc"/>
+        </con:context>
+        <con:actions>
+          <con1:validate>
+            <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7f2d</con2:id>
+            <con1:schema ref="TigoOnline/GetAccountSummary/XSD/AccountSummaryResponse"/>
+            <con1:schemaElement xmlns:acc="http://www.tigo.com/TigoOnLine/AccountSummaryResponse">acc:getAccountSummaryResponse</con1:schemaElement>
+            <con1:varName>varResponse</con1:varName>
+            <con1:location>
+              <con2:xpathText>.</con2:xpathText>
+            </con1:location>
+            <con1:resultVarName>statusR</con1:resultVarName>
+          </con1:validate>
+          <con1:ifThenElse>
+            <con2:comment>Se evalua si el proxy GetAccountSummaryLoc responde con excepcion o con consulta satisfactoria</con2:comment>
+            <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7d51</con2:id>
+            <con1:case>
+              <con1:condition>
+                <con2:xqueryText>$statusR</con2:xqueryText>
+              </con1:condition>
+              <con1:actions>
+                <con1:assign varName="serviceResponse">
+                  <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7cce</con2:id>
+                  <con1:expr>
+                    <con2:xqueryTransform>
+                      <con2:resource ref="TigoOnline/GetAccountSummary/XQUERY/TransformToGetAccountSummaryResponse"/>
+                      <con2:param name="getAccountSummaryResponse1">
+                        <con2:path>$varResponse</con2:path>
+                      </con2:param>
+                      <con2:param name="requestHeader1">
+                        <con2:path>$serviceHeaderRequest</con2:path>
+                      </con2:param>
+                    </con2:xqueryTransform>
+                  </con1:expr>
+                </con1:assign>
+              </con1:actions>
+            </con1:case>
+            <con1:default>
+              <con1:assign varName="serviceResponse">
+                <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7cf3</con2:id>
+                <con1:expr>
+                  <con2:xqueryTransform>
+                    <con2:resource ref="TigoOnline/GetAccountSummary/XQUERY/TransformToGetAccountSummaryFaultResponse"/>
+                    <con2:param name="requestHeader1">
+                      <con2:path>$serviceHeaderRequest</con2:path>
+                    </con2:param>
+                    <con2:param name="getAccountSummaryFault1">
+                      <con2:path>$varResponse</con2:path>
+                    </con2:param>
+                  </con2:xqueryTransform>
+                </con1:expr>
+              </con1:assign>
+            </con1:default>
+          </con1:ifThenElse>
+          <con1:replace varName="body" contents-only="true">
+            <con2:id>_ActionId-8926577697658931717--36e46e37.1414e435ed1.-7fc1</con2:id>
+            <con1:location>
+              <con2:xpathText>.</con2:xpathText>
+            </con1:location>
+            <con1:expr>
+              <con2:xqueryText>$serviceResponse</con2:xqueryText>
+            </con1:expr>
+          </con1:replace>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-2668237321759673267--7a041ffb.141580d2dbb.-7ccd">
+      <con:stage name="exceptionStage">
+        <con:context/>
+        <con:actions>
+          <con1:assign varName="errorCode">
+            <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7caf</con2:id>
+            <con1:expr>
+              <con2:xqueryTransform>
+                <con2:resource ref="TigoOnline/GetAccountSummary/XQUERY/TranformFaultToErrorCode"/>
+                <con2:param name="reason">
+                  <con2:path>fn-bea:serialize($fault/ctx:details)</con2:path>
+                </con2:param>
+                <con2:param name="codeError">
+                  <con2:path>fn:data($fault/*:errorCode)</con2:path>
+                </con2:param>
+              </con2:xqueryTransform>
+            </con1:expr>
+          </con1:assign>
+          <con1:assign varName="dvmErrorTable">
+            <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7c8a</con2:id>
+            <con1:expr>
+              <con2:xqueryTransform>
+                <con2:resource ref="TigoOnline/Common/XQUERY/ErrorValuesDvm"/>
+              </con2:xqueryTransform>
+            </con1:expr>
+          </con1:assign>
+          <con1:assign varName="faultResponse">
+            <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7c55</con2:id>
+            <con1:expr>
+              <con2:xqueryTransform>
+                <con2:resource ref="TigoOnline/GetAccountSummary/XQUERY/TransformException_DVM"/>
+                <con2:param name="dvmTable">
+                  <con2:path>$dvmErrorTable</con2:path>
+                </con2:param>
+                <con2:param name="errorCodeOSB">
+                  <con2:path>$errorCode</con2:path>
+                </con2:param>
+              </con2:xqueryTransform>
+            </con1:expr>
+          </con1:assign>
+          <con1:assign varName="serviceResponse">
+            <con2:id>_ActionId-919661976390608057-3ed3c4f7.1419b0664ee.-7f5a</con2:id>
+            <con1:expr>
+              <con2:xqueryTransform>
+                <con2:resource ref="TigoOnline/GetAccountSummary/XQUERY/TransformToGetAccountSummaryFaultResponse"/>
+                <con2:param name="requestHeader1">
+                  <con2:path>$serviceHeaderRequest</con2:path>
+                </con2:param>
+                <con2:param name="getAccountSummaryFault1">
+                  <con2:path>$faultResponse</con2:path>
+                </con2:param>
+              </con2:xqueryTransform>
+            </con1:expr>
+          </con1:assign>
+          <con1:replace varName="body" contents-only="true">
+            <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7c37</con2:id>
+            <con1:location>
+              <con2:xpathText>.</con2:xpathText>
+            </con1:location>
+            <con1:expr>
+              <con2:xqueryText>$serviceResponse</con2:xqueryText>
+            </con1:expr>
+          </con1:replace>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeErrorStage">
+        <con:comment>Realiza la invocación del servico ErrorProducerOSB para la notificación de la excepción</con:comment>
+        <con:context/>
+        <con:actions>
+          <con1:assign varName="errorRequest">
+            <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7bc0</con2:id>
+            <con1:expr>
+              <con2:xqueryTransform>
+                <con2:resource ref="TigoOnline/GetAccountSummary/XQUERY/TransformToErrorRequest"/>
+                <con2:param name="accion">
+                  <con2:path>'GetAccountSummary'</con2:path>
+                </con2:param>
+                <con2:param name="mensajeError">
+                  <con2:path>fn:concat(fn-bea:serialize($serviceHeaderRequest),fn-bea:serialize($serviceBodyRequest),
+     fn-bea:serialize($serviceResponse))</con2:path>
+                </con2:param>
+                <con2:param name="tipoAlarma">
+                  <con2:path>$errorCode</con2:path>
+                </con2:param>
+              </con2:xqueryTransform>
+            </con1:expr>
+          </con1:assign>
+          <con3:route>
+            <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7b8d</con2:id>
+            <con3:service ref="TigoOnline/Common/BS/ErrorProducerOSB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>execute</con3:operation>
+            <con3:outboundTransform>
+              <con1:replace varName="body" contents-only="true">
+                <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7b64</con2:id>
+                <con1:location>
+                  <con2:xpathText>.</con2:xpathText>
+                </con1:location>
+                <con1:expr>
+                  <con2:xqueryText>$errorRequest</con2:xqueryText>
+                </con1:expr>
+              </con1:replace>
+            </con3:outboundTransform>
+          </con3:route>
+          <con2:resume>
+            <con2:id>_ActionId-2668237321759673267--7a041ffb.141580d2dbb.-7b2c</con2:id>
+          </con2:resume>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:pipeline-node name="GetAccountSummaryPipelinePair">
+        <con:request>GetAccountSummaryPipelinePair_request</con:request>
+        <con:response>GetAccountSummaryPipelinePair_response</con:response>
+      </con:pipeline-node>
+    </con:flow>
+  </ser:router>
+  <ser:alertRules/>
+</xml-fragment>

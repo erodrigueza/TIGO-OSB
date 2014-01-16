@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-. --><xs:schema xmlns:tns="http://www.bytesw.com/ns/tigo/sac/accesos" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.bytesw.com/ns/tigo/sac/accesos">
+
+<xs:element name="CerrarSesionRequest" type="tns:CerrarSesionRequest"></xs:element>
+
+<xs:element name="CerrarSesionResponse" type="tns:CerrarSesionResponse"></xs:element>
+
+<xs:element name="EncriptarMd5Request" type="tns:EncriptarMd5Request"></xs:element>
+
+<xs:element name="EncriptarMd5Response" type="tns:EncriptarMd5Response"></xs:element>
+
+<xs:element name="ValidarAccesoAgenciaVirtualRequest" type="tns:ValidarAccesoAgenciaVirtualRequest"></xs:element>
+
+<xs:element name="ValidarAccesoAgenciaVirtualResponse" type="tns:ValidarAccesoAgenciaVirtualResponse"></xs:element>
+
+<xs:element name="ValidarAccesoAtencionClienteRequest" type="tns:ValidarAccesoAtencionClienteRequest"></xs:element>
+
+<xs:element name="ValidarAccesoAtencionClienteResponse" type="tns:ValidarAccesoAtencionClienteResponse"></xs:element>
+
+<xs:complexType name="EncriptarMd5Request">
+<xs:sequence>
+<xs:element name="contrasenia" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EncriptarMd5Response">
+<xs:sequence>
+<xs:element name="md5" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CerrarSesionRequest">
+<xs:sequence>
+<xs:element name="usuario" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CerrarSesionResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ValidarAccesoAtencionClienteRequest">
+<xs:sequence>
+<xs:element name="usuario" type="xs:string"></xs:element>
+<xs:element name="clave" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ValidarAccesoAtencionClienteResponse">
+<xs:sequence>
+<xs:element name="usuarioAutenticado" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ValidarAccesoAgenciaVirtualRequest">
+<xs:sequence>
+<xs:element name="usuario" type="xs:string"></xs:element>
+<xs:element name="clave" type="xs:string"></xs:element>
+<xs:element name="nivelAcceso" type="tns:tipoAcceso"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ValidarAccesoAgenciaVirtualResponse">
+<xs:sequence>
+<xs:element name="usuarioAutenticado" type="tns:infoTokenUsuario" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="infoTokenUsuario">
+<xs:sequence>
+<xs:element name="codigoCliente" type="xs:int" minOccurs="0"></xs:element>
+<xs:element name="nivelAcceso" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="telefono" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="tokenAcceso" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="tipoAcceso">
+<xs:restriction base="xs:string">
+<xs:enumeration value="TELEFONO"></xs:enumeration>
+<xs:enumeration value="CLIENTE"></xs:enumeration>
+<xs:enumeration value="NIT"></xs:enumeration>
+<xs:enumeration value="EMPRESA"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

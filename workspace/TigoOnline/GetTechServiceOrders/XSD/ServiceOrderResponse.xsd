@@ -1,0 +1,41 @@
+<schema targetNamespace="http://www.tigo.com/TigoOnLine/ServiceOrderResponse" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tigo.com/TigoOnLine/ServiceOrderResponse" xmlns:header="http://xmlns.tigo.com/ResponseHeader/V3">
+
+	<import schemaLocation="../../Common/XSD/ResponseHeaderV3.xsd" namespace="http://xmlns.tigo.com/ResponseHeader/V3"/>
+	
+	<element name="GetTechServiceOrdersResponse">
+		<complexType>
+			<sequence>
+				<element ref="header:ResponseHeader"/>
+				<element name="ResponseBody">
+					<complexType>
+						<sequence>
+							<element ref="tns:getTechServiceOrdersResponse"/>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="getTechServiceOrdersResponse">
+		<complexType>
+			<sequence>
+				<element name="orderList" type="tns:orderList" minOccurs="0" maxOccurs="unbounded"/>
+			</sequence>
+		</complexType>
+
+	</element>
+
+	<complexType name="orderList">
+		<sequence>
+			<element name="orderDate" type="string"/>
+			<element name="orderStatus" type="string"/>
+			<element name="orderProblem" type="string"/>
+			<element name="orderBranch" type="string"/>
+			<element name="orderSolution" type="string"/>
+			<element name="orderTechnician" type="string"/>
+			<element name="orderReceivedBy" type="string"/>
+			<element name="orderCost" type="decimal"/>
+		</sequence>
+	</complexType>
+</schema>

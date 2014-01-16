@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://services.tigo.com.gt" targetNamespace="http://services.tigo.com.gt"
+     elementFormDefault="qualified">
+    <xsd:element name="SubscriberInfo" type="SubscriberInfo"/>
+    <xsd:complexType name="SubscriberInfo">
+        <xsd:sequence>
+            <xsd:element name="ValidateSubscriberOutput" type="ValidateSubscriberOutput"/>
+            <xsd:element name="Subscriber" type="Subscriber"/>
+            <xsd:element name="PrepaidSubscriber" type="PrepaidSubscriber"/>
+            <xsd:element name="WapPackageInfoCollection" type="WapPackageInfoCollection"/>
+            <xsd:element name="NavigationPackageCollection" type="NavigationPackageCollection"/>
+            <xsd:element name="BackTonesInfoCollection" type="BackTonesInfoCollection"/>
+            <xsd:element name="SubscriptionCollection" type="SubscriptionCollection"/>
+            <xsd:element name="AvailableSubscriptionsAndPromotions" type="AvailableSubscriptionsAndPromotions"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="WapPackageInfoCollection" type="WapPackageInfoCollection"/>
+    <xsd:complexType name="WapPackageInfoCollection">
+        <xsd:sequence>
+            <xsd:element name="WapPackageInfo" maxOccurs="unbounded" minOccurs="0" type="WapPackageInfo"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="WapPackageInfo">
+        <xsd:sequence>
+            <xsd:element name="ServiceDescription" type="xsd:string"/>
+            <xsd:element name="AvailableData" type="xsd:decimal"/>
+            <xsd:element name="ExpiryDate" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="NavigationPackageCollection" type="NavigationPackageCollection"/>
+    <xsd:complexType name="NavigationPackageCollection">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="NavigationPackage" type="NavigationPackage"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="NavigationPackage">
+        <xsd:sequence>
+            <xsd:element name="ActualPackageId" type="xsd:integer"/>
+            <xsd:element name="ActualPackageName" type="xsd:string"/>
+            <xsd:element name="BuyDate" type="xsd:string"/>
+            <xsd:element name="ExpiryDate" type="xsd:string"/>
+            <xsd:element name="PerfilId" type="xsd:string"/>
+            <xsd:element name="MbDownloaded" type="xsd:string"/>
+            <xsd:element name="SpeedAugmented" type="xsd:string"/>
+            <xsd:element name="DateSpeedAugmented" type="xsd:string"/>
+            <xsd:element name="ExpireDateAugmentation" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="BackTonesInfoCollection" type="BackTonesInfoCollection"/>
+    <xsd:complexType name="BackTonesInfoCollection">
+        <xsd:sequence>
+            <xsd:element name="UserBackTonesInfo" maxOccurs="unbounded" minOccurs="0" type="UserBackTonesInfo"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="UserBackTonesInfo">
+        <xsd:sequence>
+            <xsd:element name="ToneId" type="xsd:string"/>
+            <xsd:element name="Author" type="xsd:string"/>
+            <xsd:element name="Song" type="xsd:string"/>
+            <xsd:element name="ExpirationDate" type="xsd:string"/>
+            <xsd:element name="PurchaseDate" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SubscriptionCollection" type="SubscriptionCollection"/>
+    <xsd:complexType name="SubscriptionCollection">
+        <xsd:sequence>
+            <xsd:element name="Subscription" type="Subscription" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Subscription">
+        <xsd:sequence>
+            <xsd:element name="SubscriptionId" type="xsd:decimal"/>
+            <xsd:element name="ServiceNumber" type="xsd:decimal"/>
+            <xsd:element name="SubscriptionName" type="xsd:string"/>
+            <xsd:element name="SubscriptionDate" type="xsd:dateTime"/>
+            <xsd:element name="SuccessfullDebts" type="xsd:decimal"/>
+            <xsd:element name="NextDebtDate" type="xsd:dateTime"/>
+            <xsd:element name="FailedDebts" type="xsd:decimal"/>
+            <xsd:element name="LastSucessfullDebt" type="xsd:dateTime"/>
+            <xsd:element name="SubscriptionType" type="xsd:decimal"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AvailableSubscriptionsAndPromotions" type="AvailableSubscriptionsAndPromotions"/>
+    <xsd:complexType name="AvailableSubscriptionsAndPromotions">
+        <xsd:sequence>
+            <xsd:element name="AvailablePromotionsColletion" type="AvailablePromotionsColletion"/>
+            <xsd:element name="AvailableSubscriptionsColletion" type="AvailableSubscriptionsColletion"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AvailablePromotionsColletion" type="AvailablePromotionsColletion"/>
+    <xsd:complexType name="AvailablePromotionsColletion">
+        <xsd:sequence>
+            <xsd:element name="AvailablePromotion" type="AvailablePromotion" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AvailablePromotion">
+        <xsd:sequence>
+            <xsd:element name="PromotionId" type="xsd:string"/>
+            <xsd:element name="PromotionName" type="xsd:string"/>
+            <xsd:element name="Price" type="xsd:decimal"/>
+            <xsd:element name="KeyWord" type="xsd:string"/>
+            <xsd:element name="LongDescription" type="xsd:string"/>
+            <xsd:element name="PromotionType" type="xsd:decimal"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AvailableSubscriptionsColletion" type="AvailableSubscriptionsColletion"/>
+    <xsd:complexType name="AvailableSubscriptionsColletion">
+        <xsd:sequence>
+            <xsd:element name="AvailableSubscription" type="AvailableSubscription" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AvailableSubscription">
+        <xsd:sequence>
+            <xsd:element name="SubscriptionId" type="xsd:string"/>
+            <xsd:element name="SubscriptionName" type="xsd:string"/>
+            <xsd:element name="Price" type="xsd:decimal"/>
+            <xsd:element name="KeyWord" type="xsd:string"/>
+            <xsd:element name="LongDescription" type="xsd:string"/>
+            <xsd:element name="SubscriptionType" type="xsd:decimal"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ArrayOfWallets">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="Wallet" nillable="true" type="Wallet"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Wallet">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="Name" type="xsd:string"/>
+            <xsd:element minOccurs="1" maxOccurs="1" name="PresentValue" type="xsd:double"/>
+            <xsd:element minOccurs="1" maxOccurs="1" name="AvailableValue" type="xsd:double"/>
+            <xsd:element minOccurs="1" maxOccurs="1" name="ExpirationDate" type="xsd:date"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PrepaidSubscriber" type="PrepaidSubscriber"/>
+    <xsd:complexType name="PrepaidSubscriber">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="COS" type="xsd:string"/>
+            <xsd:element minOccurs="1" maxOccurs="1" name="ActivationDate" type="xsd:date"/>
+            <xsd:element minOccurs="0" maxOccurs="1" name="State" type="xsd:string"/>
+            <xsd:element minOccurs="1" maxOccurs="1" name="LastTransactionDate" type="xsd:date"/>
+            <xsd:element minOccurs="0" maxOccurs="1" name="LastState" type="xsd:string"/>
+            <xsd:element minOccurs="1" maxOccurs="1" name="CreationDate" type="xsd:date"/>
+            <xsd:element minOccurs="0" maxOccurs="1" name="Wallets" type="ArrayOfWallets"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ValidateSubscriberOutput" type="ValidateSubscriberOutput"/>
+    <xsd:complexType name="ValidateSubscriberOutput">
+        <xsd:sequence>
+            <xsd:element name="ProductType" type="xsd:string"/>
+            <xsd:element name="IsTIGOPhoneNumber" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Subscriber" type="Subscriber"/>
+    <xsd:complexType name="Subscriber">
+        <xsd:sequence>
+            <xsd:element name="Attache" type="xsd:decimal"/>
+            <xsd:element name="Product" type="xsd:string"/>
+            <xsd:element name="BillingCycle" type="xsd:string"/>
+            <xsd:element name="VoicePlanName" type="xsd:decimal"/>
+            <xsd:element name="Name" type="xsd:string"/>
+            <xsd:element name="ActivationDate" type="xsd:date"/>
+            <xsd:element name="CreditLimit" type="xsd:decimal"/>
+            <xsd:element name="CustomerType" type="xsd:string"/>
+            <xsd:element name="CustomerRating" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SubscriberIdInput" type="SubscriberIdInput"/>
+    <xsd:complexType name="SubscriberIdInput">
+        <xsd:sequence>
+            <xsd:element name="SubscriberId" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="BamReport" type="BamReport"/>
+    <xsd:complexType name="BamReport">
+        <xsd:sequence>
+            <xsd:element name="CountBackTones" type="xsd:integer"/>
+            <xsd:element name="Navigation" type="xsd:boolean"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SubscriberIdDateInput" type="SubscriberIdDateInput"/>
+    <xsd:complexType name="SubscriberIdDateInput">
+        <xsd:sequence>
+            <xsd:element name="SubscriberId" type="xsd:string"/>
+            <xsd:element name="InitialDate" type="xsd:string"/>
+            <xsd:element name="FinalDate" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ExceptionFault" type="ExceptionFault"/>
+    <xsd:complexType name="ExceptionFault">
+        <xsd:sequence>
+            <xsd:element name="Code" type="xsd:string"/>
+            <xsd:element name="Description" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

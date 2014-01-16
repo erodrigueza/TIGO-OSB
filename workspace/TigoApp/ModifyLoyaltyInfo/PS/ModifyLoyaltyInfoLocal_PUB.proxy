@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="TigoApp/ModifyLoyaltyInfo/WSDL/PS_ModifyLoyaltyInfoLocal"/>
+      <con:binding>
+        <con:name>ModifyLoyaltyInfoPortSOAPBinding</con:name>
+        <con:namespace>http://xmlns.tigo.com/TigoOnline/Service/ModifyLoyaltyInfo/V1</con:namespace>
+      </con:binding>
+      <con:selector type="SOAP body"/>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/TigoApp/ModifyLoyaltyInfoLocal/V1</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router errorHandler="_onErrorHandler-6221228114487925834--138ae106.14372c50893.-7f97">
+    <con:pipeline type="request" name="ModifyLoyaltyInfoPipelinePair_request" errorHandler="_onErrorHandler-6221228114487925834--138ae106.14372c50893.-7f96">
+      <con:stage name="ValidationStage">
+        <con:context>
+          <con1:varNsDecl namespace="http://xmlns.tigo.com/TigoAPI/ModifyLoyaltyInfoRequest/V1/schema" prefix="sch"/>
+        </con:context>
+        <con:actions>
+          <con2:validate>
+            <con1:id>_ActionId-6221228114487925834--138ae106.14372c50893.-7f7e</con1:id>
+            <con2:schema ref="TigoApp/ModifyLoyaltyInfo/XSD/ModifyLoyaltyInfoRequest"/>
+            <con2:schemaElement xmlns:sch="http://xmlns.tigo.com/TigoAPI/ModifyLoyaltyInfoRequest/V1/schema">sch:modifyLoyaltyInfoRequest</con2:schemaElement>
+            <con2:varName>body</con2:varName>
+            <con2:location>
+              <con1:xpathText>./sch:modifyLoyaltyInfoRequest</con1:xpathText>
+            </con2:location>
+          </con2:validate>
+          <con2:assign varName="serviceRequest">
+            <con1:id>_ActionId-6221228114487925834--138ae106.14372c50893.-7f5a</con1:id>
+            <con2:expr>
+              <con1:xqueryText>$body/sch:modifyLoyaltyInfoRequest</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="callSetCardAffiliation">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="configuration">
+            <con1:id>_ActionId-6221228114487925834--138ae106.14372c50893.-7f3e</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/ModifyLoyaltyInfo/XQUERY/ConfigurationFile"/>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="setCardAffiliationRequest">
+            <con1:id>_ActionId-6221228114487925834--138ae106.14372c50893.-7f13</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/ModifyLoyaltyInfo/XQUERY/TransformToSetCardAffiliationRq"/>
+                <con1:param name="modifyLoyaltyInfoRequest">
+                  <con1:path>$serviceRequest</con1:path>
+                </con1:param>
+                <con1:param name="config">
+                  <con1:path>$configuration</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:wsCallout>
+            <con1:id>_ActionId-6221228114487925834--138ae106.14372c50893.-7eee</con1:id>
+            <con2:service xsi:type="ref:BusinessServiceRef" ref="TigoApp/ModifyLoyaltyInfo/BS/TIGOCRMOPERACIONES" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con2:operation>setCardAffiliation</con2:operation>
+            <con2:request>
+              <con2:body>$setCardAffiliationRequest</con2:body>
+            </con2:request>
+            <con2:response>
+              <con2:body>setCardAffiliationResponse</con2:body>
+            </con2:response>
+            <con2:requestTransform/>
+            <con2:responseTransform/>
+          </con2:wsCallout>
+          <con2:ifThenElse>
+            <con1:id>_ActionId-6221228114487925834--138ae106.14372c50893.-7ed7</con1:id>
+            <con2:case>
+              <con2:condition>
+                <con1:xqueryText>fn:data($setCardAffiliationResponse/*:setCardAffiliationResult/*:diffgram/*:NewDataSet/*:FirstTable/*:errorid) = '0'</con1:xqueryText>
+              </con2:condition>
+              <con2:actions/>
+            </con2:case>
+            <con2:default>
+              <con2:assign varName="messageError">
+                <con1:id>_ActionId-5852852363597621205--12befa05.14397f51411.-7dd6</con1:id>
+                <con2:expr>
+                  <con1:xqueryText>fn:data($setCardAffiliationResponse/*:setCardAffiliationResult/*:diffgram/*:NewDataSet/*:FirstTable/*:message)</con1:xqueryText>
+                </con2:expr>
+              </con2:assign>
+              <con2:Error>
+                <con1:id>_ActionId-6221228114487925834--138ae106.14372c50893.-7ebe</con1:id>
+                <con2:errCode>000</con2:errCode>
+              </con2:Error>
+            </con2:default>
+          </con2:ifThenElse>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="ModifyLoyaltyInfoPipelinePair_response">
+      <con:stage name="responseStage">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="serviceResponse">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7b46</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/ModifyLoyaltyInfo/XQUERY/TransformToModifyLoyaltyInfoRs"/>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7cd9</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText>$serviceResponse</con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeAuditProducer" errorHandler="_onErrorHandler-324092464029863305--3b1d61d.1437d274dcb.-7b45">
+        <con:context xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config"/>
+        <con:actions xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+          <con2:assign varName="auditRequest">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7d4f</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/Common/XQUERY/TransformToAuditRequest"/>
+                <con1:param name="respuesta">
+                  <con1:path>fn:concat(fn-bea:serialize($serviceRequest),fn-bea:serialize($serviceResponse))</con1:path>
+                </con1:param>
+                <con1:param name="indentificador">
+                  <con1:path>'ModifyLoyaltyInfo'</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con3:route>
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7d4e</con1:id>
+            <con3:service ref="TigoApp/Common/BS/AuditProducerOSB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>execute</con3:operation>
+            <con3:outboundTransform>
+              <con2:replace varName="body" contents-only="true">
+                <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7d4d</con1:id>
+                <con2:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con2:location>
+                <con2:expr>
+                  <con1:xqueryText>$auditRequest</con1:xqueryText>
+                </con2:expr>
+              </con2:replace>
+            </con3:outboundTransform>
+          </con3:route>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-6221228114487925834--138ae106.14372c50893.-7f97">
+      <con:stage name="assignFaultResponse">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="faultResponse" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7b83</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/Common/XQUERY/TransformFaultToResponseHeader"/>
+                <con1:param name="fault">
+                  <con1:path>$fault</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeErrorProducer">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="errorRequest" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7bf4</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/Common/XQUERY/TransformToErrorRequest"/>
+                <con1:param name="accion">
+                  <con1:path>'ModifyLoyaltyInfo'</con1:path>
+                </con1:param>
+                <con1:param name="mensajeError">
+                  <con1:path>fn:concat(fn-bea:serialize($serviceRequest),fn-bea:serialize($faultResponse))</con1:path>
+                </con1:param>
+                <con1:param name="tipoAlarma">
+                  <con1:path>fn:data($fault/ctx:errorCode)</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con3:route xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7bf3</con1:id>
+            <con3:service ref="TigoApp/Common/BS/ErrorProducerOSB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>execute</con3:operation>
+            <con3:outboundTransform>
+              <con2:replace varName="body" contents-only="true">
+                <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7bf2</con1:id>
+                <con2:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con2:location>
+                <con2:expr>
+                  <con1:xqueryText>$errorRequest</con1:xqueryText>
+                </con2:expr>
+              </con2:replace>
+            </con3:outboundTransform>
+          </con3:route>
+        </con:actions>
+      </con:stage>
+      <con:stage name="responseErrorServiceLocal">
+        <con:context/>
+        <con:actions>
+          <con2:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7c68</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText>$faultResponse</con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+          <con1:reply isError="true" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7c67</con1:id>
+          </con1:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-6221228114487925834--138ae106.14372c50893.-7f96">
+      <con:stage name="replaceCodeError">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="errorCode">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7dc4</con1:id>
+            <con2:expr>
+              <con1:xqueryText>fn:data($fault/ctx:errorCode)</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="callMapResponse">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="mapResponseRequest">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7e36</con1:id>
+            <con2:expr>
+              <con1:xqueryText><![CDATA[<map:InputData xmlns:map="http://www.tigo.com.gt/MapResponseStructure">
+	<map:ResponseCode>{ $errorCode }</map:ResponseCode>
+	<map:ConsumerSystem>Generic</map:ConsumerSystem>
+	<map:SourceSystem>OSB</map:SourceSystem>
+	<map:Message/>
+</map:InputData>]]></con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:wsCallout>
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7e35</con1:id>
+            <con2:service xsi:type="ref:BusinessServiceRef" ref="TigoApp/Common/BS/MapResponse" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con2:operation>process</con2:operation>
+            <con2:request>
+              <con2:body>$mapResponseRequest</con2:body>
+            </con2:request>
+            <con2:response>
+              <con2:body>mapResponseResponse</con2:body>
+            </con2:response>
+            <con2:requestTransform/>
+            <con2:responseTransform/>
+          </con2:wsCallout>
+          <con2:ifThenElse xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7e34</con1:id>
+            <con2:case>
+              <con2:condition>
+                <con1:xqueryText>fn:string-length(data($mapResponseResponse/*:MessageResponse)) = 0</con1:xqueryText>
+              </con2:condition>
+              <con2:actions>
+                <con2:assign varName="mapResponseResponse">
+                  <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7e33</con1:id>
+                  <con2:expr>
+                    <con1:xqueryText><![CDATA[<ns0:ResponseData xmlns:ns0="http://www.tigo.com.gt/MapResponseStructure">
+    <ns0:CodeResponse>DES-999</ns0:CodeResponse>
+    <ns0:MessageResponse>{ $messageError }</ns0:MessageResponse>
+</ns0:ResponseData>]]></con1:xqueryText>
+                  </con2:expr>
+                </con2:assign>
+              </con2:actions>
+            </con2:case>
+            <con2:default/>
+          </con2:ifThenElse>
+        </con:actions>
+      </con:stage>
+      <con:stage name="assignFaultResponse">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="faultResponse" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7eab</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/Common/XQUERY/TransformMapResponse"/>
+                <con1:param name="responseData">
+                  <con1:path>$mapResponseResponse</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeErrorProducer">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="errorRequest" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7f1c</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/Common/XQUERY/TransformToErrorRequest"/>
+                <con1:param name="accion">
+                  <con1:path>'ModifyLoyaltyInfo'</con1:path>
+                </con1:param>
+                <con1:param name="mensajeError">
+                  <con1:path>fn:concat(fn-bea:serialize($serviceRequest),fn-bea:serialize($faultResponse))</con1:path>
+                </con1:param>
+                <con1:param name="tipoAlarma">
+                  <con1:path>$errorCode</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con3:route xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7f1b</con1:id>
+            <con3:service ref="TigoApp/Common/BS/ErrorProducerOSB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>execute</con3:operation>
+            <con3:outboundTransform>
+              <con2:replace varName="body" contents-only="true">
+                <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7f1a</con1:id>
+                <con2:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con2:location>
+                <con2:expr>
+                  <con1:xqueryText>$errorRequest</con1:xqueryText>
+                </con2:expr>
+              </con2:replace>
+            </con3:outboundTransform>
+          </con3:route>
+        </con:actions>
+      </con:stage>
+      <con:stage name="responsePipeLine">
+        <con:context/>
+        <con:actions>
+          <con2:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7f90</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText>$faultResponse</con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+          <con1:reply isError="false" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7f8f</con1:id>
+          </con1:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-324092464029863305--3b1d61d.1437d274dcb.-7b45">
+      <con:stage name="continue">
+        <con:context/>
+        <con:actions>
+          <con1:resume>
+            <con1:id>_ActionId-324092464029863305--3b1d61d.1437d274dcb.-7b2a</con1:id>
+          </con1:resume>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:pipeline-node name="ModifyLoyaltyInfoPipelinePair">
+        <con:request>ModifyLoyaltyInfoPipelinePair_request</con:request>
+        <con:response>ModifyLoyaltyInfoPipelinePair_response</con:response>
+      </con:pipeline-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

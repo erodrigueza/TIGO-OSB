@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://services.tigo.com.gt/GetVasInfo/xsd/GetVasInfo"
+     targetNamespace="http://services.tigo.com.gt/GetVasInfo/xsd/GetVasInfo" elementFormDefault="qualified">
+    <xsd:element name="SubscriberId" type="xsd:string"/>
+    <xsd:element name="requestGetAcquiredSubscriptionsByDate" type="requestGetAcquiredSubscriptionsByDate"/>
+    <xsd:complexType name="requestGetAcquiredSubscriptionsByDate">
+        <xsd:sequence>
+            <xsd:element name="SubscriberId" type="xsd:string"/>
+            <xsd:element name="InitialDate" type="xsd:string"/>
+            <xsd:element name="FinalDate" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SubscriptionCollection" type="SubscriptionCollection"/>
+    <xsd:complexType name="SubscriptionCollection">
+        <xsd:sequence>
+            <xsd:element name="Suscripcion" type="Suscripcion" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Suscripcion">
+        <xsd:sequence>
+            <xsd:element name="SubscriptionId" type="xsd:decimal"/>
+            <xsd:element name="ServiceNumber" type="xsd:decimal"/>
+            <xsd:element name="SubscriptionName" type="xsd:string"/>
+            <xsd:element name="SubscriptionDate" type="xsd:dateTime"/>
+            <xsd:element name="SuccessfullDebts" type="xsd:decimal"/>
+            <xsd:element name="NextDebtDate" type="xsd:dateTime"/>
+            <xsd:element name="FailedDebts" type="xsd:decimal"/>
+            <xsd:element name="LastSucessfullDebt" type="xsd:dateTime"/>
+            <xsd:element name="SubscriptionType" type="xsd:decimal"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AcquiredSubscriptionsAndPromotions" type="AcquiredSubscriptionsAndPromotions"/>
+    <xsd:complexType name="AcquiredSubscriptionsAndPromotions">
+        <xsd:sequence>
+            <xsd:element name="AcquiredPromotionColletion" type="AcquiredPromotionColletion"/>
+            <xsd:element name="AcquiredSubscriptionColletion" type="AcquiredSubscriptionColletion"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AcquiredPromotionColletion" type="AcquiredPromotionColletion"/>
+    <xsd:complexType name="AcquiredPromotionColletion">
+        <xsd:sequence>
+            <xsd:element name="AcquiredPromotion" type="AcquiredPromotion" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AcquiredPromotion">
+        <xsd:sequence>
+            <xsd:element name="PromotionId" type="xsd:string"/>
+            <xsd:element name="PromotionName" type="xsd:string"/>
+            <xsd:element name="Price" type="xsd:decimal"/>
+            <xsd:element name="PromotionDate" type="xsd:dateTime"/>
+            <xsd:element name="COS" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AcquiredSubscriptionColletion" type="AcquiredSubscriptionColletion"/>
+    <xsd:complexType name="AcquiredSubscriptionColletion">
+        <xsd:sequence>
+            <xsd:element name="AcquiredSubscription" type="AcquiredSubscription" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AcquiredSubscription">
+        <xsd:sequence>
+            <xsd:element name="SubscriptionId" type="xsd:string"/>
+            <xsd:element name="SubscriptionName" type="xsd:string"/>
+            <xsd:element name="Price" type="xsd:decimal"/>
+            <xsd:element name="SubscriptionDate" type="xsd:dateTime"/>
+            <xsd:element name="COS" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AvailableSubscriptionsAndPromotions" type="AvailableSubscriptionsAndPromotions"/>
+    <xsd:complexType name="AvailableSubscriptionsAndPromotions">
+        <xsd:sequence>
+            <xsd:element name="AvailablePromotionsColletion" type="AvailablePromotionsColletion"/>
+            <xsd:element name="AvailableSubscriptionsColletion" type="AvailableSubscriptionsColletion"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AvailablePromotionsColletion" type="AvailablePromotionsColletion"/>
+    <xsd:complexType name="AvailablePromotionsColletion">
+        <xsd:sequence>
+            <xsd:element name="AvailablePromotion" type="AvailablePromotion" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AvailablePromotion">
+        <xsd:sequence>
+            <xsd:element name="PromotionId" type="xsd:string"/>
+            <xsd:element name="PromotionName" type="xsd:string"/>
+            <xsd:element name="Price" type="xsd:decimal"/>
+            <xsd:element name="KeyWord" type="xsd:string"/>
+            <xsd:element name="LongDescription" type="xsd:string"/>
+            <xsd:element name="PromotionType" type="xsd:decimal"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AvailableSubscriptionsColletion" type="AvailableSubscriptionsColletion"/>
+    <xsd:complexType name="AvailableSubscriptionsColletion">
+        <xsd:sequence>
+            <xsd:element name="AvailableSubscription" type="AvailableSubscription" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AvailableSubscription">
+        <xsd:sequence>
+            <xsd:element name="SubscriptionId" type="xsd:string"/>
+            <xsd:element name="SubscriptionName" type="xsd:string"/>
+            <xsd:element name="Price" type="xsd:decimal"/>
+            <xsd:element name="KeyWord" type="xsd:string"/>
+            <xsd:element name="LongDescription" type="xsd:string"/>
+            <xsd:element name="SubscriptionType" type="xsd:decimal"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ExceptionFault" type="ExceptionFault"/>
+    <xsd:complexType name="ExceptionFault">
+        <xsd:sequence>
+            <xsd:element name="Code" type="xsd:string"/>
+            <xsd:element name="Description" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

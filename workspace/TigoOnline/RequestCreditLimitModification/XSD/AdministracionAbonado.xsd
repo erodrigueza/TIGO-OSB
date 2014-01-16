@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:tns="http://www.bytesw.com/ns/tigo/sac/admin_abonado"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+	targetNamespace="http://www.bytesw.com/ns/tigo/sac/admin_abonado">
+
+	<xs:element name="ActivarAbonadoRequest" type="tns:ActivarAbonadoRequest"></xs:element>
+
+	<xs:element name="ActivarAbonadoResponse" type="tns:ActivarAbonadoResponse"></xs:element>
+
+	<xs:element name="AgregarContactoARespaldoRequest" type="tns:AgregarContactoARespaldoRequest"></xs:element>
+
+	<xs:element name="AgregarContactoARespaldoResponse" type="tns:AgregarContactoARespaldoResponse"></xs:element>
+
+	<xs:element name="BloquearAbonadoRequest" type="tns:BloquearAbonadoRequest"></xs:element>
+
+	<xs:element name="BloquearAbonadoResponse" type="tns:BloquearAbonadoResponse"></xs:element>
+
+	<xs:element name="CambiarLimiteCreditoRequest" type="tns:CambiarLimiteCreditoRequest"></xs:element>
+
+	<xs:element name="CambiarLimiteCreditoResponse" type="tns:CambiarLimiteCreditoResponse"></xs:element>
+
+	<xs:element name="CambiarPlanRequest" type="tns:CambiarPlanRequest"></xs:element>
+
+	<xs:element name="CambiarPlanResponse" type="tns:CambiarPlanResponse"></xs:element>
+
+	<xs:element name="EliminarContactoARespaldarRequest" type="tns:EliminarContactoARespaldarRequest"></xs:element>
+
+	<xs:element name="EliminarContactoARespaldarResponse" type="tns:EliminarContactoARespaldarResponse"></xs:element>
+
+	<xs:element name="MigrarProductoRequest" type="tns:MigrarProductoRequest"></xs:element>
+
+	<xs:element name="MigrarProductoResponse" type="tns:MigrarProductoResponse"></xs:element>
+
+	<xs:complexType name="MigrarProductoRequest">
+		<xs:sequence>
+			<xs:element name="usuario" type="xs:string"></xs:element>
+			<xs:element name="DetalleMigracion" type="tns:MigracionProducto"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MigracionProducto">
+		<xs:sequence>
+			<xs:element name="cliente" type="xs:int" minOccurs="0"></xs:element>
+			<xs:element name="contrato" type="xs:int" minOccurs="0"></xs:element>
+			<xs:element name="direccionCliente" type="xs:int"
+				minOccurs="0"></xs:element>
+			<xs:element name="producto" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="tecnologia" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="telefono" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="plan" type="xs:int" minOccurs="0"></xs:element>
+			<xs:element name="limiteCredito" type="xs:double"
+				minOccurs="0"></xs:element>
+			<xs:element name="distribuidor" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="vendedor" type="xs:int" minOccurs="0"></xs:element>
+			<xs:element name="informacionMigracionProductoFree" type="tns:MigracionProductoFree"
+				minOccurs="0"></xs:element>
+			<xs:element name="validarMesesPendientes" type="xs:boolean"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MigracionProductoFree">
+		<xs:sequence>
+			<xs:element name="numeroFormulario" type="xs:int"
+				minOccurs="0"></xs:element>
+			<xs:element name="montoRecargaMensual" type="xs:double"
+				minOccurs="0"></xs:element>
+			<xs:element name="diaMesRealizarDebito" type="xs:int"
+				minOccurs="0"></xs:element>
+			<xs:element name="nit" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="razonSocial" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="pin" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="informacionDebito" type="tns:InformacionDebitoProductoFree"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InformacionDebitoProductoFree">
+		<xs:sequence>
+			<xs:element name="tipoDebito" type="tns:tipoDebitoProductoFree"
+				minOccurs="0"></xs:element>
+			<xs:element name="tipoCuenta" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="bancoDebito" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="numeroCuenta" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="numeroTarjetaCredito" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="nombreTarjetaCredito" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="fechaVencimiento" type="xs:dateTime"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MigrarProductoResponse">
+		<xs:sequence>
+			<xs:element name="result" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EliminarContactoARespaldarRequest">
+		<xs:sequence>
+			<xs:element name="usuario" type="xs:string"></xs:element>
+			<xs:element name="numeroTelefono" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="idContacto" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EliminarContactoARespaldarResponse">
+		<xs:sequence></xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AgregarContactoARespaldoRequest">
+		<xs:sequence>
+			<xs:element name="usuario" type="xs:string"></xs:element>
+			<xs:element name="numeroTelefono" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="DetalleContactoARespaldar" type="tns:ContactoRespaldado"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ContactoRespaldado">
+		<xs:sequence>
+			<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="apellido" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="celular" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="telefonoDomiciliar" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="telefonoTrabajo" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="email" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AgregarContactoARespaldoResponse">
+		<xs:sequence></xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ActivarAbonadoRequest">
+		<xs:sequence>
+			<xs:element name="usuario" type="xs:string"></xs:element>
+			<xs:element name="numeroTelefono" type="xs:string"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ActivarAbonadoResponse">
+		<xs:sequence>
+			<xs:element name="result" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="BloquearAbonadoRequest">
+		<xs:sequence>
+			<xs:element name="usuario" type="xs:string"></xs:element>
+			<xs:element name="DetalleBloqueoAbonado" type="tns:BloquearAbonado"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="BloquearAbonado">
+		<xs:sequence>
+			<xs:element name="numeroTelefonico" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="tipoBloqueo" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="imei" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="simCard" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="nombreSolicitante" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="dpiSolicitante" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="telefonoReferenciaSolicitante" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="fechaFactura" type="xs:date" minOccurs="0"></xs:element>
+			<xs:element name="NumerosFrecuentes" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="NumeroFrecuente" type="xs:string"
+							minOccurs="0" maxOccurs="unbounded"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="pin2" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="BloquearAbonadoResponse">
+		<xs:sequence>
+			<xs:element name="result" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CambiarPlanRequest">
+		<xs:sequence>
+			<xs:element name="usuario" type="xs:string"></xs:element>
+			<xs:element name="DetalleCambioDePlan" type="tns:CambioDePlan"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CambioDePlan">
+		<xs:sequence>
+			<xs:element name="numeroTelefonico" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="nuevoPlan" type="xs:int" minOccurs="0"></xs:element>
+			<xs:element name="tipoPlan" type="tns:TipoPlan" minOccurs="0"></xs:element>
+			<xs:element name="tipoCambio" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="pin2" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CambiarPlanResponse">
+		<xs:sequence></xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CambiarLimiteCreditoRequest">
+		<xs:sequence>
+			<xs:element name="usuario" type="xs:string"></xs:element>
+			<xs:element name="DetalleCambioLimiteCredito" type="tns:LimiteCredito"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LimiteCredito">
+		<xs:sequence>
+			<xs:element name="numeroTelefonico" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="tipoCambioLimite" type="tns:tipoCambioLimite"
+				minOccurs="0"></xs:element>
+			<xs:element name="limiteCredito" type="xs:double"
+				minOccurs="0"></xs:element>
+			<xs:element name="diasVigencia" type="xs:int" minOccurs="0"></xs:element>
+			<xs:element name="pin2" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CambiarLimiteCreditoResponse">
+		<xs:sequence>
+			<xs:element name="result" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="tipoDebitoProductoFree">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DEBITO_CUENTA"></xs:enumeration>
+			<xs:enumeration value="DEBITO_TARJETA_CREDITO"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TipoPlan">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="VOZ"></xs:enumeration>
+			<xs:enumeration value="SMS"></xs:enumeration>
+			<xs:enumeration value="PTT"></xs:enumeration>
+			<xs:enumeration value="GPRS"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="tipoCambioLimite">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TEMPORAL"></xs:enumeration>
+			<xs:enumeration value="PERMANENTE"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

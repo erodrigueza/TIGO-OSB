@@ -1,0 +1,51 @@
+<wsdl:definitions name="GetSubscriberInfo" targetNamespace="http://services.tigo.com.gt/GetSubscriberInfo_CO" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:client="http://services.tigo.com.gt/GetSubscriberInfo_CO" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://services.tigo.com.gt">
+    <wsdl:documentation>
+        <abstractWSDL>https://wlstest-srv.tigo.com.gt:8002/soa-infra/services/default/GetSubscriberInfo_CO!0.1.1/GetSubscriberInfo.wsdl</abstractWSDL>
+    </wsdl:documentation>
+    <plnk:partnerLinkType name="GetSubscriberInfo">
+        <plnk:role name="GetSubscriberInfoProvider">
+            <plnk:portType name="client:GetSubscriberInfo"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://services.tigo.com.gt" schemaLocation="XMLSchema_1334986497.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="GetSubscriberInfoRequestMessage">
+        <wsdl:part name="payload" element="ns1:SubscriberIdInput"/>
+    </wsdl:message>
+    <wsdl:message name="GetSubscriberInfoResponseMessage">
+        <wsdl:part name="payload" element="ns1:SubscriberInfo"/>
+    </wsdl:message>
+    <wsdl:message name="faultMessage">
+        <wsdl:part name="Fault" element="ns1:ExceptionFault"/>
+    </wsdl:message>
+    <wsdl:portType name="GetSubscriberInfo">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:GetSubscriberInfoRequestMessage"/>
+            <wsdl:output message="client:GetSubscriberInfoResponseMessage"/>
+            <wsdl:fault name="executefault" message="client:faultMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="GetSubscriberInfoBinding" type="client:GetSubscriberInfo">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="process">
+            <soap:operation style="document" soapAction="process"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://services.tigo.com.gt/GetSubscriberInfo_CO"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://services.tigo.com.gt/GetSubscriberInfo_CO"/>
+            </wsdl:output>
+            <wsdl:fault name="executefault">
+                <soap:fault name="executefault" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="GetSubscriberInfo_CO_ep">
+        <wsdl:port name="GetSubscriberInfo_pt" binding="client:GetSubscriberInfoBinding">
+            <soap:address location="http://172.30.9.9:8001/soa-infra/services/default/GetSubscriberInfo_CO/GetSubscriberInfo_CO_ep"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

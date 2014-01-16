@@ -1,0 +1,32 @@
+<xsd:schema
+	targetNamespace="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationResponse/V1/schema"
+	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationResponse/V1/schema"
+	xmlns:headerResponse="http://xmlns.tigo.com/ResponseHeader/V3"
+	xmlns:par="http://xmlns.tigo.com/ParameterType/V2">
+
+	<xsd:import namespace="http://xmlns.tigo.com/ParameterType/V2"
+		schemaLocation="../../Common/XSD/ParameterTypeV2.xsd" />
+
+	<xsd:element name="RequestCreditLimitModificationResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="responseBody">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="success " type="xsd:boolean" />
+							<xsd:element minOccurs="0" name="additionalResults">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element ref="par:ParameterType" maxOccurs="unbounded"
+											minOccurs="0" />
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

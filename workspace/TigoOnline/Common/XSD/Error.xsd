@@ -1,0 +1,23 @@
+<xsd:schema targetNamespace="http://www.tigo.com/Core/Common/Error/V1" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://www.tigo.com/Core/Common/V1" xmlns="http://www.tigo.com/Core/Common/Error/V1">
+<xsd:import schemaLocation="Common.xsd" namespace="http://www.tigo.com/Core/Common/V1"/>
+<xsd:element name="Error">
+<xsd:complexType>
+<xsd:all>
+<xsd:element name="errorType" type="common:ErrorType"/>
+<xsd:element name="code" type="xsd:string"/>
+<xsd:element name="reason" type="xsd:string"/>
+<xsd:element name="description" type="xsd:string"/>
+</xsd:all>
+</xsd:complexType>
+</xsd:element>
+
+<xsd:complexType name="error">
+<xsd:sequence>
+<xsd:element name="errorType" type="common:ErrorType"/>
+<xsd:element name="code" type="xsd:string"/>
+<xsd:element name="reason" type="xsd:string"/>
+<xsd:element name="description" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+
+</xsd:schema>

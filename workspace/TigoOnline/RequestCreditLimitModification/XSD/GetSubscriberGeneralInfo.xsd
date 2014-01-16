@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://services.tigo.com.gt/GetSubscriberGeneralInfo/xsd/GetSubscriberGeneralInfo"
+	targetNamespace="http://services.tigo.com.gt/GetSubscriberGeneralInfo/xsd/GetSubscriberGeneralInfo"
+	elementFormDefault="qualified">
+	<xsd:element name="Subscriber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Attache" type="xsd:decimal" />
+				<xsd:element name="Product" type="xsd:string" />
+				<xsd:element name="BillingCycle" type="xsd:string" />
+				<xsd:element name="VoicePlanName" type="xsd:decimal" />
+				<xsd:element name="Name" type="xsd:string" />
+				<xsd:element name="ActivationDate" type="xsd:date" />
+				<xsd:element name="CreditLimit" type="xsd:decimal" />
+				<xsd:element name="CustomerType" type="xsd:string" />
+				<xsd:element name="CustomerRating" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ValidateSubscriberOutput">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ProductType" type="xsd:string" />
+				<xsd:element name="IsTIGOPhoneNumber" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="PrepaidSubscriber" type="PrepaidSubscriber" />
+	<xsd:complexType name="PrepaidSubscriber">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" maxOccurs="1" name="COS"
+				type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="ActivationDate"
+				type="xsd:date" />
+			<xsd:element minOccurs="0" maxOccurs="1" name="State"
+				type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1"
+				name="LastTransactionDate" type="xsd:date" />
+			<xsd:element minOccurs="0" maxOccurs="1" name="LastState"
+				type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="CreationDate"
+				type="xsd:date" />
+			<xsd:element minOccurs="0" maxOccurs="1" name="Wallets"
+				type="ArrayOfWallets" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ArrayOfWallets">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" maxOccurs="unbounded" name="Wallet"
+				nillable="true" type="Wallet" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Wallet">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" maxOccurs="1" name="Name"
+				type="xsd:string" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="PresentValue"
+				type="xsd:double" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="AvailableValue"
+				type="xsd:double" />
+			<xsd:element minOccurs="1" maxOccurs="1" name="ExpirationDate"
+				type="xsd:date" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ExceptionFault" type="ExceptionFault" />
+	<xsd:complexType name="ExceptionFault">
+		<xsd:sequence>
+			<xsd:element name="Code" type="xsd:string" />
+			<xsd:element name="Description" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

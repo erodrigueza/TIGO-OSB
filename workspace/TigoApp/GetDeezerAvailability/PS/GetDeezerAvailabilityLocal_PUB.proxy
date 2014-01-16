@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con3:SoapBindingType" xmlns:con3="http://www.bea.com/wli/sb/services/bindings/config">
+      <con3:wsdl ref="TigoApp/GetDeezerAvailability/WSDL/PS_GetDeezerAvailabilityLocal"/>
+      <con3:binding>
+        <con3:name>GetDeezerAvailabilityPortSOAP12Binding</con3:name>
+        <con3:namespace>http://xmlns.tigo.com/TigoOnline/Service/GetDeezerAvailability/V1</con3:namespace>
+      </con3:binding>
+      <con3:selector type="SOAP body"/>
+      <con3:WSI-compliant>false</con3:WSI-compliant>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/TigoApp/GetDeezerAvailabilityLocal/V1</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router errorHandler="_onErrorHandler-1811490646445703359-3fdf59f6.1430c3e181c.-7fe0">
+    <con:pipeline type="request" name="GetDeezerAvailabilityPipelinePair_request" errorHandler="_onErrorHandler-1811490646445703359-3fdf59f6.1430c3e181c.-7fe1">
+      <con:stage name="validationStage">
+        <con:context>
+          <con1:varNsDecl namespace="http://xmlns.tigo.com/TigoAPI/GetDeezerAvailabilityRequest/V1/schema" prefix="sch"/>
+        </con:context>
+        <con:actions>
+          <con2:validate>
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7fee</con1:id>
+            <con2:schema ref="TigoApp/GetDeezerAvailability/XSD/GetDeezerAvailabilityRequest"/>
+            <con2:schemaElement xmlns:sch="http://xmlns.tigo.com/TigoAPI/GetDeezerAvailabilityRequest/V1/schema">sch:getDeezerAvailabilityRequest</con2:schemaElement>
+            <con2:varName>body</con2:varName>
+            <con2:location>
+              <con1:xpathText>./sch:getDeezerAvailabilityRequest</con1:xpathText>
+            </con2:location>
+          </con2:validate>
+          <con2:assign varName="serviceRequest">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7fce</con1:id>
+            <con2:expr>
+              <con1:xqueryText>$body/sch:getDeezerAvailabilityRequest</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeDeezerService">
+        <con:context>
+          <con1:varNsDecl namespace="http://xmlns.tigo.com/TigoAPI/GetDeezerAvailabilityRequest/V1/schema" prefix="sch"/>
+          <con1:varNsDecl namespace="http://xmlns.tigo.com/ClientSchema/V1/schema" prefix="sch1"/>
+        </con:context>
+        <con:actions>
+          <con2:assign varName="configuration">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7fa9</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/GetDeezerAvailability/XQUERY/ConfigurationFile"/>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="deezerServiceRequest">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7f8e</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/GetDeezerAvailability/XQUERY/TransformToDeezerServiceRequest"/>
+                <con1:param name="msisdn">
+                  <con1:path>fn:data($body/sch:getDeezerAvailabilityRequest/sch:client/sch1:id)</con1:path>
+                </con1:param>
+                <con1:param name="config">
+                  <con1:path>$configuration</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:wsCallout>
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7f70</con1:id>
+            <con2:service xsi:type="ref:BusinessServiceRef" ref="TigoApp/GetDeezerAvailability/BS/DeezerService" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con2:operation>getSubscriber</con2:operation>
+            <con2:request>
+              <con2:body>$deezerServiceRequest</con2:body>
+            </con2:request>
+            <con2:response>
+              <con2:body>deezerServiceResponse</con2:body>
+            </con2:response>
+            <con2:requestTransform/>
+            <con2:responseTransform/>
+          </con2:wsCallout>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="GetDeezerAvailabilityPipelinePair_response">
+      <con:stage name="responseStage">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="serviceResponse">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7b44</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/GetDeezerAvailability/XQUERY/TransformToGetDeezerAvailabilityResponse"/>
+                <con1:param name="getSubscriberResponse">
+                  <con1:path>$deezerServiceResponse</con1:path>
+                </con1:param>
+                <con1:param name="config">
+                  <con1:path>$configuration</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7b65</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText>$serviceResponse</con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeAuditProducer" errorHandler="_onErrorHandler-4635045327947684238-5f4381cd.143111af1c4.-7bd7">
+        <con:context xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config"/>
+        <con:actions xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+          <con2:assign varName="auditRequest">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7bdc</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/Common/XQUERY/TransformToAuditRequest"/>
+                <con1:param name="respuesta">
+                  <con1:path>fn:concat(fn-bea:serialize($serviceRequest),fn-bea:serialize($serviceResponse))</con1:path>
+                </con1:param>
+                <con1:param name="indentificador">
+                  <con1:path>'GetDeezerAvailability'</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con3:route>
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7bdb</con1:id>
+            <con3:service ref="TigoApp/Common/BS/AuditProducerOSB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>execute</con3:operation>
+            <con3:outboundTransform>
+              <con2:replace varName="body" contents-only="true">
+                <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7bda</con1:id>
+                <con2:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con2:location>
+                <con2:expr>
+                  <con1:xqueryText>$auditRequest</con1:xqueryText>
+                </con2:expr>
+              </con2:replace>
+            </con3:outboundTransform>
+          </con3:route>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-1811490646445703359-3fdf59f6.1430c3e181c.-7fe1">
+      <con:stage name="replaceCodeError">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="errorCode">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7f47</con1:id>
+            <con2:expr>
+              <con1:xqueryText>fn:data($fault/ctx:errorCode)</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="callMapResponse">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="mapResponseRequest">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7f2d</con1:id>
+            <con2:expr>
+              <con1:xqueryText><![CDATA[<map:InputData xmlns:map="http://www.tigo.com.gt/MapResponseStructure">
+	<map:ResponseCode>{ $errorCode }</map:ResponseCode>
+	<map:ConsumerSystem>Generic</map:ConsumerSystem>
+	<map:SourceSystem>OSB</map:SourceSystem>
+	<map:Message/>
+</map:InputData>]]></con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:wsCallout>
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7f12</con1:id>
+            <con2:service xsi:type="ref:BusinessServiceRef" ref="TigoApp/Common/BS/MapResponse" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con2:operation>process</con2:operation>
+            <con2:request>
+              <con2:body>$mapResponseRequest</con2:body>
+            </con2:request>
+            <con2:response>
+              <con2:body>mapResponseResponse</con2:body>
+            </con2:response>
+            <con2:requestTransform/>
+            <con2:responseTransform/>
+          </con2:wsCallout>
+          <con2:ifThenElse xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7e9d</con1:id>
+            <con2:case>
+              <con2:condition>
+                <con1:xqueryText>fn:string-length(data($mapResponseResponse/*:MessageResponse)) = 0</con1:xqueryText>
+              </con2:condition>
+              <con2:actions>
+                <con2:assign varName="mapResponseResponse">
+                  <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7e9c</con1:id>
+                  <con2:expr>
+                    <con1:xqueryText><![CDATA[<ns0:ResponseData xmlns:ns0="http://www.tigo.com.gt/MapResponseStructure">
+    <ns0:CodeResponse>DES-999</ns0:CodeResponse>
+    <ns0:MessageResponse>Cualquier otro error no contemplado</ns0:MessageResponse>
+</ns0:ResponseData>]]></con1:xqueryText>
+                  </con2:expr>
+                </con2:assign>
+              </con2:actions>
+            </con2:case>
+            <con2:default/>
+          </con2:ifThenElse>
+        </con:actions>
+      </con:stage>
+      <con:stage name="saveGetDeezerAvailabilityResponse">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="faultResponse" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7e48</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/Common/XQUERY/TransformMapResponse"/>
+                <con1:param name="responseData">
+                  <con1:path>$mapResponseResponse</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeErrorProducer">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="errorRequest" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7e0b</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/Common/XQUERY/TransformToErrorRequest"/>
+                <con1:param name="accion">
+                  <con1:path>'GetDeezerAvailability'</con1:path>
+                </con1:param>
+                <con1:param name="mensajeError">
+                  <con1:path>fn:concat(fn-bea:serialize($serviceRequest),fn-bea:serialize($faultResponse))</con1:path>
+                </con1:param>
+                <con1:param name="tipoAlarma">
+                  <con1:path>$errorCode</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con3:route xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7e0a</con1:id>
+            <con3:service ref="TigoApp/Common/BS/ErrorProducerOSB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>execute</con3:operation>
+            <con3:outboundTransform>
+              <con2:replace varName="body" contents-only="true">
+                <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7e09</con1:id>
+                <con2:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con2:location>
+                <con2:expr>
+                  <con1:xqueryText>$errorRequest</con1:xqueryText>
+                </con2:expr>
+              </con2:replace>
+            </con3:outboundTransform>
+          </con3:route>
+        </con:actions>
+      </con:stage>
+      <con:stage name="responsePipeLine">
+        <con:context/>
+        <con:actions>
+          <con2:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7b42</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText>$faultResponse</con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+          <con1:reply isError="false" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7dce</con1:id>
+          </con1:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-1811490646445703359-3fdf59f6.1430c3e181c.-7fe0">
+      <con:stage name="saveGetDeezerAvailabilityResponse">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="faultResponse" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7d79</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/Common/XQUERY/TransformFaultToResponseHeader"/>
+                <con1:param name="fault">
+                  <con1:path>$fault</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeErrorProducer">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="errorRequest" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7d39</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoApp/Common/XQUERY/TransformToErrorRequest"/>
+                <con1:param name="accion">
+                  <con1:path>'GetDeezerAvailability'</con1:path>
+                </con1:param>
+                <con1:param name="mensajeError">
+                  <con1:path>fn:concat(fn-bea:serialize($serviceRequest),fn-bea:serialize($faultResponse))</con1:path>
+                </con1:param>
+                <con1:param name="tipoAlarma">
+                  <con1:path>fn:data($fault/ctx:errorCode)</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con3:route xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7d38</con1:id>
+            <con3:service ref="TigoApp/Common/BS/ErrorProducerOSB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>execute</con3:operation>
+            <con3:outboundTransform>
+              <con2:replace varName="body" contents-only="true">
+                <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7d37</con1:id>
+                <con2:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con2:location>
+                <con2:expr>
+                  <con1:xqueryText>$errorRequest</con1:xqueryText>
+                </con2:expr>
+              </con2:replace>
+            </con3:outboundTransform>
+          </con3:route>
+        </con:actions>
+      </con:stage>
+      <con:stage name="responseErrorServiceLocal">
+        <con:context/>
+        <con:actions>
+          <con2:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7cfc</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText>$faultResponse</con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+          <con1:reply isError="true" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7cfb</con1:id>
+          </con1:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-4635045327947684238-5f4381cd.143111af1c4.-7bd7">
+      <con:stage name="continue">
+        <con:context/>
+        <con:actions>
+          <con1:resume>
+            <con1:id>_ActionId-4635045327947684238-5f4381cd.143111af1c4.-7bb9</con1:id>
+          </con1:resume>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:pipeline-node name="GetDeezerAvailabilityPipelinePair">
+        <con:request>GetDeezerAvailabilityPipelinePair_request</con:request>
+        <con:response>GetDeezerAvailabilityPipelinePair_response</con:response>
+      </con:pipeline-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

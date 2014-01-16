@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.tigo.com/ParameterType/V2"
+            targetNamespace="http://xmlns.tigo.com/ParameterType/V2"
+            elementFormDefault="qualified">
+  <xsd:element name="ParameterType">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="parameterName" type="xsd:string"/>
+        <xsd:element name="parameterValue" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
+

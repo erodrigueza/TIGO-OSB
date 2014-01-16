@@ -1,0 +1,127 @@
+<wsdl:definitions name="GetLoyaltyInfo" targetNamespace="http://xmlns.tigo.com/TigoOnline/Service/GetLoyaltyInfo/V1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.tigo.com/TigoOnline/Service/GetLoyaltyInfo/V1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://xmlns.tigo.com/TigoAPI/GetLoyaltyInfoRequest/V1/schema" xmlns:ns2="http://xmlns.tigo.com/TigoAPI/GetLoyaltyInfoResponse/V1/schema" xmlns:reqH="http://xmlns.tigo.com/RequestHeader/V3" xmlns:resH="http://xmlns.tigo.com/ResponseHeader/V3">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://xmlns.tigo.com/TigoAPI/Service/GetLoyaltyInfo/V1/types" elementFormDefault="qualified"/>
+		<xsd:schema>
+			<xsd:import schemaLocation="../XSD/GetLoyaltyInfoRequest.xsd" namespace="http://xmlns.tigo.com/TigoAPI/GetLoyaltyInfoRequest/V1/schema"/>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import schemaLocation="../XSD/GetLoyaltyInfoResponse.xsd" namespace="http://xmlns.tigo.com/TigoAPI/GetLoyaltyInfoResponse/V1/schema"/>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import schemaLocation="../../Common/XSD/RequestHeaderV3.xsd" namespace="http://xmlns.tigo.com/RequestHeader/V3"/>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import schemaLocation="../../Common/XSD/ResponseHeaderV3.xsd" namespace="http://xmlns.tigo.com/ResponseHeader/V3"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="GetLoyaltyInfoRequestMessage">
+		<wsdl:part name="part" element="ns1:getLoyaltyInfoRequest"/>
+		<wsdl:part name="requestHeader" element="reqH:RequestHeader"/>
+	</wsdl:message>
+	
+	<wsdl:message name="GetCardStatusResponseMessage">
+		<wsdl:part name="part" element="ns2:getCardStatusResponse"/>
+		<wsdl:part name="responseHeader" element="resH:ResponseHeader"/>
+	</wsdl:message>
+	<wsdl:message name="GetBenefitsResponseMessage">
+		<wsdl:part name="part" element="ns2:getCardStatusResponse"/>
+		<wsdl:part name="responseHeader" element="resH:ResponseHeader"/>
+	</wsdl:message>
+	<wsdl:message name="GetCashbackInfoResponseMessage">
+		<wsdl:part name="part" element="ns2:getCardStatusResponse"/>
+		<wsdl:part name="responseHeader" element="resH:ResponseHeader"/>
+	</wsdl:message>
+	<wsdl:message name="GetCashbackDetailsResponseMessage">
+		<wsdl:part name="part" element="ns2:getCardStatusResponse"/>
+		<wsdl:part name="responseHeader" element="resH:ResponseHeader"/>
+	</wsdl:message>
+	
+	<wsdl:message name="GeneralResponseMessage">
+		<wsdl:part element="resH:ResponseHeader" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:portType name="GetLoyaltyInfoPort">
+		<wsdl:operation name="GetCardStatus">
+			<wsdl:input message="tns:GetLoyaltyInfoRequestMessage"/>
+			<wsdl:output message="tns:GetCardStatusResponseMessage"/>
+			<wsdl:fault message="tns:GeneralResponseMessage" name="fault"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetBenefits">
+			<wsdl:input message="tns:GetLoyaltyInfoRequestMessage"/>
+			<wsdl:output message="tns:GetBenefitsResponseMessage"/>
+			<wsdl:fault message="tns:GeneralResponseMessage" name="fault"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetCashbackInfo">
+			<wsdl:input message="tns:GetLoyaltyInfoRequestMessage"/>
+			<wsdl:output message="tns:GetCashbackInfoResponseMessage"/>
+			<wsdl:fault message="tns:GeneralResponseMessage" name="fault"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetCashbackDetails">
+			<wsdl:input message="tns:GetLoyaltyInfoRequestMessage"/>
+			<wsdl:output message="tns:GetCashbackDetailsResponseMessage"/>
+			<wsdl:fault message="tns:GeneralResponseMessage" name="fault"/>
+		</wsdl:operation>		
+	</wsdl:portType>
+
+	<wsdl:binding name="GetLoyaltyInfoPortSOAP12Binding" type="tns:GetLoyaltyInfoPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GetCardStatus">
+			<soap:operation style="document" soapAction="http://xmlns.tigo.com/TigoAPP/Service/GetLoyaltyInfo/V1/GetCardStatus"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="part"/>
+				<soap:header message="tns:GetLoyaltyInfoRequestMessage" use="literal" part="requestHeader"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="part"/>
+				<soap:header message="tns:GetCardStatusResponseMessage" use="literal" part="responseHeader"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+				<wsdl:operation name="GetBenefits">
+			<soap:operation style="document" soapAction="http://xmlns.tigo.com/TigoAPP/Service/GetLoyaltyInfo/V1/GetBenefits"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="part"/>
+				<soap:header message="tns:GetLoyaltyInfoRequestMessage" use="literal" part="requestHeader"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="part"/>
+				<soap:header message="tns:GetBenefitsResponseMessage" use="literal" part="responseHeader"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+				<wsdl:operation name="GetCashbackInfo">
+			<soap:operation style="document" soapAction="http://xmlns.tigo.com/TigoAPP/Service/GetLoyaltyInfo/V1/GetCashbackInfo"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="part"/>
+				<soap:header message="tns:GetLoyaltyInfoRequestMessage" use="literal" part="requestHeader"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="part"/>
+				<soap:header message="tns:GetCashbackInfoResponseMessage" use="literal" part="responseHeader"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+				<wsdl:operation name="GetCashbackDetails">
+			<soap:operation style="document" soapAction="http://xmlns.tigo.com/TigoAPP/Service/GetLoyaltyInfo/V1/GetCashbackDetails"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="part"/>
+				<soap:header message="tns:GetLoyaltyInfoRequestMessage" use="literal" part="requestHeader"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="part"/>
+				<soap:header message="tns:GetCashbackDetailsResponseMessage" use="literal" part="responseHeader"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,54 @@
+<wsdl:definitions name="ModifyLoyaltyInfo" targetNamespace="http://xmlns.tigo.com/TigoOnline/Service/ModifyLoyaltyInfo/V1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.tigo.com/TigoOnline/Service/ModifyLoyaltyInfo/V1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://xmlns.tigo.com/TigoAPI/ModifyLoyaltyInfoRequest/V1/schema" xmlns:ns2="http://xmlns.tigo.com/TigoAPI/ModifyLoyaltyInfoResponse/V1/schema" xmlns:reqH="http://xmlns.tigo.com/RequestHeader/V3" xmlns:resH="http://xmlns.tigo.com/ResponseHeader/V3">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://xmlns.tigo.com/TigoAPI/Service/ModifyLoyaltyInfo/V1/types" elementFormDefault="qualified"/>
+		<xsd:schema>
+			<xsd:import schemaLocation="../XSD/ModifyLoyaltyInfoRequest.xsd" namespace="http://xmlns.tigo.com/TigoAPI/ModifyLoyaltyInfoRequest/V1/schema"/>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import schemaLocation="../XSD/ModifyLoyaltyInfoResponse.xsd" namespace="http://xmlns.tigo.com/TigoAPI/ModifyLoyaltyInfoResponse/V1/schema"/>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import schemaLocation="../../Common/XSD/RequestHeaderV3.xsd" namespace="http://xmlns.tigo.com/RequestHeader/V3"/>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import schemaLocation="../../Common/XSD/ResponseHeaderV3.xsd" namespace="http://xmlns.tigo.com/ResponseHeader/V3"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="ModifyLoyaltyInfoRequestMessage">
+		<wsdl:part name="part" element="ns1:modifyLoyaltyInfoRequest"/>
+	</wsdl:message>
+
+	<wsdl:message name="ModifyLoyaltyInfoResponseMessage">
+		<wsdl:part name="part" element="ns2:modifyLoyaltyInfoResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="GeneralResponseMessage">
+		<wsdl:part element="resH:ResponseHeader" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:portType name="ModifyLoyaltyInfoPort">
+		<wsdl:operation name="ModifyLoyaltyInfo">
+			<wsdl:input message="tns:ModifyLoyaltyInfoRequestMessage"/>
+			<wsdl:output message="tns:ModifyLoyaltyInfoResponseMessage"/>
+			<wsdl:fault message="tns:GeneralResponseMessage" name="fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="ModifyLoyaltyInfoPortSOAPBinding" type="tns:ModifyLoyaltyInfoPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="ModifyLoyaltyInfo">
+			<soap:operation style="document" soapAction="http://xmlns.tigo.com/TigoAPP/Service/ModifyLoyaltyInfo/V1/ModifyLoyaltyInfo"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="part"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="part"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

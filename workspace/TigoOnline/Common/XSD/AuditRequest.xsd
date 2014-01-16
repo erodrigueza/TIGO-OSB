@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/AuditAdapter" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/AuditAdapter" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="AuditAdapterInput" type="AuditAdapterInput"/>
+    <xs:complexType name="AuditAdapterInput">
+        <xs:sequence>
+            <xs:element name="Identificador" type="xs:string" nillable="true"/>
+            <xs:element name="Respuesta" type="xs:string" nillable="true"/>
+            <xs:element name="Falla" type="xs:string" nillable="true"/>
+            <xs:element name="TiempoEjecucion" type="xs:int" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

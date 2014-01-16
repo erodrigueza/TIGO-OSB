@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema 
+xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.example.org/ErrorOSB" 
+xmlns:tns="http://www.tigo.com/TigoOnLine/ErrorOSB" 
+elementFormDefault="qualified">
+
+<element name="faultOSB" >
+     <complexType>
+    <sequence>
+      <element name="errorCodeOSB" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="reasonOSB" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="detailOSB" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="locationOSB" type="string" maxOccurs="1" minOccurs="0"/>      
+    </sequence>
+  </complexType>
+  </element>
+
+</schema>

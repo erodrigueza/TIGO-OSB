@@ -1,0 +1,150 @@
+<definitions targetNamespace="http://service.business.deezerapi.millicom.com/" name="DeezerService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.business.deezerapi.millicom.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://service.business.deezerapi.millicom.com/" schemaLocation="../XSD/DeezerService.xsd"/>
+		</xsd:schema>
+	</types>
+	<message name="createSubscriber">
+		<part name="parameters" element="tns:createSubscriber"/>
+	</message>
+	<message name="createSubscriberResponse">
+		<part name="parameters" element="tns:createSubscriberResponse"/>
+	</message>
+	<message name="getSubscriber">
+		<part name="parameters" element="tns:getSubscriber"/>
+	</message>
+	<message name="getSubscriberResponse">
+		<part name="parameters" element="tns:getSubscriberResponse"/>
+	</message>
+	<message name="updateOffer">
+		<part name="parameters" element="tns:updateOffer"/>
+	</message>
+	<message name="updateOfferResponse">
+		<part name="parameters" element="tns:updateOfferResponse"/>
+	</message>
+	<message name="updateEndDate">
+		<part name="parameters" element="tns:updateEndDate"/>
+	</message>
+	<message name="updateEndDateResponse">
+		<part name="parameters" element="tns:updateEndDateResponse"/>
+	</message>
+	<message name="deactivateCustomer">
+		<part name="parameters" element="tns:deactivateCustomer"/>
+	</message>
+	<message name="deactivateCustomerResponse">
+		<part name="parameters" element="tns:deactivateCustomerResponse"/>
+	</message>
+	<message name="updateEndDateAndOffer">
+		<part name="parameters" element="tns:updateEndDateAndOffer"/>
+	</message>
+	<message name="updateEndDateAndOfferResponse">
+		<part name="parameters" element="tns:updateEndDateAndOfferResponse"/>
+	</message>
+	<message name="changeSubscriberMsisdn">
+		<part name="parameters" element="tns:changeSubscriberMsisdn"/>
+	</message>
+	<message name="changeSubscriberMsisdnResponse">
+		<part name="parameters" element="tns:changeSubscriberMsisdnResponse"/>
+	</message>
+	<portType name="Deezer">
+		<operation name="createSubscriber">
+			<input message="tns:createSubscriber"/>
+			<output message="tns:createSubscriberResponse"/>
+		</operation>
+		<operation name="getSubscriber">
+			<input message="tns:getSubscriber"/>
+			<output message="tns:getSubscriberResponse"/>
+		</operation>
+		<operation name="updateOffer">
+			<input message="tns:updateOffer"/>
+			<output message="tns:updateOfferResponse"/>
+		</operation>
+		<operation name="updateEndDate">
+			<input message="tns:updateEndDate"/>
+			<output message="tns:updateEndDateResponse"/>
+		</operation>
+		<operation name="deactivateCustomer">
+			<input message="tns:deactivateCustomer"/>
+			<output message="tns:deactivateCustomerResponse"/>
+		</operation>
+		<operation name="updateEndDateAndOffer">
+			<input message="tns:updateEndDateAndOffer"/>
+			<output message="tns:updateEndDateAndOfferResponse"/>
+		</operation>
+		<operation name="changeSubscriberMsisdn">
+			<input message="tns:changeSubscriberMsisdn"/>
+			<output message="tns:changeSubscriberMsisdnResponse"/>
+		</operation>
+	</portType>
+	<binding name="DeezerPortBinding" type="tns:Deezer">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+		<operation name="createSubscriber">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getSubscriber">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="updateOffer">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="updateEndDate">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="deactivateCustomer">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="updateEndDateAndOffer">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="changeSubscriberMsisdn">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="DeezerService">
+		<port name="DeezerPort" binding="tns:DeezerPortBinding">
+			<soap:address location="http://172.30.9.9:8001/Deezer/DeezerService"/>
+		</port>
+	</service>
+</definitions>

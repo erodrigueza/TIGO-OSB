@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cus:Customizations xmlns:cus="http://www.bea.com/wli/config/customizations" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xt="http://www.bea.com/wli/config/xmltypes">
+  <cus:customization xsi:type="cus:EnvValueCustomizationType">
+    <cus:description/>
+    <cus:envValueAssignments>
+      <xt:envValueType>Alert SNMP Trap</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>AlertDestination</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/AD/GetAccountSummary</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Alert To Log</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>AlertDestination</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/AD/GetAccountSummary</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">true</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Alert To Reporting Data</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>AlertDestination</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/AD/GetAccountSummary</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>UDDI Auto Publish</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/PS/GetAccountSummary</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/PS/GetAccountSummary</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/TigoOnline/GetAccountSummary/PS/GetAccountSummary</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>UDDI Auto Publish</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/PS/GetAccountSummaryLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/PS/GetAccountSummaryLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/TigoOnline/GetAccountSummary/PS/GetAccountSummaryLocal</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Weight</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/Consumos</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">1</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/Consumos</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">http://172.22.52.7:8080/CustomerServices/services/Consumos</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Table</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/Consumos</xt:path>
+      </xt:owner>
+      <xt:value>
+        <tran:tableElement xmlns:tran="http://www.bea.com/wli/sb/transports">
+          <tran:URI>http://172.22.52.7:8080/CustomerServices/services/Consumos</tran:URI>
+          <tran:weight>1</tran:weight>
+        </tran:tableElement>
+      </xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Count</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/Consumos</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Iteration Interval</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/Consumos</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Weight</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">http://172.30.9.9:8011/TigoOnline/GetAccountSummary/PS/GetAccountSummaryLocal</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Table</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal</xt:path>
+      </xt:owner>
+      <xt:value>
+        <tran:tableElement xmlns:tran="http://www.bea.com/wli/sb/transports">
+          <tran:URI>http://172.30.9.9:8011/TigoOnline/GetAccountSummary/PS/GetAccountSummaryLocal</tran:URI>
+          <tran:weight>0</tran:weight>
+        </tran:tableElement>
+      </xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Count</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Iteration Interval</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+  </cus:customization>
+  <cus:customization xsi:type="cus:FindAndReplaceCustomizationType">
+    <cus:description/>
+    <cus:query>
+      <xt:resourceTypes>AlertDestination</xt:resourceTypes>
+      <xt:resourceTypes>BusinessService</xt:resourceTypes>
+      <xt:resourceTypes>ProxyService</xt:resourceTypes>
+      <xt:envValueTypes>Service URI</xt:envValueTypes>
+      <xt:envValueTypes>Alert To Log</xt:envValueTypes>
+      <xt:envValueTypes>Service URI Weight</xt:envValueTypes>
+      <xt:envValueTypes>UDDI Auto Publish</xt:envValueTypes>
+      <xt:envValueTypes>Service Retry Iteration Interval</xt:envValueTypes>
+      <xt:envValueTypes>Alert SNMP Trap</xt:envValueTypes>
+      <xt:envValueTypes>Service Retry Count</xt:envValueTypes>
+      <xt:envValueTypes>Alert To Reporting Data</xt:envValueTypes>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/PS/GetAccountSummaryLocal</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>AlertDestination</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/AD/GetAccountSummary</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/PS/GetAccountSummary</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/Consumos</xt:path>
+      </xt:refsToSearch>
+      <xt:includeOnlyModifiedResources>false</xt:includeOnlyModifiedResources>
+      <xt:searchString>Search String</xt:searchString>
+      <xt:isCompleteMatch>false</xt:isCompleteMatch>
+    </cus:query>
+    <cus:replacement>Replacement String</cus:replacement>
+  </cus:customization>
+  <cus:customization xsi:type="cus:ReferenceCustomizationType">
+    <cus:description/>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>WSDL</xt:type>
+      <xt:path>TigoOnline/GetAccountSummary/WSDL/PS_GetAccountSummaryLocal</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>WSDL</xt:type>
+      <xt:path>TigoOnline/GetAccountSummary/WSDL/BS_Consumos</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>XMLSchema</xt:type>
+      <xt:path>TigoOnline/GetAccountSummary/XSD/ConsumosFault</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>XMLSchema</xt:type>
+      <xt:path>TigoOnline/GetAccountSummary/XSD/AccountSummaryRequest</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>ProxyService</xt:type>
+      <xt:path>TigoOnline/GetAccountSummary/PS/GetAccountSummary</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>BusinessService</xt:type>
+      <xt:path>TigoOnline/GetAccountSummary/BS/Consumos</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>WSDL</xt:type>
+      <xt:path>TigoOnline/GetAccountSummary/WSDL/PS_GetAccountSummary</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>ProxyService</xt:type>
+      <xt:path>TigoOnline/GetAccountSummary/PS/GetAccountSummaryLocal</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>XMLSchema</xt:type>
+      <xt:path>TigoOnline/GetAccountSummary/XSD/AccountSummaryResponse</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>XMLSchema</xt:type>
+      <xt:path>TigoOnline/GetAccountSummary/XSD/AccountSummaryFault</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>BusinessService</xt:type>
+      <xt:path>TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/WSDL/PS_GetAccountSummaryLocal</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/WSDL/PS_GetAccountSummaryLocal</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/Accesos</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/Accesos</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XSD/AccountSummaryRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XSD/AccountSummaryRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XSD/Consumos</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XSD/Consumos</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/AuditProducerOSB</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/AuditProducerOSB</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformToGetAccountSummaryFaultResponse</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformToGetAccountSummaryFaultResponse</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/ResponseHeaderV3</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/ResponseHeaderV3</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformException_DVM</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformException_DVM</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/WSDL/PS_GetAccountSummary</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/WSDL/PS_GetAccountSummary</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/Error</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/Error</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/ReadCadena</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/ReadCadena</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformToAccesoRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformToAccesoRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformToGetAccountSummaryResponse</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformToGetAccountSummaryResponse</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/Accesos</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/Accesos</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/ErrorValuesDvm</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/ErrorValuesDvm</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XSD/AccountSummaryFault</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XSD/AccountSummaryFault</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformToErrorRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformToErrorRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/ReadCad</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/ReadCad</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/WSDL/BS_Consumos</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/WSDL/BS_Consumos</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/RequestHeaderV3</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/RequestHeaderV3</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XSD/ConsumosFault</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XSD/ConsumosFault</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XSD/InformacionApartadosConsumos</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XSD/InformacionApartadosConsumos</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformToAuditRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformToAuditRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/Consumos</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/Consumos</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>ServiceAccount</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>ServiceAccount</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformFromConsumosResponse</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformFromConsumosResponse</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XSD/AccountSummaryResponse</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XSD/AccountSummaryResponse</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TranformFaultToErrorCode</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TranformFaultToErrorCode</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformToConsultarConsumosRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/XQUERY/TransformToConsultarConsumosRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetAccountSummary/BS/GetAccountSummaryLocal</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/ErrorProducerOSB</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/ErrorProducerOSB</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+  </cus:customization>
+</cus:Customizations>

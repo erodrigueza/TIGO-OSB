@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://services.tigo.com.gt/GetBroadBandNavigationInfo"
+     targetNamespace="http://services.tigo.com.gt/GetBroadBandNavigationInfo" elementFormDefault="qualified">
+    <xsd:element name="NavigationPackageCollection" type="NavigationPackageCollection"/>
+    <xsd:complexType name="NavigationPackageCollection">
+        <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="NavigationPackage" type="NavigationPackage"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="NavigationPackage">
+        <xsd:sequence>
+            <xsd:element name="ActualPackageId" type="xsd:integer"/>
+            <xsd:element name="ActualPackageName" type="xsd:string"/>
+            <xsd:element name="BuyDate" type="xsd:string"/>
+            <xsd:element name="ExpiryDate" type="xsd:string"/>
+            <xsd:element name="PerfilId" type="xsd:string"/>
+            <xsd:element name="MbDownloaded" type="xsd:string"/>
+            <xsd:element name="SpeedAugmented" type="xsd:string"/>
+            <xsd:element name="DateSpeedAugmented" type="xsd:string"/>
+            <xsd:element name="ExpireDateAugmentation" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SubscriberIdInput" type="SubscriberIdInput"/>
+    <xsd:complexType name="SubscriberIdInput">
+        <xsd:sequence>
+            <xsd:element name="SubscriberId" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SubscriberIdDateInput" type="SubscriberIdDateInput"/>
+    <xsd:complexType name="SubscriberIdDateInput">
+        <xsd:sequence>
+            <xsd:element name="SubscriberId" type="xsd:string"/>
+            <xsd:element name="InitialDate" type="xsd:string"/>
+            <xsd:element name="FinalDate" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ExceptionFault" type="ExceptionFault"/>
+    <xsd:complexType name="ExceptionFault">
+        <xsd:sequence>
+            <xsd:element name="Code" type="xsd:string"/>
+            <xsd:element name="Description" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

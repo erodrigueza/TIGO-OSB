@@ -1,0 +1,56 @@
+<wsdl:definitions name="GetDeezerAvailability" targetNamespace="http://xmlns.tigo.com/TigoOnline/Service/GetDeezerAvailability/V1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.tigo.com/TigoOnline/Service/GetDeezerAvailability/V1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://xmlns.tigo.com/TigoAPI/GetDeezerAvailabilityRequest/V1/schema" xmlns:ns2="http://xmlns.tigo.com/TigoAPI/GetDeezerAvailabilityResponse/V1/schema" xmlns:reqH="http://xmlns.tigo.com/RequestHeader/V3" xmlns:resH="http://xmlns.tigo.com/ResponseHeader/V3">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://xmlns.tigo.com/TigoAPI/Service/GetDeezerAvailability/V1/types" elementFormDefault="qualified"/>
+		<xsd:schema>
+			<xsd:import schemaLocation="../XSD/GetDeezerAvailabilityRequest.xsd" namespace="http://xmlns.tigo.com/TigoAPI/GetDeezerAvailabilityRequest/V1/schema"/>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import schemaLocation="../XSD/GetDeezerAvailabilityResponse.xsd" namespace="http://xmlns.tigo.com/TigoAPI/GetDeezerAvailabilityResponse/V1/schema"/>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import schemaLocation="../../Common/XSD/RequestHeaderV3.xsd" namespace="http://xmlns.tigo.com/RequestHeader/V3"/>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import schemaLocation="../../Common/XSD/ResponseHeaderV3.xsd" namespace="http://xmlns.tigo.com/ResponseHeader/V3"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="GetDeezerAvailabilityRequestMessage">
+		<wsdl:part name="part" element="ns1:getDeezerAvailabilityRequest"/>
+		<wsdl:part name="requestHeader" element="reqH:RequestHeader"/>
+	</wsdl:message>
+	<wsdl:message name="GetDeezerAvailabilityResponseMessage">
+		<wsdl:part name="part" element="ns2:getDeezerAvailabilityResponse"/>
+		<wsdl:part name="responseHeader" element="resH:ResponseHeader"/>
+	</wsdl:message>
+	<wsdl:message name="GeneralResponseMessage">
+		<wsdl:part element="resH:ResponseHeader" name="fault"/>
+	</wsdl:message>
+
+	<wsdl:portType name="GetDeezerAvailabilityPort">
+		<wsdl:operation name="GetDeezerAvailability">
+			<wsdl:input message="tns:GetDeezerAvailabilityRequestMessage"/>
+			<wsdl:output message="tns:GetDeezerAvailabilityResponseMessage"/>
+			<wsdl:fault message="tns:GeneralResponseMessage" name="fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="GetDeezerAvailabilityPortSOAP12Binding" type="tns:GetDeezerAvailabilityPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GetDeezerAvailability">
+			<soap:operation style="document" soapAction="http://xmlns.tigo.com/TigoAPP/Service/GetDeezerAvailability/V1/GetDeezerAvailability"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="part"/>
+				<soap:header message="tns:GetDeezerAvailabilityRequestMessage" use="literal" part="requestHeader"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="part"/>
+				<soap:header message="tns:GetDeezerAvailabilityResponseMessage" use="literal" part="responseHeader"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,30 @@
+<schema targetNamespace="http://www.tigo.com/TigoOnLine/ServiceOrderFault" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.tigo.com/TigoOnLine/ServiceOrderFault" xmlns:er="http://www.tigo.com/Core/Common/Error/V1" xmlns:header="http://xmlns.tigo.com/ResponseHeader/V3">
+
+	<import schemaLocation="../../Common/XSD/Error.xsd" namespace="http://www.tigo.com/Core/Common/Error/V1">
+	</import>
+	<import schemaLocation="../../Common/XSD/ResponseHeaderV3.xsd" namespace="http://xmlns.tigo.com/ResponseHeader/V3"/>
+	<element name="getTechServiceOrdersFault">
+		<complexType>
+			<sequence>
+				<element ref="er:Error"/>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="GetTechServiceOrdersFault">
+		<complexType>
+			<sequence>
+				<element ref="header:ResponseHeader"/>
+				<element name="RequestBody">
+					<complexType>
+						<sequence>
+							<element ref="xs:getTechServiceOrdersFault"/>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+
+
+</schema>

@@ -1,0 +1,37 @@
+<schema targetNamespace="http://www.tigo.com/TigoOnLine/ServiceOrderRequest" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.tigo.com/TigoOnLine/ServiceOrderRequest" xmlns:header="http://xmlns.tigo.com/RequestHeader/V3">
+
+	<import schemaLocation="../../Common/XSD/RequestHeaderV3.xsd" namespace="http://xmlns.tigo.com/RequestHeader/V3"/>
+	
+	<element name="GetTechServiceOrdersRequest">
+<complexType>
+			<sequence>
+				<element ref="header:RequestHeader"/>
+				<element name="RequestBody">
+					<complexType>
+						<sequence>
+							<element ref="xs:getTechServiceOrdersRequest"/>
+						</sequence>
+					</complexType>
+				</element>
+				</sequence>
+				</complexType>
+
+</element>
+	
+	<element name="getTechServiceOrdersRequest">
+		<complexType>
+			<sequence>
+				<element name="msisdn" minOccurs="1" maxOccurs="1">
+					<simpleType>
+						<restriction base="string">
+							<minLength value="1"/>
+							<pattern value="502[0-9]*"/>
+						</restriction>
+					</simpleType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+
+
+</schema>

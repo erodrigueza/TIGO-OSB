@@ -1,0 +1,18 @@
+<xsd:schema targetNamespace="http://xmlns.tigo.com/TigoAPI/GetDeezerAvailabilityResponse/V1/schema" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.tigo.com/TigoAPI/GetDeezerAvailabilityResponse/V1/schema" xmlns:par="http://xmlns.tigo.com/ParameterType/V2" xmlns:package="http://xmlns.tigo.com/TigoAPI/TigoPackageType/V1/schema" xmlns:client="http://xmlns.tigo.com/ClientSchema/V1/schema">
+  <xsd:import namespace="http://xmlns.tigo.com/ParameterType/V2" schemaLocation="../../Common/XSD/ParameterTypeV2.xsd"/>
+  <xsd:element name="getDeezerAvailabilityResponse" type="GetDeezerAvailabilityResponseType">
+  </xsd:element>
+  <xsd:complexType name="GetDeezerAvailabilityResponseType">
+    <xsd:sequence>
+      <xsd:element name="deezerStatus" type="xsd:string"/>
+      <xsd:element name="packageId" type="xsd:int"/>
+      <xsd:element name="additionalResults" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="par:ParameterType" minOccurs="0" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

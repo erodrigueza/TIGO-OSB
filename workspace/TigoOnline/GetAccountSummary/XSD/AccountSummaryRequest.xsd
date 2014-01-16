@@ -1,0 +1,33 @@
+<xsd:schema targetNamespace="http://www.tigo.com/TigoOnLine/AccountSummaryRequest" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.tigo.com/TigoOnLine/AccountSummaryRequest" xmlns:xs="http://www.tigo.com/TigoOnLine/AccountSummaryRequest" xmlns:header="http://xmlns.tigo.com/RequestHeader/V3">
+	<xsd:import schemaLocation="../../Common/XSD/RequestHeaderV3.xsd" namespace="http://xmlns.tigo.com/RequestHeader/V3"/>
+	<xsd:element name="getAccountSummaryRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="msisdn" minOccurs="1" maxOccurs="1">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="1"/>
+							<xsd:pattern value="502[0-9]*"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+<xsd:element name="GetAccountSummaryRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="header:RequestHeader"/>
+				<xsd:element name="RequestBody">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="getAccountSummaryRequest"/>
+						</xsd:sequence>
+						</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+
+</xsd:schema>

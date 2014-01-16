@@ -1,0 +1,43 @@
+<wsdl:definitions name="PS_GetTechServiceOrders" targetNamespace="http://xmlns.tigo.com/TigoOnline/Service/PS_GetTechServiceOrdersLocal/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.tigo.com/TigoOnline/Service/PS_GetTechServiceOrdersLocal/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:p="http://www.tigo.com/TigoOnLine/ServiceOrderResponse" xmlns:q="http://www.tigo.com/TigoOnLine/ServiceOrderRequest" xmlns:r="http://www.tigo.com/TigoOnLine/ServiceOrderFault">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://xmlns.tigo.com/TigoOnline/Service/PS_GetTechServiceOrdersLocal/">
+			<xsd:import schemaLocation="../XSD/ServiceOrderRequest.xsd" namespace="http://www.tigo.com/TigoOnLine/ServiceOrderRequest"/>
+            <xsd:import schemaLocation="../XSD/ServiceOrderResponse.xsd" namespace="http://www.tigo.com/TigoOnLine/ServiceOrderResponse"/>
+            <xsd:import schemaLocation="../XSD/ServiceOrderFault.xsd" namespace="http://www.tigo.com/TigoOnLine/ServiceOrderFault"/>
+     
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTechServiceOrdersLocalRequest">
+    <wsdl:part element="q:getTechServiceOrdersRequest" name="getTechServiceOrdersRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetTechServiceOrdersLocalResponse">
+    <wsdl:part element="p:getTechServiceOrdersResponse" name="getTechServiceOrdersResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetTechServiceOrdersLocalFault">
+  	<wsdl:part name="getTechServiceOrdersFault" element="r:getTechServiceOrdersFault"/>
+  </wsdl:message>
+  <wsdl:portType name="PS_GetTechServiceOrdersLocal">
+    <wsdl:operation name="GetTechServiceOrdersLocal">
+      <wsdl:input message="tns:GetTechServiceOrdersLocalRequest"/>
+      <wsdl:output message="tns:GetTechServiceOrdersLocalResponse"/>
+            <wsdl:fault name="fault" message="tns:GetTechServiceOrdersLocalFault"/>
+        </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PS_GetTechServiceOrdersLocalSOAP" type="tns:PS_GetTechServiceOrdersLocal">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetTechServiceOrdersLocal">
+      <soap:operation soapAction="http://xmlns.tigo.com/TigoOnline/Service/PS_GetTechServiceOrders/GetTechServiceOrders"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PS_GetTechServiceOrdersLocal">
+    <wsdl:port binding="tns:PS_GetTechServiceOrdersLocalSOAP" name="PS_GetTechServiceOrdersLocalSOAP">
+      <soap:address location="http://www.Tigo.com/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-. --><xs:schema xmlns:tns="http://www.bytesw.com/ns/tigo/sac/consumos" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.bytesw.com/ns/tigo/sac/consumos">
+
+<xs:element name="ConsultarConsumosRequest" type="tns:ConsultarConsumosRequest"></xs:element>
+
+<xs:element name="ConsultarConsumosResponse" type="tns:ConsultarConsumosResponse"></xs:element>
+
+<xs:complexType name="ConsultarConsumosRequest">
+<xs:sequence>
+<xs:element name="usuario" type="xs:string"></xs:element>
+<xs:element name="numeroTelefono" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ConsultarConsumosResponse">
+<xs:sequence>
+<xs:element name="DetalleConsumo" type="tns:detalleConsumoDTO" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="detalleConsumoDTO">
+<xs:sequence>
+<xs:element name="cuotaBasica" type="xs:double" nillable="true"></xs:element>
+<xs:element name="montoAdicional" type="xs:double" nillable="true"></xs:element>
+<xs:element name="resumenConsumoGPRS" type="tns:resumenConsumoGPRSDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="resumenConsumoMMS" type="tns:resumenConsumoMMSDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="resumenConsumoSMS" type="tns:resumenConsumoSMSDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="resumenConsumoVoz" type="tns:resumenConsumoVozDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="resumenRoamingGPRS" type="tns:detalleResumenBytesDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="resumenRoamingMMS" type="tns:resumenRoamingCantidadDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="resumenRoamingSMS" type="tns:resumenRoamingCantidadDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="resumenRoamingVoz" type="tns:resumenRoamingDuracionDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="totalConsumo" type="xs:double" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resumenConsumoGPRSDTO">
+<xs:sequence>
+<xs:element name="montoTotal" type="xs:double" nillable="true"></xs:element>
+<xs:element name="total" type="xs:long" nillable="true"></xs:element>
+<xs:element name="transferenciaAdicional" type="tns:detalleResumenBytesDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="transferenciaPlan" type="tns:detalleResumenBytesDTO" nillable="true" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="detalleResumenBytesDTO">
+<xs:sequence>
+<xs:element name="bytes" type="xs:long" nillable="true"></xs:element>
+<xs:element name="GB" type="xs:long" nillable="true"></xs:element>
+<xs:element name="KB" type="xs:long" nillable="true"></xs:element>
+<xs:element name="MB" type="xs:long" nillable="true"></xs:element>
+<xs:element name="monto" type="xs:double" nillable="true"></xs:element>
+<xs:element name="TB" type="xs:long" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resumenConsumoMMSDTO">
+<xs:sequence>
+<xs:element name="cantidadMMS" type="xs:long" nillable="true"></xs:element>
+<xs:element name="montoTotal" type="xs:double" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resumenConsumoSMSDTO">
+<xs:sequence>
+<xs:element name="cantidadMensajesRecibidos" type="xs:long" nillable="true"></xs:element>
+<xs:element name="mensajesAdicionales" type="tns:detalleResumenCantidadDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="mensajesDestinosEspecificos" type="tns:detalleResumenCantidadDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="mensajesPlan" type="tns:detalleResumenCantidadDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="mensajesUtilizadosPlan" type="tns:detalleResumenCantidadDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="montoTotalMensajes" type="xs:double" nillable="true"></xs:element>
+<xs:element name="cantidadTotalMensajes" type="xs:long" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="detalleResumenCantidadDTO">
+<xs:sequence>
+<xs:element name="cantidad" type="xs:long" nillable="true"></xs:element>
+<xs:element name="monto" type="xs:double" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resumenConsumoVozDTO">
+<xs:sequence>
+<xs:element name="cantidadLlamadasEntrantes" type="xs:long" nillable="true"></xs:element>
+<xs:element name="llamadasDestinosEspeciales" type="tns:detalleResumenDuracionDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="llamadasLargaDistancia" type="tns:detalleResumenDuracionDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="llamadasLocalesAdicionales" type="tns:detalleResumenDuracionDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="llamadasLocalesPlan" type="tns:detalleResumenDuracionDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="llamadasRecibidas" type="tns:detalleResumenDuracionDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="montoTotal" type="xs:double" nillable="true"></xs:element>
+<xs:element name="total" type="tns:duracionDTO" nillable="true" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="detalleResumenDuracionDTO">
+<xs:sequence>
+<xs:element name="duracion" type="tns:duracionDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="monto" type="xs:double" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="duracionDTO">
+<xs:sequence>
+<xs:element name="minutos" type="xs:long" nillable="true"></xs:element>
+<xs:element name="segundos" type="xs:long" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resumenRoamingCantidadDTO">
+<xs:sequence>
+<xs:element name="montoTotal" type="xs:double" nillable="true"></xs:element>
+<xs:element name="roamingEntrante" type="tns:detalleResumenCantidadDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="roamingSaliente" type="tns:detalleResumenCantidadDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="total" type="xs:double" nillable="true"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resumenRoamingDuracionDTO">
+<xs:sequence>
+<xs:element name="montoTotal" type="xs:double" nillable="true"></xs:element>
+<xs:element name="roamingEntrante" type="tns:detalleResumenDuracionDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="roamingSaliente" type="tns:detalleResumenDuracionDTO" nillable="true" minOccurs="0"></xs:element>
+<xs:element name="total" type="tns:duracionDTO" nillable="true" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

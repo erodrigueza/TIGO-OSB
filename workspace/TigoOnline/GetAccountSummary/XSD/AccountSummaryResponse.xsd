@@ -1,0 +1,120 @@
+<xsd:schema targetNamespace="http://www.tigo.com/TigoOnLine/AccountSummaryResponse" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.tigo.com/TigoOnLine/AccountSummaryResponse" xmlns:xs="http://www.tigo.com/TigoOnLine/AccountSummaryResponse" xmlns:header="http://xmlns.tigo.com/ResponseHeader/V3">
+
+	<xsd:import schemaLocation="../../Common/XSD/ResponseHeaderV3.xsd" namespace="http://xmlns.tigo.com/ResponseHeader/V3"/>
+	
+	<xsd:element name="GetAccountSummaryResponse">
+	<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="header:ResponseHeader"/>
+				<xsd:element name="RequestBody">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="getAccountSummaryResponse"/>
+						</xsd:sequence>
+						</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="getAccountSummaryResponse" type="xs:getAccountSummaryResponse"/>
+	<xsd:complexType name="getAccountSummaryResponse">
+		<xsd:sequence>
+			<xsd:element name="basicFee" type="xsd:double" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="additionalAmount" type="xsd:double" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="totalAmount" maxOccurs="1" minOccurs="0" type="xsd:double"/>
+			<xsd:element name="gprsSummary" type="xs:gprsSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="mmsSummary" type="xs:eventSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="smsSummary" type="xs:smsSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="voiceSummary" type="xs:voiceSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="roamingGprsSummary" maxOccurs="1" minOccurs="0" type="xs:tranferSummary"/>
+			<xsd:element name="roamingMmsSummary" type="xs:roamingEvent" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="roamingSmsSummary" type="xs:roamingEvent" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="roamingVoiceSummary" maxOccurs="1" minOccurs="0" type="xs:roamingVoiceSummary"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="gprsSummary">
+		<xsd:sequence>
+			<xsd:element name="totalAmount" type="xsd:double" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="total" minOccurs="0" maxOccurs="1" type="xsd:long"/>
+			<xsd:element name="includedTransfer" type="xs:tranferSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="additionalTransfer" type="xs:tranferSummary" maxOccurs="1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="smsSummary">
+		<xsd:sequence>
+			<xsd:element name="smsReceived" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="additionalSms" type="xs:eventSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="specificDestinies" type="xs:eventSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="includedSms" type="xs:eventSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="includedSmsUsed" type="xs:eventSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="totalAmount" type="xsd:double" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="totalSms" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="roamingVoiceSummary">
+		<xsd:sequence>
+			<xsd:element name="amount" type="xsd:double" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="incomingRoaming" type="xs:roamingVoice" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="outgoingRoaming" type="xs:roamingVoice" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="total" type="xs:time" maxOccurs="1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="roamingVoice">
+		<xsd:sequence>
+			<xsd:element name="duration" type="xs:time" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="amount" type="xsd:double" maxOccurs="1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="voiceSummary">
+		<xsd:sequence>
+			<xsd:element name="incomingCalls" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="specialDestinies" type="xs:timeSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="longDistance" type="xs:timeSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="local" type="xs:timeSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="localIncluded" type="xs:timeSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="incomingCallsSummary" maxOccurs="1" minOccurs="0" type="xs:timeSummary"/>
+			<xsd:element name="totalAmount" type="xsd:double" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="totalTime" maxOccurs="1" minOccurs="0" type="xs:time"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="roamingEvent">
+		<xsd:sequence>
+			<xsd:element name="amount" type="xsd:double" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="incomingRoaming" type="xs:eventSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="outgoingRoaming" type="xs:eventSummary" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="total" type="xsd:double" maxOccurs="1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="time">
+		<xsd:sequence>
+			<xsd:element name="minutes" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="seconds" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="timeSummary">
+		<xsd:sequence>
+			<xsd:element name="minutes" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="seconds" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="amount" type="xsd:double" maxOccurs="1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="eventSummary">
+		<xsd:sequence>
+			<xsd:element name="quantity" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="amount" type="xsd:double" maxOccurs="1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="tranferSummary">
+		<xsd:sequence>
+			<xsd:element name="bytesUsed" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="gbUsed" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="kbUsed" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="mbUsed" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="tbUsed" type="xsd:long" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="amount" type="xsd:double" maxOccurs="1" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

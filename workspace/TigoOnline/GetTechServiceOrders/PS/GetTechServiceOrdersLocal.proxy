@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/services/security/config" xmlns:aler="http://www.bea.com/wli/monitoring/alert">
+  <ser:coreEntry isProxy="true" isEnabled="true" isAutoPublish="false" isTracingEnabled="false">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con5:SoapBindingType" xmlns:con5="http://www.bea.com/wli/sb/services/bindings/config">
+      <con5:wsdl ref="TigoOnline/GetTechServiceOrders/WSDL/PS_GetTechServiceOrdersLocal"/>
+      <con5:binding>
+        <con5:name>PS_GetTechServiceOrdersLocalSOAP</con5:name>
+        <con5:namespace>http://xmlns.tigo.com/TigoOnline/Service/PS_GetTechServiceOrdersLocal/</con5:namespace>
+      </con5:binding>
+      <con5:selector type="SOAP body"/>
+      <con5:WSI-compliant>false</con5:WSI-compliant>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/TigoOnline/GetTechServiceOrders/PS/GetTechServiceOrdersLocal</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router errorHandler="_onErrorHandler-4042498294190279652--48cce99a.1414b18bacd.-7dcf">
+    <con:pipeline type="request" name="GetTechServiceOrdersPipelinePair_request">
+      <con:stage name="validationStage">
+        <con:comment>Se realiza la validación del parametro de entrada, el cual es obligatorio</con:comment>
+        <con:context>
+          <con1:varNsDecl namespace="http://www.tigo.com/TigoOnLine/AccountSummaryRequest" prefix="acc"/>
+          <con1:varNsDecl namespace="http://www.tigo.com/TigoOnLine/ServiceOrderRequest" prefix="ser"/>
+        </con:context>
+        <con:actions>
+          <con2:validate>
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7fdd</con1:id>
+            <con2:schema ref="TigoOnline/GetTechServiceOrders/XSD/ServiceOrderRequest"/>
+            <con2:schemaElement xmlns:ser1="http://www.tigo.com/TigoOnLine/ServiceOrderRequest">ser1:getTechServiceOrdersRequest</con2:schemaElement>
+            <con2:varName>body</con2:varName>
+            <con2:location>
+              <con1:xpathText>./ser:getTechServiceOrdersRequest</con1:xpathText>
+            </con2:location>
+          </con2:validate>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeAccesosStage">
+        <con:comment>Se realiza la invocación del servicio de Accesos para solicitar el token</con:comment>
+        <con:context>
+          <con1:varNsDecl namespace="http://www.tigo.com/TigoOnLine/AccountSummaryRequest" prefix="acc"/>
+          <con1:varNsDecl namespace="http://www.tigo.com/TigoOnLine/ServiceOrderRequest" prefix="ser"/>
+        </con:context>
+        <con:actions>
+          <con2:assign varName="serviceRequest">
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7fa1</con1:id>
+            <con2:expr>
+              <con1:xqueryText>$body/ser:getTechServiceOrdersRequest</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="accesos">
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7f85</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/Common/XQUERY/Accesos"/>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="usuario">
+            <con1:id>_ActionId-1319355533344174607-733acab6.1414da42179.-7fdc</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/GetTechServiceOrders/XQUERY/ReadCad"/>
+                <con1:param name="cadena">
+                  <con1:path>fn-bea:serialize($accesos)</con1:path>
+                </con1:param>
+                <con1:param name="parametro">
+                  <con1:path>'usuario'</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="clave">
+            <con1:id>_ActionId-1319355533344174607-733acab6.1414da42179.-7fbb</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/GetTechServiceOrders/XQUERY/ReadCad"/>
+                <con1:param name="cadena">
+                  <con1:path>fn-bea:serialize($accesos)</con1:path>
+                </con1:param>
+                <con1:param name="parametro">
+                  <con1:path>'clave'</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="accesosRequest">
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7f23</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/GetTechServiceOrders/XQUERY/TransformToAccesoRequest"/>
+                <con1:param name="clave1">
+                  <con1:path>$clave</con1:path>
+                </con1:param>
+                <con1:param name="usuario1">
+                  <con1:path>$usuario</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:wsCallout>
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7fbf</con1:id>
+            <con2:service xsi:type="ref:BusinessServiceRef" ref="TigoOnline/Common/BS/Accesos" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con2:operation>ValidarAccesoAtencionCliente</con2:operation>
+            <con2:request>
+              <con2:body>$accesosRequest</con2:body>
+            </con2:request>
+            <con2:response>
+              <con2:body>accesosResponse</con2:body>
+            </con2:response>
+            <con2:requestTransform/>
+            <con2:responseTransform/>
+          </con2:wsCallout>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeIncidenciasStage">
+        <con:comment>Se realiza la invocación al servicio de Incidencias para obtener el detalle de las ordenes de servicio</con:comment>
+        <con:context>
+          <con1:varNsDecl namespace="http://www.tigo.com/TigoOnLine/AccountSummaryRequest" prefix="acc"/>
+          <con1:varNsDecl namespace="http://www.tigo.com/TigoOnLine/ServiceOrderRequest" prefix="ser"/>
+        </con:context>
+        <con:actions>
+          <con2:assign varName="incidenciasRequest">
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7ee7</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/GetTechServiceOrders/XQUERY/TransformToIncidenciasRequest"/>
+                <con1:param name="number">
+                  <con1:path>fn:substring($body/ser:getTechServiceOrdersRequest/ser:msisdn,
+     4)</con1:path>
+                </con1:param>
+                <con1:param name="token">
+                  <con1:path>fn:data($accesosResponse/*:usuarioAutenticado)</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:wsCallout>
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7f0e</con1:id>
+            <con2:service xsi:type="ref:BusinessServiceRef" ref="TigoOnline/GetTechServiceOrders/BS/Incidencias" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con2:operation>ConsultarOrdenServicioTecnico</con2:operation>
+            <con2:request>
+              <con2:body>$incidenciasRequest</con2:body>
+            </con2:request>
+            <con2:response>
+              <con2:body>incidenciasResponse</con2:body>
+            </con2:response>
+            <con2:requestTransform/>
+            <con2:responseTransform/>
+          </con2:wsCallout>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="GetTechServiceOrdersPipelinePair_response">
+      <con:stage name="responseStage">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="getTechServiceOrders">
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7ea5</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/GetTechServiceOrders/XQUERY/TransformFromIncidenciasResponse"/>
+                <con1:param name="consultarOrdenServicioTecnicoResponse1">
+                  <con1:path>$incidenciasResponse</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:replace varName="body" contents-only="true">
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7e66</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText>$getTechServiceOrders</con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeAuditStage">
+        <con:comment>Se reliza la invocación del servicio AuditProducerOSB para la notificación de la consulta de las ordenes se llevo acabo satisfactoriamente</con:comment>
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="auditRequest">
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7ded</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/GetTechServiceOrders/XQUERY/TransformToAuditRequest"/>
+                <con1:param name="respuesta">
+                  <con1:path>fn:concat(fn-bea:serialize($serviceRequest),fn-bea:serialize($getTechServiceOrders))</con1:path>
+                </con1:param>
+                <con1:param name="indentificador">
+                  <con1:path>'GetTechServiceOrdersLocal'</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con3:route>
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7e2e</con1:id>
+            <con3:service ref="TigoOnline/Common/BS/AuditProducerOSB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>execute</con3:operation>
+            <con3:outboundTransform>
+              <con2:replace varName="body" contents-only="true">
+                <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7dd0</con1:id>
+                <con2:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con2:location>
+                <con2:expr>
+                  <con1:xqueryText>$auditRequest</con1:xqueryText>
+                </con2:expr>
+              </con2:replace>
+            </con3:outboundTransform>
+          </con3:route>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-4042498294190279652--48cce99a.1414b18bacd.-7dcf">
+      <con:stage name="exceptionStage">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="errorCode">
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7daf</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/GetTechServiceOrders/XQUERY/TranformFaultToErrorCode"/>
+                <con1:param name="reason">
+                  <con1:path>fn-bea:serialize($fault/ctx:details)</con1:path>
+                </con1:param>
+                <con1:param name="codeError">
+                  <con1:path>fn:data($fault/*:errorCode)</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="dvmErrorTable">
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7d92</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/Common/XQUERY/ErrorValuesDvm"/>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="faultResponse">
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7d65</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/GetTechServiceOrders/XQUERY/TransformException_DVM"/>
+                <con1:param name="dvmTable">
+                  <con1:path>$dvmErrorTable</con1:path>
+                </con1:param>
+                <con1:param name="CodeErrorOSB">
+                  <con1:path>$errorCode</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:replace varName="body" contents-only="true">
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7d46</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText>$faultResponse</con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeErrorStage">
+        <con:comment>Realiza la invocación del servico ErrorProducerOSB para la notificación de la excepción</con:comment>
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="errorRequest">
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7d0f</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/GetTechServiceOrders/XQUERY/TransformToErrorRequest"/>
+                <con1:param name="accion">
+                  <con1:path>'GetTechServiceOrdersLocal'</con1:path>
+                </con1:param>
+                <con1:param name="mensajeError">
+                  <con1:path>fn:concat(fn-bea:serialize($serviceRequest),
+     fn-bea:serialize($faultResponse))</con1:path>
+                </con1:param>
+                <con1:param name="tipoAlarma">
+                  <con1:path>xs:string($fault/ctx:errorCode)</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con3:route>
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7d31</con1:id>
+            <con3:service ref="TigoOnline/Common/BS/ErrorProducerOSB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>execute</con3:operation>
+            <con3:outboundTransform>
+              <con2:replace varName="body" contents-only="true">
+                <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7ce7</con1:id>
+                <con2:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con2:location>
+                <con2:expr>
+                  <con1:xqueryText>$errorRequest</con1:xqueryText>
+                </con2:expr>
+              </con2:replace>
+            </con3:outboundTransform>
+          </con3:route>
+          <con1:resume>
+            <con1:id>_ActionId-4042498294190279652--48cce99a.1414b18bacd.-7cc4</con1:id>
+          </con1:resume>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:pipeline-node name="GetTechServiceOrdersPipelinePair">
+        <con:request>GetTechServiceOrdersPipelinePair_request</con:request>
+        <con:response>GetTechServiceOrdersPipelinePair_response</con:response>
+      </con:pipeline-node>
+    </con:flow>
+  </ser:router>
+  <ser:alertRules/>
+</xml-fragment>

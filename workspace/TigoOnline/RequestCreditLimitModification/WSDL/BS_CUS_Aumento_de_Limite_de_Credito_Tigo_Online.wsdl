@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://cus_aumento_de_limite_de_credito_tigo_online"
+	xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://cus_aumento_de_limite_de_credito_tigo_online"
+	xmlns:intf="http://cus_aumento_de_limite_de_credito_tigo_online"
+	xmlns:tns1="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:types>
+		<schema elementFormDefault="qualified" targetNamespace="http://DefaultNamespace"
+			xmlns="http://www.w3.org/2001/XMLSchema">
+			<element name="Inicio">
+				<complexType>
+					<sequence>
+						<element name="Limite" type="xsd:string" />
+						<element name="Telefono" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="InicioResponse">
+				<complexType>
+					<sequence>
+						<element name="InicioReturn" type="xsd:int" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</wsdl:types>
+
+	<wsdl:message name="InicioResponse">
+
+		<wsdl:part element="tns1:InicioResponse" name="parameters">
+
+		</wsdl:part>
+
+	</wsdl:message>
+
+	<wsdl:message name="InicioRequest">
+
+		<wsdl:part element="tns1:Inicio" name="parameters">
+
+		</wsdl:part>
+
+	</wsdl:message>
+
+	<wsdl:portType name="CUS_Aumento_de_Limite_de_Credito_Tigo_Online">
+
+		<wsdl:operation name="Inicio">
+
+			<wsdl:input message="impl:InicioRequest" name="InicioRequest">
+
+			</wsdl:input>
+
+			<wsdl:output message="impl:InicioResponse" name="InicioResponse">
+
+			</wsdl:output>
+
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+	<wsdl:binding
+		name="CUS_Aumento_de_Limite_de_Credito_Tigo_Online.hwsSoapBinding"
+		type="impl:CUS_Aumento_de_Limite_de_Credito_Tigo_Online">
+
+		<wsdlsoap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="Inicio">
+
+			<wsdlsoap:operation soapAction="" />
+
+			<wsdl:input name="InicioRequest">
+
+				<wsdlsoap:body use="literal" />
+
+			</wsdl:input>
+
+			<wsdl:output name="InicioResponse">
+
+				<wsdlsoap:body use="literal" />
+
+			</wsdl:output>
+
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+	<wsdl:service name="CUS_Aumento_de_Limite_de_Credito_Tigo_OnlineService">
+
+		<wsdl:port
+			binding="impl:CUS_Aumento_de_Limite_de_Credito_Tigo_Online.hwsSoapBinding"
+			name="CUS_Aumento_de_Limite_de_Credito_Tigo_Online.hws">
+
+			<wsdlsoap:address
+				location="http://tigobizflow.tigo.com.gt/bizflow/data/webservice/CUS_Aumento_de_Limite_de_Credito_Tigo_Online.hws" />
+
+		</wsdl:port>
+
+	</wsdl:service>
+
+</wsdl:definitions>

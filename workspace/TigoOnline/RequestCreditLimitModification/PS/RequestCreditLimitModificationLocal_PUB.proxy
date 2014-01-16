@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config" xmlns:con4="http://www.bea.com/wli/sb/typesystem/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="TigoOnline/RequestCreditLimitModification/WSDL/PS_RequestCreditLimitModificationLocal"/>
+      <con:binding>
+        <con:name>RequestCreditLimitModificationPortTypeSOAP12Binding</con:name>
+        <con:namespace>http://xmlns.tigo.com/TigoBusiness/RequestCreditLimitModification/Service/V1</con:namespace>
+      </con:binding>
+      <con:selector type="SOAP body"/>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModificationLocal</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router errorHandler="_onErrorHandler-5878245929628004484--3271e85e.1427198148c.-7bc8">
+    <con:pipeline type="request" name="RequestCreditLimitModificationPipelinePair_request" errorHandler="_onErrorHandler-6173764569137403933--251c68d2.142d8581ea8.-7eab">
+      <con:stage name="validationStage">
+        <con:context>
+          <con1:varNsDecl namespace="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationRequest/V1/schema" prefix="sch"/>
+        </con:context>
+        <con:actions>
+          <con2:validate>
+            <con1:id>_ActionId-5878245929628004484--3271e85e.1427198148c.-7bfa</con1:id>
+            <con2:schema ref="TigoOnline/RequestCreditLimitModification/XSD/RequestCreditLimitModificationRequest"/>
+            <con2:schemaElement xmlns:sch="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationRequest/V1/schema">sch:RequestCreditLimitModificationRequest</con2:schemaElement>
+            <con2:varName>body</con2:varName>
+            <con2:location>
+              <con1:xpathText>./sch:RequestCreditLimitModificationRequest</con1:xpathText>
+            </con2:location>
+          </con2:validate>
+          <con2:assign varName="serviceRequest">
+            <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7dc2</con1:id>
+            <con2:expr>
+              <con1:xqueryText>$body/sch:RequestCreditLimitModificationRequest</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="ticketId">
+            <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7dc6</con1:id>
+            <con2:expr>
+              <con1:xqueryText>&lt;ns0:InicioResponse xmlns:ns0="http://DefaultNamespace"/></con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="resultOperation">
+            <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7db0</con1:id>
+            <con2:expr>
+              <con1:xqueryText>fn:false()</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeGetSubscriberInfo">
+        <con:context>
+          <con1:varNsDecl namespace="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationRequest/V1/schema" prefix="sch"/>
+          <con1:varNsDecl namespace="http://services.tigo.com.gt/GetSubscriberGeneralInfo/xsd/GetSubscriberGeneralInfo" prefix="get"/>
+          <con4:variable name="SubscriberLabel" path="$subscriberResponse" asChild="false">
+            <con4:schema ref="TigoOnline/RequestCreditLimitModification/XSD/GetSubscriberGeneralInfo" element="Subscriber"/>
+          </con4:variable>
+        </con:context>
+        <con:actions>
+          <con2:assign varName="subscriberRequest">
+            <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7ca2</con1:id>
+            <con2:expr>
+              <con1:xqueryText>&lt;get:string xmlns:get="http://services.tigo.com.gt/GetSubscriberGeneralInfo" >
+{ fn:replace($body/sch:RequestCreditLimitModificationRequest/sch:requestBody/sch:msisdn, '\d{3}', '') }
+&lt;/get:string></con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:wsCallout>
+            <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7dbd</con1:id>
+            <con2:service xsi:type="ref:BusinessServiceRef" ref="GetSubscriberInfo/BusinessServices/GetSubscriberGeneralInfoBS" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con2:operation>RetrieveSubscriberInfo</con2:operation>
+            <con2:request>
+              <con2:body>$subscriberRequest</con2:body>
+            </con2:request>
+            <con2:response>
+              <con2:body>subscriberResponse</con2:body>
+            </con2:response>
+            <con2:requestTransform/>
+            <con2:responseTransform/>
+          </con2:wsCallout>
+          <con2:assign varName="product">
+            <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7cc2</con1:id>
+            <con2:expr>
+              <con1:xqueryText>fn-bea:trim(fn:data($subscriberResponse/get:Product))</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="productsList">
+            <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7cee</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/RequestCreditLimitModification/XQUERY/Productos"/>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="productIsValid">
+            <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7dbb</con1:id>
+            <con2:expr>
+              <con1:xqueryText>fn:contains($productsList,$product)</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="InvokeChangeCreditLimit">
+        <con:context>
+          <con1:varNsDecl namespace="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationRequest/V1/schema" prefix="sch"/>
+          <con1:varNsDecl namespace="http://www.bytesw.com/ns/tigo/sac/accesos" prefix="acc"/>
+          <con4:variable name="AccesoReponseLabel" path="$accesosResponse" asChild="false">
+            <con4:schema ref="TigoOnline/Common/XSD/Accesos" element="ValidarAccesoAtencionClienteResponse"/>
+          </con4:variable>
+        </con:context>
+        <con:actions>
+          <con2:ifThenElse>
+            <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7e0f</con1:id>
+            <con2:case>
+              <con2:condition>
+                <con1:xqueryText>xs:boolean($productIsValid)</con1:xqueryText>
+              </con2:condition>
+              <con2:actions>
+                <con2:ifThenElse>
+                  <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7e0d</con1:id>
+                  <con2:case>
+                    <con2:condition>
+                      <con1:xqueryText>fn:compare($body/sch:RequestCreditLimitModificationRequest/sch:requestBody/sch:modificationType,'DEFINITIVE') = 0</con1:xqueryText>
+                    </con2:condition>
+                    <con2:actions>
+                      <con2:assign varName="AumentoLimiteRequest">
+                        <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7d8e</con1:id>
+                        <con2:expr>
+                          <con1:xqueryText><![CDATA[<def:Inicio xmlns:def="http://DefaultNamespace">
+	<def:Limite>{ fn:data($body/sch:RequestCreditLimitModificationRequest/sch:requestBody/sch:amount) }</def:Limite>
+	<def:Telefono>{ fn:data($body/sch:RequestCreditLimitModificationRequest/sch:requestBody/sch:msisdn) }</def:Telefono>
+</def:Inicio>]]></con1:xqueryText>
+                        </con2:expr>
+                      </con2:assign>
+                      <con2:wsCallout>
+                        <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7d68</con1:id>
+                        <con2:service xsi:type="ref:BusinessServiceRef" ref="TigoOnline/RequestCreditLimitModification/BS/CUS_Aumento_de_Limite_de_Credito_Tigo_Online" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con2:operation>Inicio</con2:operation>
+                        <con2:request>
+                          <con2:body>$AumentoLimiteRequest</con2:body>
+                        </con2:request>
+                        <con2:response>
+                          <con2:body>AumentoLimiteResponse</con2:body>
+                        </con2:response>
+                        <con2:requestTransform/>
+                        <con2:responseTransform/>
+                      </con2:wsCallout>
+                      <con2:assign varName="ticketId">
+                        <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7d3d</con1:id>
+                        <con2:expr>
+                          <con1:xqueryText>$AumentoLimiteResponse</con1:xqueryText>
+                        </con2:expr>
+                      </con2:assign>
+                      <con2:assign varName="resultOperation">
+                        <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7d25</con1:id>
+                        <con2:expr>
+                          <con1:xqueryText>fn:true()</con1:xqueryText>
+                        </con2:expr>
+                      </con2:assign>
+                    </con2:actions>
+                  </con2:case>
+                  <con2:case>
+                    <con2:condition>
+                      <con1:xqueryText>fn:compare($body/sch:RequestCreditLimitModificationRequest/sch:requestBody/sch:modificationType,'TEMPORARY') = 0</con1:xqueryText>
+                    </con2:condition>
+                    <con2:actions>
+                      <con2:assign varName="accesos">
+                        <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7ee7</con1:id>
+                        <con2:expr>
+                          <con1:xqueryTransform>
+                            <con1:resource ref="TigoOnline/Common/XQUERY/Accesos"/>
+                          </con1:xqueryTransform>
+                        </con2:expr>
+                      </con2:assign>
+                      <con2:assign varName="accesosRequest">
+                        <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7ee5</con1:id>
+                        <con2:expr>
+                          <con1:xqueryTransform>
+                            <con1:resource ref="TigoOnline/Common/XQUERY/TransformToAccesosRequest"/>
+                            <con1:param name="accesosInput">
+                              <con1:path>$accesos</con1:path>
+                            </con1:param>
+                          </con1:xqueryTransform>
+                        </con2:expr>
+                      </con2:assign>
+                      <con2:wsCallout>
+                        <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7ee3</con1:id>
+                        <con2:service xsi:type="ref:BusinessServiceRef" ref="TigoOnline/Common/BS/Accesos" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con2:operation>ValidarAccesoAtencionCliente</con2:operation>
+                        <con2:request>
+                          <con2:body>$accesosRequest</con2:body>
+                        </con2:request>
+                        <con2:response>
+                          <con2:body>accesosResponse</con2:body>
+                        </con2:response>
+                        <con2:requestTransform/>
+                        <con2:responseTransform/>
+                      </con2:wsCallout>
+                      <con2:assign varName="usuarioAutenticado">
+                        <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7ee1</con1:id>
+                        <con2:expr>
+                          <con1:xqueryText>fn:data($accesosResponse/usuarioAutenticado)</con1:xqueryText>
+                        </con2:expr>
+                      </con2:assign>
+                      <con2:ifThenElse>
+                        <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7e2b</con1:id>
+                        <con2:case>
+                          <con2:condition>
+                            <con1:xqueryText>fn:count($serviceRequest/*:requestBody/*:days) = 1</con1:xqueryText>
+                          </con2:condition>
+                          <con2:actions>
+                            <con2:assign varName="AdminAbonadoRequest">
+                              <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7e29</con1:id>
+                              <con2:expr>
+                                <con1:xqueryTransform>
+                                  <con1:resource ref="TigoOnline/RequestCreditLimitModification/XQUERY/TransformToAdminAbonadoRequest"/>
+                                  <con1:param name="userAutenticado">
+                                    <con1:path>$usuarioAutenticado</con1:path>
+                                  </con1:param>
+                                  <con1:param name="requestCreditLimitModificationRequest">
+                                    <con1:path>$serviceRequest</con1:path>
+                                  </con1:param>
+                                </con1:xqueryTransform>
+                              </con2:expr>
+                            </con2:assign>
+                            <con2:wsCallout>
+                              <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7e27</con1:id>
+                              <con2:service xsi:type="ref:BusinessServiceRef" ref="TigoOnline/RequestCreditLimitModification/BS/AdministracionAbonado" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                              <con2:operation>CambiarLimiteCredito</con2:operation>
+                              <con2:request>
+                                <con2:body>$AdminAbonadoRequest</con2:body>
+                              </con2:request>
+                              <con2:response>
+                                <con2:body>AdminAbonadoResponse</con2:body>
+                              </con2:response>
+                              <con2:requestTransform/>
+                              <con2:responseTransform/>
+                            </con2:wsCallout>
+                            <con2:assign varName="resultOperation">
+                              <con1:id>_ActionId-1106649759083593897-41a9b6bb.14280c211b9.-7e23</con1:id>
+                              <con2:expr>
+                                <con1:xqueryText>fn:true()</con1:xqueryText>
+                              </con2:expr>
+                            </con2:assign>
+                          </con2:actions>
+                        </con2:case>
+                        <con2:default>
+                          <con2:Error>
+                            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7cee</con1:id>
+                            <con2:errCode>BEA-382505</con2:errCode>
+                          </con2:Error>
+                        </con2:default>
+                      </con2:ifThenElse>
+                    </con2:actions>
+                  </con2:case>
+                  <con2:default/>
+                </con2:ifThenElse>
+              </con2:actions>
+            </con2:case>
+            <con2:default>
+              <con2:Error>
+                <con1:id>_ActionId-5879193105209975478-3350b50b.142c9e65b91.-7ecb</con1:id>
+                <con2:errCode>NEG-038</con2:errCode>
+              </con2:Error>
+            </con2:default>
+          </con2:ifThenElse>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="RequestCreditLimitModificationPipelinePair_response">
+      <con:stage name="responseStage">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="serviceResponse">
+            <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7f7f</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/RequestCreditLimitModification/XQUERY/TransformToCreditLimitResponse"/>
+                <con1:param name="resultOper">
+                  <con1:path>xs:boolean($resultOperation)</con1:path>
+                </con1:param>
+                <con1:param name="inicioResponse">
+                  <con1:path>$ticketId</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con2:replace varName="body" contents-only="true">
+            <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7f5f</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText>$serviceResponse</con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeAuditProducer" errorHandler="_onErrorHandler-7665446336614935335--32d87d8d.142ecbea2d6.-8000">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="auditRequest">
+            <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7f41</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/Common/XQUERY/TransformToAuditRequest"/>
+                <con1:param name="respuesta">
+                  <con1:path>fn:concat(fn-bea:serialize($serviceRequest),fn-bea:serialize($serviceResponse))</con1:path>
+                </con1:param>
+                <con1:param name="indentificador">
+                  <con1:path>'RequestCreditLimitModification'</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con3:route>
+            <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7f23</con1:id>
+            <con3:service ref="TigoOnline/Common/BS/AuditProducerOSB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>execute</con3:operation>
+            <con3:outboundTransform>
+              <con2:replace varName="body" contents-only="true">
+                <con1:id>_ActionId-8832198481614143880-1b202b84.1427b9c3ec1.-7f00</con1:id>
+                <con2:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con2:location>
+                <con2:expr>
+                  <con1:xqueryText>$auditRequest</con1:xqueryText>
+                </con2:expr>
+              </con2:replace>
+            </con3:outboundTransform>
+          </con3:route>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-5878245929628004484--3271e85e.1427198148c.-7bc8">
+      <con:stage name="saveRequestCreditLimitModResponse">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="faultResponse">
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7d34</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/Common/XQUERY/TransformFaultToResponseHeader"/>
+                <con1:param name="fault">
+                  <con1:path>$fault</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeErrorProducer">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="errorRequest">
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7dce</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/Common/XQUERY/TransformToErrorRequest"/>
+                <con1:param name="accion">
+                  <con1:path>'RequestCreditLimitModification'</con1:path>
+                </con1:param>
+                <con1:param name="mensajeError">
+                  <con1:path>fn:concat(fn-bea:serialize($serviceRequest),fn-bea:serialize($faultResponse))</con1:path>
+                </con1:param>
+                <con1:param name="tipoAlarma">
+                  <con1:path>fn:data($fault/ctx:errorCode)</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con3:route>
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7db6</con1:id>
+            <con3:service ref="TigoOnline/Common/BS/ErrorProducerOSB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>execute</con3:operation>
+            <con3:outboundTransform>
+              <con2:replace varName="body" contents-only="true">
+                <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7d54</con1:id>
+                <con2:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con2:location>
+                <con2:expr>
+                  <con1:xqueryText>$errorRequest</con1:xqueryText>
+                </con2:expr>
+              </con2:replace>
+            </con3:outboundTransform>
+          </con3:route>
+        </con:actions>
+      </con:stage>
+      <con:stage name="responseErrorServiceLocal">
+        <con:context/>
+        <con:actions>
+          <con2:replace varName="body" contents-only="true">
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7d85</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText>$faultResponse</con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+          <con1:reply isError="true">
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7d6c</con1:id>
+          </con1:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-6173764569137403933--251c68d2.142d8581ea8.-7eab">
+      <con:stage name="ReplaceCodeError">
+        <con:context/>
+        <con:actions>
+          <con2:ifThenElse>
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7ea2</con1:id>
+            <con2:case>
+              <con2:condition>
+                <con1:xqueryText>fn:contains(fn-bea:serialize($fault/ctx:details), "No puede cambiarse el limite de credito temporal porque existe uno vigente")</con1:xqueryText>
+              </con2:condition>
+              <con2:actions>
+                <con2:assign varName="errorCode">
+                  <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7ea1</con1:id>
+                  <con2:expr>
+                    <con1:xqueryText>"NEG-039"</con1:xqueryText>
+                  </con2:expr>
+                </con2:assign>
+              </con2:actions>
+            </con2:case>
+            <con2:case>
+              <con2:condition>
+                <con1:xqueryText>fn:contains(fn-bea:serialize($fault/ctx:details), "El numero teléfonico ingresado no existe") or fn:contains(fn-bea:serialize($fault/ctx:details), "El número teléfonico ingresado no es un número TIGO")</con1:xqueryText>
+              </con2:condition>
+              <con2:actions>
+                <con2:assign varName="errorCode">
+                  <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7ea0</con1:id>
+                  <con2:expr>
+                    <con1:xqueryText>"NEG-001"</con1:xqueryText>
+                  </con2:expr>
+                </con2:assign>
+              </con2:actions>
+            </con2:case>
+            <con2:default>
+              <con2:assign varName="errorCode">
+                <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7e9f</con1:id>
+                <con2:expr>
+                  <con1:xqueryText>fn:data($fault/ctx:errorCode)</con1:xqueryText>
+                </con2:expr>
+              </con2:assign>
+            </con2:default>
+          </con2:ifThenElse>
+        </con:actions>
+      </con:stage>
+      <con:stage name="callMapResponse">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="mapResponseRequest">
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7e94</con1:id>
+            <con2:expr>
+              <con1:xqueryText><![CDATA[<map:InputData xmlns:map="http://www.tigo.com.gt/MapResponseStructure">
+	<map:ResponseCode>{ $errorCode }</map:ResponseCode>
+	<map:ConsumerSystem>Generic</map:ConsumerSystem>
+	<map:SourceSystem>OSB</map:SourceSystem>
+	<map:Message/>
+</map:InputData>]]></con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:wsCallout>
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7e93</con1:id>
+            <con2:service xsi:type="ref:BusinessServiceRef" ref="TigoOnline/Common/BS/MapResponse" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con2:operation>process</con2:operation>
+            <con2:request>
+              <con2:body>$mapResponseRequest</con2:body>
+            </con2:request>
+            <con2:response>
+              <con2:body>mapResponseResponse</con2:body>
+            </con2:response>
+            <con2:requestTransform/>
+            <con2:responseTransform/>
+          </con2:wsCallout>
+          <con2:ifThenElse>
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7c8b</con1:id>
+            <con2:case>
+              <con2:condition>
+                <con1:xqueryText>fn:string-length(data($mapResponseResponse/*:MessageResponse)) = 0</con1:xqueryText>
+              </con2:condition>
+              <con2:actions>
+                <con2:assign varName="mapResponseResponse">
+                  <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7c71</con1:id>
+                  <con2:expr>
+                    <con1:xqueryText><![CDATA[<ns0:ResponseData xmlns:ns0="http://www.tigo.com.gt/MapResponseStructure">
+    <ns0:CodeResponse>DES-999</ns0:CodeResponse>
+    <ns0:MessageResponse>Cualquier otro error no contemplado</ns0:MessageResponse>
+</ns0:ResponseData>]]></con1:xqueryText>
+                  </con2:expr>
+                </con2:assign>
+              </con2:actions>
+            </con2:case>
+            <con2:default/>
+          </con2:ifThenElse>
+        </con:actions>
+      </con:stage>
+      <con:stage name="SaveRequestCreditLimitModResponse">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="faultResponse">
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7e9d</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/Common/XQUERY/TransformMapResponse"/>
+                <con1:param name="responseData">
+                  <con1:path>$mapResponseResponse</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="invokeErrorProducer">
+        <con:context/>
+        <con:actions>
+          <con2:assign varName="errorRequest">
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7e99</con1:id>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="TigoOnline/Common/XQUERY/TransformToErrorRequest"/>
+                <con1:param name="accion">
+                  <con1:path>'RequestCreditLimitModification'</con1:path>
+                </con1:param>
+                <con1:param name="mensajeError">
+                  <con1:path>fn:concat(fn-bea:serialize($serviceRequest),fn-bea:serialize($faultResponse))</con1:path>
+                </con1:param>
+                <con1:param name="tipoAlarma">
+                  <con1:path>$errorCode</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:assign>
+          <con3:route>
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7e98</con1:id>
+            <con3:service ref="TigoOnline/Common/BS/ErrorProducerOSB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:operation>execute</con3:operation>
+            <con3:outboundTransform>
+              <con2:replace varName="body" contents-only="true">
+                <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7e97</con1:id>
+                <con2:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con2:location>
+                <con2:expr>
+                  <con1:xqueryText>$errorRequest</con1:xqueryText>
+                </con2:expr>
+              </con2:replace>
+            </con3:outboundTransform>
+          </con3:route>
+        </con:actions>
+      </con:stage>
+      <con:stage name="ResponsePipeLine">
+        <con:context/>
+        <con:actions>
+          <con2:replace varName="body" contents-only="true">
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7e84</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryText>$faultResponse</con1:xqueryText>
+            </con2:expr>
+          </con2:replace>
+          <con1:reply isError="false">
+            <con1:id>_ActionId-6173764569137403933--251c68d2.142d8581ea8.-7e83</con1:id>
+          </con1:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-7665446336614935335--32d87d8d.142ecbea2d6.-8000">
+      <con:stage name="continue">
+        <con:context/>
+        <con:actions>
+          <con1:resume>
+            <con1:id>_ActionId-7665446336614935335--32d87d8d.142ecbea2d6.-7fd4</con1:id>
+          </con1:resume>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:pipeline-node name="RequestCreditLimitModificationPipelinePair">
+        <con:request>RequestCreditLimitModificationPipelinePair_request</con:request>
+        <con:response>RequestCreditLimitModificationPipelinePair_response</con:response>
+      </con:pipeline-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

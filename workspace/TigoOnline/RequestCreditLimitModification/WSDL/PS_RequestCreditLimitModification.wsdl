@@ -1,0 +1,74 @@
+<wsdl:definitions name="RequestCreditLimitModificationService"
+	targetNamespace="http://xmlns.tigo.com/TigoBusiness/RequestCreditLimitModification/Service/V1"
+	xmlns:tns="http://xmlns.tigo.com/TigoBusiness/RequestCreditLimitModification/Service/V1"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:ns1="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationRequest/V1/schema"
+	xmlns:ns2="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationResponse/V1/schema"
+	xmlns:rh="http://xmlns.tigo.com/ResponseHeader/V3" 
+	xmlns:reqH="http://xmlns.tigo.com/RequestHeader/V3">
+
+	<wsdl:types>
+		<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<xsd:import
+				namespace="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationRequest/V1/schema"
+				schemaLocation="../XSD/RequestCreditLimitModificationRequest.xsd" />
+			<xsd:import
+				namespace="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationResponse/V1/schema"
+				schemaLocation="../XSD/RequestCreditLimitModificationResponse.xsd" />
+			<xsd:import namespace="http://xmlns.tigo.com/RequestHeader/V3"
+				schemaLocation="../../Common/XSD/RequestHeaderV3.xsd" />
+			<xsd:import namespace="http://xmlns.tigo.com/ResponseHeader/V3"
+				schemaLocation="../../Common/XSD/ResponseHeaderV3.xsd" />
+
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="RequestCreditLimitModificationRequestMessage">
+		<wsdl:part name="payload" element="ns1:RequestCreditLimitModificationRequest" />
+		<wsdl:part name="requestHeader" element="reqH:RequestHeader" />
+	</wsdl:message>
+
+	<wsdl:message name="RequestCreditLimitModificationResponseMessage">
+		<wsdl:part name="payload" element="ns2:RequestCreditLimitModificationResponse" />
+		<wsdl:part name="responseHeader" element="rh:ResponseHeader" />
+	</wsdl:message>
+
+	<wsdl:message name="generalResponseMsg">
+		<wsdl:part element="rh:ResponseHeader" name="fault" />
+	</wsdl:message>
+
+
+
+
+	<wsdl:portType name="RequestCreditLimitModificationPortType">
+		<wsdl:operation name="RequestCreditLimitModification">
+			<wsdl:input message="tns:RequestCreditLimitModificationRequestMessage" />
+			<wsdl:output message="tns:RequestCreditLimitModificationResponseMessage" />
+			<wsdl:fault message="tns:generalResponseMsg" name="fault" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="RequestCreditLimitModificationPortTypeSOAP12Binding"
+		type="tns:RequestCreditLimitModificationPortType">
+		<soap12:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="RequestCreditLimitModification">
+			<soap12:operation style="document" soapAction="process" />
+			<wsdl:input>
+				<soap12:body use="literal" parts="payload" />
+				<soap12:header message="tns:RequestCreditLimitModificationRequestMessage"
+					use="literal" part="requestHeader" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" parts="payload" />
+				<soap12:header message="tns:RequestCreditLimitModificationResponseMessage"
+					use="literal" part="responseHeader" />
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap12:fault name="fault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

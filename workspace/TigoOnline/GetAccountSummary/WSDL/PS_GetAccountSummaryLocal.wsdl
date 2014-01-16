@@ -1,0 +1,44 @@
+<wsdl:definitions name="PS_GetAccountSummary" targetNamespace="http://xmlns.tigo.com/TigoOnline/Service/PS_GetAccountSummaryLocal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.tigo.com/TigoOnline/Service/PS_GetAccountSummaryLocal" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:p="http://www.tigo.com/TigoOnLine/AccountSummaryResponse" xmlns:q="http://www.tigo.com/TigoOnLine/AccountSummaryRequest" xmlns:r="http://www.tigo.com/TigoOnLine/AccountSummaryFault">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://xmlns.tigo.com/TigoOnline/Service/PS_GetAccountSummary">
+    	
+            <xsd:import schemaLocation="../XSD/AccountSummaryRequest.xsd" namespace="http://www.tigo.com/TigoOnLine/AccountSummaryRequest"/>
+            <xsd:import schemaLocation="../XSD/AccountSummaryResponse.xsd" namespace="http://www.tigo.com/TigoOnLine/AccountSummaryResponse"/>
+            <xsd:import schemaLocation="../XSD/AccountSummaryFault.xsd" namespace="http://www.tigo.com/TigoOnLine/AccountSummaryFault"/>    		
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAccountSummaryLocalRequest">
+    <wsdl:part element="q:getAccountSummaryRequest" name="getAccountSummaryRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetAccountSummaryLocalResponse">
+    <wsdl:part element="p:getAccountSummaryResponse" name="getAccountSummaryResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetAccountSummaryLocalFault">
+  	<wsdl:part name="getAccountSummaryFault" element="r:getAccountSummaryFault"/>
+  </wsdl:message>
+  <wsdl:portType name="PS_GetAccountSummaryLocal">
+    <wsdl:operation name="GetAccountSummaryLocal">
+      <wsdl:input message="tns:GetAccountSummaryLocalRequest"/>
+      <wsdl:output message="tns:GetAccountSummaryLocalResponse"/>
+       <wsdl:fault name="fault" message="tns:GetAccountSummaryLocalFault"/>
+        </wsdl:operation>
+  </wsdl:portType>
+
+  <wsdl:binding name="PS_GetAccountSummaryLocalSOAP" type="tns:PS_GetAccountSummaryLocal">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetAccountSummaryLocal">
+      <soap:operation soapAction="http://xmlns.tigo.com/TigoOnline/Service/PS_GetAccountSummary/GetAccountSummary"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PS_GetAccountSummaryLocal">
+    <wsdl:port binding="tns:PS_GetAccountSummaryLocalSOAP" name="PS_GetAccountSummarySOAP">
+      <soap:address location="http://www.Tigo.com/"/>
+    </wsdl:port>
+  </wsdl:service>
+<p:GetAccountSummaryFault/><p:GetAccountSummaryResponse/></wsdl:definitions>

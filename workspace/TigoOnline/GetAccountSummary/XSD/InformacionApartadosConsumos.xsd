@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-. --><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.bytesw.com/ns/tigo/sac/informacion_aparatos">
+
+<xs:complexType name="CustomerServiceFault">
+<xs:sequence>
+<xs:element name="errorCode" type="xs:int"></xs:element>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

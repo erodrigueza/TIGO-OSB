@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://service.business.deezerapi.millicom.com/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+	targetNamespace="http://service.business.deezerapi.millicom.com/">
+	<xs:element name="changeSubscriberMsisdn" type="tns:changeSubscriberMsisdn" />
+	<xs:element name="changeSubscriberMsisdnResponse" type="tns:changeSubscriberMsisdnResponse" />
+	<xs:element name="createSubscriber" type="tns:createSubscriber" />
+	<xs:element name="createSubscriberResponse" type="tns:createSubscriberResponse" />
+	<xs:element name="deactivateCustomer" type="tns:deactivateCustomer" />
+	<xs:element name="deactivateCustomerResponse" type="tns:deactivateCustomerResponse" />
+	<xs:element name="getSubscriber" type="tns:getSubscriber" />
+	<xs:element name="getSubscriberResponse" type="tns:getSubscriberResponse" />
+	<xs:element name="updateEndDate" type="tns:updateEndDate" />
+	<xs:element name="updateEndDateAndOffer" type="tns:updateEndDateAndOffer" />
+	<xs:element name="updateEndDateAndOfferResponse" type="tns:updateEndDateAndOfferResponse" />
+	<xs:element name="updateEndDateResponse" type="tns:updateEndDateResponse" />
+	<xs:element name="updateOffer" type="tns:updateOffer" />
+	<xs:element name="updateOfferResponse" type="tns:updateOfferResponse" />
+	<xs:complexType name="createSubscriber">
+		<xs:sequence>
+			<xs:element name="operatorId" type="xs:int" minOccurs="0" />
+			<xs:element name="msisdnSubscriber" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="offerId" type="xs:int" minOccurs="0" />
+			<xs:element name="startDate" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="endDate" type="xs:dateTime" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="createSubscriberResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:responseDTO"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="responseDTO">
+		<xs:sequence>
+			<xs:element name="code" type="xs:int" minOccurs="0" />
+			<xs:element name="description" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="updateEndDateAndOffer">
+		<xs:sequence>
+			<xs:element name="operatorId" type="xs:int" minOccurs="0" />
+			<xs:element name="msisdnSubscriber" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="endDate" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="offerId" type="xs:int" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="updateEndDateAndOfferResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:responseDTO"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="changeSubscriberMsisdn">
+		<xs:sequence>
+			<xs:element name="operatorId" type="xs:int" minOccurs="0" />
+			<xs:element name="oldMsisdnSubscriber" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="newMsisdnSubscriber" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="changeSubscriberMsisdnResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:responseDTO"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="deactivateCustomer">
+		<xs:sequence>
+			<xs:element name="operatorId" type="xs:int" minOccurs="0" />
+			<xs:element name="msisdnSubscriber" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="customerId" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="deactivateCustomerResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:responseDTO"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="updateOffer">
+		<xs:sequence>
+			<xs:element name="operatorId" type="xs:int" minOccurs="0" />
+			<xs:element name="msisdnSubscriber" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="offerId" type="xs:int" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="updateOfferResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:responseDTO"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="updateEndDate">
+		<xs:sequence>
+			<xs:element name="operatorId" type="xs:int" minOccurs="0" />
+			<xs:element name="msisdnSubscriber" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="endDate" type="xs:dateTime" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="updateEndDateResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:responseDTO"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getSubscriber">
+		<xs:sequence>
+			<xs:element name="operatorId" type="xs:int" minOccurs="0" />
+			<xs:element name="msisdnSubscriber" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getSubscriberResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:responseSubscriberDTO"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="responseSubscriberDTO">
+		<xs:complexContent>
+			<xs:extension base="tns:responseDTO">
+				<xs:sequence>
+					<xs:element name="subscriber" type="tns:subscriberDTO"
+						minOccurs="0" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="subscriberDTO">
+		<xs:sequence>
+			<xs:element name="active" type="xs:int" minOccurs="0" />
+			<xs:element name="endDate" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="insertDate" type="xs:dateTime"
+				minOccurs="0" />
+			<xs:element name="linkDate" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="linked" type="xs:int" minOccurs="0" />
+			<xs:element name="offerCode" type="xs:int" minOccurs="0" />
+			<xs:element name="operatorId" type="xs:int" minOccurs="0" />
+			<xs:element name="startDate" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="subscriberId" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="type" type="xs:string" minOccurs="0" />
+			<xs:element name="updateDate" type="xs:dateTime"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://xmlns.tigo.com/ClientSchema/V1/schema"
+	xmlns:cmn="http://xmlns.tigo.com/ClientSchema/V1/schema"
+	elementFormDefault="qualified">
+
+	<xsd:element name="ClientSchema" type="cmn:ClientSchemaType" />
+	<xsd:complexType name="ClientSchemaType">
+		<xsd:sequence>
+			<xsd:element name="id" minOccurs="1" maxOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1" />
+						<xsd:pattern value="502[0-9]{8}" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="idType" minOccurs="1" maxOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="msisdn" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

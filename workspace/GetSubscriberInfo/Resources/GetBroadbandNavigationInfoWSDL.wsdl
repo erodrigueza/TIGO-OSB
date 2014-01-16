@@ -1,0 +1,66 @@
+<wsdl:definitions name="GetBroadbandNavigationInfo" targetNamespace="http://services.tigo.com.gt/GetBroadBandNavigationInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:inp1="http://services.tigo.com.gt/GetBroadBandNavigationInfo" xmlns:tns="http://services.tigo.com.gt/GetBroadBandNavigationInfo" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:documentation>
+        <abstractWSDL>https://wlstest-srv.tigo.com.gt:8002/soa-infra/services/default/GetBroadBandNavigationInfo!0.1.0/GetBroadbandNavigationInfo.wsdl</abstractWSDL>
+    </wsdl:documentation>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://services.tigo.com.gt/GetBroadBandNavigationInfo" schemaLocation="XMLSchema_1102575047.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="Request" element="inp1:SubscriberIdInput"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="Reply" element="inp1:NavigationPackageCollection"/>
+    </wsdl:message>
+    <wsdl:message name="faultMessage">
+        <wsdl:part name="Fault" element="inp1:ExceptionFault"/>
+    </wsdl:message>
+    <wsdl:message name="requestMessageDate">
+        <wsdl:part name="Request" element="inp1:SubscriberIdDateInput"/>
+    </wsdl:message>
+    <wsdl:portType name="execute_ptt">
+        <wsdl:operation name="RetrieveNavigationPackages">
+            <wsdl:input message="inp1:requestMessage"/>
+            <wsdl:output message="inp1:replyMessage"/>
+            <wsdl:fault name="RetrieveNavigationPackagesfault" message="inp1:faultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RetrieveNavigationPackagesByDate">
+            <wsdl:input message="inp1:requestMessageDate"/>
+            <wsdl:output message="inp1:replyMessage"/>
+            <wsdl:fault name="RetrieveNavigationPackagesfault" message="inp1:faultMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="execute_pttBinding" type="inp1:execute_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="RetrieveNavigationPackages">
+            <soap:operation style="document" soapAction="RetrieveNavigationPackages"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://services.tigo.com.gt/GetBroadBandNavigationInfo"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://services.tigo.com.gt/GetBroadBandNavigationInfo"/>
+            </wsdl:output>
+            <wsdl:fault name="RetrieveNavigationPackagesfault">
+                <soap:fault name="RetrieveNavigationPackagesfault" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="RetrieveNavigationPackagesByDate">
+            <soap:operation style="document" soapAction="RetrieveNavigationPackagesByDate"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://services.tigo.com.gt/GetBroadBandNavigationInfo"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://services.tigo.com.gt/GetBroadBandNavigationInfo"/>
+            </wsdl:output>
+            <wsdl:fault name="RetrieveNavigationPackagesfault">
+                <soap:fault name="RetrieveNavigationPackagesfault" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="GetBroadbandNavigationInfo">
+        <wsdl:port name="execute_pt" binding="inp1:execute_pttBinding">
+            <soap:address location="http://172.30.9.9:8001/soa-infra/services/default/GetBroadBandNavigationInfo/GetBroadbandNavigationInfo"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

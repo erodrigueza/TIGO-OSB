@@ -1,0 +1,64 @@
+<xsd:schema
+	targetNamespace="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationRequest/V1/schema"
+	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationRequest/V1/schema"
+	xmlns:headerRequest="http://xmlns.tigo.com/RequestHeader/V3" xmlns:par="http://xmlns.tigo.com/ParameterType/V2">
+
+	<xsd:import namespace="http://xmlns.tigo.com/ParameterType/V2"
+		schemaLocation="../../Common/XSD/ParameterTypeV2.xsd" />
+
+	<xsd:element name="RequestCreditLimitModificationRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="requestBody">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="msisdn" minOccurs="1" maxOccurs="1">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:minLength value="1" />
+										<xsd:pattern value="502[0-9]{8}" />
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="modificationType" minOccurs="1"
+								maxOccurs="1">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="TEMPORARY" />
+										<xsd:enumeration value="DEFINITIVE" />
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="amount" minOccurs="1" maxOccurs="1">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:decimal">
+										<xsd:totalDigits value="14" />
+										<xsd:fractionDigits value="2" />
+										<xsd:pattern value="[\-+]?[0-9]{1,12}[.][0-9]{2}" />
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="days" minOccurs="0" maxOccurs="1">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:int">
+										<xsd:minInclusive value="1" />
+										<xsd:maxInclusive value="999" />
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element minOccurs="0" name="additionalParameters">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element ref="par:ParameterType" maxOccurs="unbounded"
+											minOccurs="0" />
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

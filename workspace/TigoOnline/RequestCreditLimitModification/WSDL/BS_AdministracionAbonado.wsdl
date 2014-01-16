@@ -1,0 +1,187 @@
+<definitions targetNamespace="http://www.bytesw.com/ns/tigo/sac/admin_abonado" name="AdministracionAbonadoService" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.bytesw.com/ns/tigo/sac/admin_abonado" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.bytesw.com/ns/tigo/sac/informacion_aparatos" schemaLocation="../XSD/AdministracionAbonado1.xsd"/>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://www.bytesw.com/ns/tigo/sac/fault" schemaLocation="../XSD/AdministracionAbonado2.xsd"/>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://www.bytesw.com/ns/tigo/sac/admin_abonado" schemaLocation="../XSD/AdministracionAbonado.xsd"/>
+		</xsd:schema>
+	</types>
+	<message name="ActivarAbonado">
+		<part name="ActivarAbonadoRequest" element="tns:ActivarAbonadoRequest"/>
+	</message>
+	<message name="ActivarAbonadoResponse">
+		<part name="ActivarAbonadoResponse" element="tns:ActivarAbonadoResponse"/>
+	</message>
+	<message name="CustomerServiceFault">
+		<part name="fault" element="ns1:CustomerServiceFault" xmlns:ns1="http://www.bytesw.com/ns/tigo/sac/fault"/>
+	</message>
+	<message name="AgregarContactoARespaldo">
+		<part name="AgregarContactoARespaldoRequest" element="tns:AgregarContactoARespaldoRequest"/>
+	</message>
+	<message name="AgregarContactoARespaldoResponse">
+		<part name="AgregarContactoARespaldoResponse" element="tns:AgregarContactoARespaldoResponse"/>
+	</message>
+	<message name="BloquearAbonado">
+		<part name="BloquearAbonadoRequest" element="tns:BloquearAbonadoRequest"/>
+	</message>
+	<message name="BloquearAbonadoResponse">
+		<part name="BloquearAbonadoResponse" element="tns:BloquearAbonadoResponse"/>
+	</message>
+	<message name="CambiarLimiteCredito">
+		<part name="CambiarLimiteCreditoRequest" element="tns:CambiarLimiteCreditoRequest"/>
+	</message>
+	<message name="CambiarLimiteCreditoResponse">
+		<part name="CambiarLimiteCreditoResponse" element="tns:CambiarLimiteCreditoResponse"/>
+	</message>
+	<message name="CambiarPlan">
+		<part name="CambiarPlanRequest" element="tns:CambiarPlanRequest"/>
+	</message>
+	<message name="CambiarPlanResponse">
+		<part name="CambiarPlanResponse" element="tns:CambiarPlanResponse"/>
+	</message>
+	<message name="EliminarContactoARespaldar">
+		<part name="EliminarContactoARespaldarRequest" element="tns:EliminarContactoARespaldarRequest"/>
+	</message>
+	<message name="EliminarContactoARespaldarResponse">
+		<part name="EliminarContactoARespaldarResponse" element="tns:EliminarContactoARespaldarResponse"/>
+	</message>
+	<message name="MigrarProducto">
+		<part name="MigrarProductoRequest" element="tns:MigrarProductoRequest"/>
+	</message>
+	<message name="MigrarProductoResponse">
+		<part name="MigrarProductoResponse" element="tns:MigrarProductoResponse"/>
+	</message>
+	<portType name="AdministracionAbonadoEndpoint">
+		<operation name="ActivarAbonado">
+			<input wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/ActivarAbonadoRequest" message="tns:ActivarAbonado"/>
+			<output wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/ActivarAbonadoResponse" message="tns:ActivarAbonadoResponse"/>
+			<fault message="tns:CustomerServiceFault" name="CustomerServiceFault" wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/ActivarAbonado/Fault/CustomerServiceFault"/>
+		</operation>
+		<operation name="AgregarContactoARespaldo">
+			<input wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/AgregarContactoARespaldoRequest" message="tns:AgregarContactoARespaldo"/>
+			<output wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/AgregarContactoARespaldoResponse" message="tns:AgregarContactoARespaldoResponse"/>
+			<fault message="tns:CustomerServiceFault" name="CustomerServiceFault" wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/AgregarContactoARespaldo/Fault/CustomerServiceFault"/>
+		</operation>
+		<operation name="BloquearAbonado">
+			<input wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/BloquearAbonadoRequest" message="tns:BloquearAbonado"/>
+			<output wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/BloquearAbonadoResponse" message="tns:BloquearAbonadoResponse"/>
+			<fault message="tns:CustomerServiceFault" name="CustomerServiceFault" wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/BloquearAbonado/Fault/CustomerServiceFault"/>
+		</operation>
+		<operation name="CambiarLimiteCredito">
+			<input wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/CambiarLimiteCreditoRequest" message="tns:CambiarLimiteCredito"/>
+			<output wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/CambiarLimiteCreditoResponse" message="tns:CambiarLimiteCreditoResponse"/>
+			<fault message="tns:CustomerServiceFault" name="CustomerServiceFault" wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/CambiarLimiteCredito/Fault/CustomerServiceFault"/>
+		</operation>
+		<operation name="CambiarPlan">
+			<input wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/CambiarPlanRequest" message="tns:CambiarPlan"/>
+			<output wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/CambiarPlanResponse" message="tns:CambiarPlanResponse"/>
+			<fault message="tns:CustomerServiceFault" name="CustomerServiceFault" wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/CambiarPlan/Fault/CustomerServiceFault"/>
+		</operation>
+		<operation name="EliminarContactoARespaldar">
+			<input wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/EliminarContactoARespaldarRequest" message="tns:EliminarContactoARespaldar"/>
+			<output wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/EliminarContactoARespaldarResponse" message="tns:EliminarContactoARespaldarResponse"/>
+			<fault message="tns:CustomerServiceFault" name="CustomerServiceFault" wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/EliminarContactoARespaldar/Fault/CustomerServiceFault"/>
+		</operation>
+		<operation name="MigrarProducto">
+			<input wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/MigrarProductoRequest" message="tns:MigrarProducto"/>
+			<output wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/MigrarProductoResponse" message="tns:MigrarProductoResponse"/>
+			<fault message="tns:CustomerServiceFault" name="CustomerServiceFault" wsam:Action="http://www.bytesw.com/ns/tigo/sac/admin_abonado/AdministracionAbonadoEndpoint/MigrarProducto/Fault/CustomerServiceFault"/>
+		</operation>
+	</portType>
+	<binding name="AdministracionAbonadoPortBinding" type="tns:AdministracionAbonadoEndpoint">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+		<operation name="ActivarAbonado">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="CustomerServiceFault">
+				<soap:fault name="CustomerServiceFault" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="AgregarContactoARespaldo">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="CustomerServiceFault">
+				<soap:fault name="CustomerServiceFault" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="BloquearAbonado">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="CustomerServiceFault">
+				<soap:fault name="CustomerServiceFault" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="CambiarLimiteCredito">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="CustomerServiceFault">
+				<soap:fault name="CustomerServiceFault" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="CambiarPlan">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="CustomerServiceFault">
+				<soap:fault name="CustomerServiceFault" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="EliminarContactoARespaldar">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="CustomerServiceFault">
+				<soap:fault name="CustomerServiceFault" use="literal"/>
+			</fault>
+		</operation>
+		<operation name="MigrarProducto">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="CustomerServiceFault">
+				<soap:fault name="CustomerServiceFault" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+	<service name="AdministracionAbonadoService">
+		<port name="AdministracionAbonadoPort" binding="tns:AdministracionAbonadoPortBinding">
+			<soap:address location="http://172.22.52.7:8080/CustomerServices/services/AdministracionAbonado"/>
+		</port>
+	</service>
+</definitions>

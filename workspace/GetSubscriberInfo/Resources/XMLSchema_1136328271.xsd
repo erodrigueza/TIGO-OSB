@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://services.tigo.com.gt/GetBackTonesInfo"
+     targetNamespace="http://services.tigo.com.gt/GetBackTonesInfo" elementFormDefault="qualified">
+    <xsd:element name="BackTonesInfoCollection" type="BackTonesInfoCollection"/>
+    <xsd:complexType name="BackTonesInfoCollection">
+        <xsd:sequence>
+            <xsd:element name="UserBackTonesInfo" maxOccurs="unbounded" minOccurs="0" type="UserBackTonesInfo"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="UserBackTonesInfo">
+        <xsd:sequence>
+            <xsd:element name="ToneId" type="xsd:string"/>
+            <xsd:element name="Author" type="xsd:string"/>
+            <xsd:element name="Song" type="xsd:string"/>
+            <xsd:element name="ExpirationDate" type="xsd:string"/>
+            <xsd:element name="PurchaseDate" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="SubscriberIdInput" type="SubscriberIdInput"/>
+    <xsd:complexType name="SubscriberIdInput">
+        <xsd:sequence>
+            <xsd:element name="SubscriberId" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="ExceptionFault" type="ExceptionFault"/>
+    <xsd:complexType name="ExceptionFault">
+        <xsd:sequence>
+            <xsd:element name="Code" type="xsd:string"/>
+            <xsd:element name="Description" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,10 @@
+<xs:schema version="1.0" targetNamespace="http://www.bytesw.com/ns/tigo/sac/fault"
+	xmlns:ns1="http://www.bytesw.com/ns/tigo/sac/informacion_aparatos"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:import namespace="http://www.bytesw.com/ns/tigo/sac/informacion_aparatos"
+		schemaLocation="AdministracionAbonado1.xsd" />
+
+	<xs:element name="CustomerServiceFault" type="ns1:CustomerServiceFault" />
+
+</xs:schema>
