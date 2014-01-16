@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cus:Customizations xmlns:cus="http://www.bea.com/wli/config/customizations" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xt="http://www.bea.com/wli/config/xmltypes">
+  <cus:customization xsi:type="cus:EnvValueCustomizationType">
+    <cus:description/>
+    <cus:envValueAssignments>
+      <xt:envValueType>UDDI Auto Publish</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/PS/GetDeezerAvailability_PUB</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/PS/GetDeezerAvailability_PUB</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/TigoOnline/GetDeezerAvailability/V1</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Alert SNMP Trap</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>AlertDestination</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/AD/GetDeezerAvailability</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Alert To Log</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>AlertDestination</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/AD/GetDeezerAvailability</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">true</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Alert To Reporting Data</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>AlertDestination</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/AD/GetDeezerAvailability</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Weight</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/DeezerService</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/DeezerService</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">http://172.30.9.9:8001/Deezer/DeezerService</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Table</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/DeezerService</xt:path>
+      </xt:owner>
+      <xt:value>
+        <tableElement xmlns="http://www.bea.com/wli/sb/transports">
+          <URI>http://172.30.9.9:8001/Deezer/DeezerService</URI>
+          <weight>0</weight>
+        </tableElement>
+      </xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Count</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/DeezerService</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Iteration Interval</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/DeezerService</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>UDDI Auto Publish</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/PS/GetDeezerAvailabilityLocal_PUB</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/PS/GetDeezerAvailabilityLocal_PUB</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/TigoOnline/GetDeezerAvailabilityLocal/V1</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Weight</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/GetDeezerAvailabilityLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/GetDeezerAvailabilityLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">http://172.30.9.9:8011/TigoOnline/GetDeezerAvailabilityLocal/V1</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Table</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/GetDeezerAvailabilityLocal</xt:path>
+      </xt:owner>
+      <xt:value>
+        <tableElement xmlns="http://www.bea.com/wli/sb/transports">
+          <URI>http://172.30.9.9:8011/TigoOnline/GetDeezerAvailabilityLocal/V1</URI>
+          <weight>0</weight>
+        </tableElement>
+      </xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Count</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/GetDeezerAvailabilityLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Iteration Interval</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/GetDeezerAvailabilityLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+  </cus:customization>
+  <cus:customization xsi:type="cus:FindAndReplaceCustomizationType">
+    <cus:description/>
+    <cus:query>
+      <xt:resourceTypes>AlertDestination</xt:resourceTypes>
+      <xt:resourceTypes>BusinessService</xt:resourceTypes>
+      <xt:resourceTypes>ProxyService</xt:resourceTypes>
+      <xt:envValueTypes>Service URI</xt:envValueTypes>
+      <xt:envValueTypes>Alert To Log</xt:envValueTypes>
+      <xt:envValueTypes>Service URI Weight</xt:envValueTypes>
+      <xt:envValueTypes>UDDI Auto Publish</xt:envValueTypes>
+      <xt:envValueTypes>Service Retry Iteration Interval</xt:envValueTypes>
+      <xt:envValueTypes>Alert SNMP Trap</xt:envValueTypes>
+      <xt:envValueTypes>Service Retry Count</xt:envValueTypes>
+      <xt:envValueTypes>Alert To Reporting Data</xt:envValueTypes>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/PS/GetDeezerAvailabilityLocal_PUB</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/PS/GetDeezerAvailability_PUB</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>AlertDestination</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/AD/GetDeezerAvailability</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/GetDeezerAvailabilityLocal</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/DeezerService</xt:path>
+      </xt:refsToSearch>
+      <xt:includeOnlyModifiedResources>false</xt:includeOnlyModifiedResources>
+      <xt:searchString>Search String</xt:searchString>
+      <xt:isCompleteMatch>false</xt:isCompleteMatch>
+    </cus:query>
+    <cus:replacement>Replacement String</cus:replacement>
+  </cus:customization>
+  <cus:customization xsi:type="cus:ReferenceCustomizationType">
+    <cus:description/>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>WSDL</xt:type>
+      <xt:path>TigoOnline/GetDeezerAvailability/WSDL/BS_DeezerService</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>ProxyService</xt:type>
+      <xt:path>TigoOnline/GetDeezerAvailability/PS/GetDeezerAvailability_PUB</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>XMLSchema</xt:type>
+      <xt:path>TigoOnline/GetDeezerAvailability/XSD/GetDeezerAvailabilityResponse</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>BusinessService</xt:type>
+      <xt:path>TigoOnline/GetDeezerAvailability/BS/DeezerService</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>ProxyService</xt:type>
+      <xt:path>TigoOnline/GetDeezerAvailability/PS/GetDeezerAvailabilityLocal_PUB</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>XMLSchema</xt:type>
+      <xt:path>TigoOnline/GetDeezerAvailability/XSD/GetDeezerAvailabilityRequest</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>WSDL</xt:type>
+      <xt:path>TigoOnline/GetDeezerAvailability/WSDL/PS_GetDeezerAvailabilityLocal</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>BusinessService</xt:type>
+      <xt:path>TigoOnline/GetDeezerAvailability/BS/GetDeezerAvailabilityLocal</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>WSDL</xt:type>
+      <xt:path>TigoOnline/GetDeezerAvailability/WSDL/PS_GetDeezerAvailability</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformToErrorRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformToErrorRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/MapResponse</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/MapResponse</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/AuditProducerOSB</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/AuditProducerOSB</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XSD/GetDeezerAvailabilityResponse</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XSD/GetDeezerAvailabilityResponse</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/ResponseHeaderV3</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/ResponseHeaderV3</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XQUERY/TransformToDeezerServiceRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XQUERY/TransformToDeezerServiceRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformToAuditRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformToAuditRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformMapResponse</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformMapResponse</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/GetDeezerAvailabilityLocal</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/GetDeezerAvailabilityLocal</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/WSDL/PS_GetDeezerAvailability</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/WSDL/PS_GetDeezerAvailability</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XQUERY/ConfigurationFile</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XQUERY/ConfigurationFile</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XQUERY/TransformToGetDeezerAvailabilityResponse</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XQUERY/TransformToGetDeezerAvailabilityResponse</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XSD/ClientSchema</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XSD/ClientSchema</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/RequestHeaderV3</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/RequestHeaderV3</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformOKToResponseHeader</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformOKToResponseHeader</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformFaultToResponseHeader</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformFaultToResponseHeader</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/WSDL/BS_DeezerService</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/WSDL/BS_DeezerService</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XSD/DeezerService</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XSD/DeezerService</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/ParameterTypeV2</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/ParameterTypeV2</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/DeezerService</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/BS/DeezerService</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XSD/GetDeezerAvailabilityRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/XSD/GetDeezerAvailabilityRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/WSDL/PS_GetDeezerAvailabilityLocal</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/GetDeezerAvailability/WSDL/PS_GetDeezerAvailabilityLocal</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/ErrorProducerOSB</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/ErrorProducerOSB</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+  </cus:customization>
+</cus:Customizations>

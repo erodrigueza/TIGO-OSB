@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cus:Customizations xmlns:cus="http://www.bea.com/wli/config/customizations" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xt="http://www.bea.com/wli/config/xmltypes">
+  <cus:customization xsi:type="cus:EnvValueCustomizationType">
+    <cus:description/>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Weight</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/RequestCreditLimitModificationLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/RequestCreditLimitModificationLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">http://172.30.9.9:8011/TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModificationLocal</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Table</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/RequestCreditLimitModificationLocal</xt:path>
+      </xt:owner>
+      <xt:value>
+        <tran:tableElement xmlns:tran="http://www.bea.com/wli/sb/transports">
+          <tran:URI>http://172.30.9.9:8011/TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModificationLocal</tran:URI>
+          <tran:weight>0</tran:weight>
+        </tran:tableElement>
+      </xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Count</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/RequestCreditLimitModificationLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Iteration Interval</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/RequestCreditLimitModificationLocal</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Weight</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/AdministracionAbonado</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/AdministracionAbonado</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">http://172.22.52.7:8080/CustomerServices/services/AdministracionAbonado</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Table</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/AdministracionAbonado</xt:path>
+      </xt:owner>
+      <xt:value>
+        <tran:tableElement xmlns:tran="http://www.bea.com/wli/sb/transports">
+          <tran:URI>http://172.22.52.7:8080/CustomerServices/services/AdministracionAbonado</tran:URI>
+          <tran:weight>0</tran:weight>
+        </tran:tableElement>
+      </xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Count</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/AdministracionAbonado</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Iteration Interval</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/AdministracionAbonado</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Weight</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/CUS_Aumento_de_Limite_de_Credito_Tigo_Online</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location>0</xt:location>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/CUS_Aumento_de_Limite_de_Credito_Tigo_Online</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">http://172.30.5.40/bizflow/data/webservice/CUS_Aumento_de_Limite_de_Credito_Tigo_Online.hws</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI Table</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/CUS_Aumento_de_Limite_de_Credito_Tigo_Online</xt:path>
+      </xt:owner>
+      <xt:value>
+        <tran:tableElement xmlns:tran="http://www.bea.com/wli/sb/transports">
+          <tran:URI>http://172.30.5.40/bizflow/data/webservice/CUS_Aumento_de_Limite_de_Credito_Tigo_Online.hws</tran:URI>
+          <tran:weight>0</tran:weight>
+        </tran:tableElement>
+      </xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Count</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/CUS_Aumento_de_Limite_de_Credito_Tigo_Online</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service Retry Iteration Interval</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/CUS_Aumento_de_Limite_de_Credito_Tigo_Online</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">0</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>UDDI Auto Publish</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModification_PUB</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModification_PUB</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModification</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Alert SNMP Trap</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>AlertDestination</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/AD/RequestCreditLimitModification</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Alert To Log</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>AlertDestination</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/AD/RequestCreditLimitModification</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">true</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Alert To Reporting Data</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>AlertDestination</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/AD/RequestCreditLimitModification</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>UDDI Auto Publish</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModificationLocal_PUB</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">false</xt:value>
+    </cus:envValueAssignments>
+    <cus:envValueAssignments>
+      <xt:envValueType>Service URI</xt:envValueType>
+      <xt:location xsi:nil="true"/>
+      <xt:owner>
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModificationLocal_PUB</xt:path>
+      </xt:owner>
+      <xt:value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">/TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModificationLocal</xt:value>
+    </cus:envValueAssignments>
+  </cus:customization>
+  <cus:customization xsi:type="cus:FindAndReplaceCustomizationType">
+    <cus:description/>
+    <cus:query>
+      <xt:resourceTypes>AlertDestination</xt:resourceTypes>
+      <xt:resourceTypes>BusinessService</xt:resourceTypes>
+      <xt:resourceTypes>ProxyService</xt:resourceTypes>
+      <xt:envValueTypes>Service URI</xt:envValueTypes>
+      <xt:envValueTypes>Alert To Log</xt:envValueTypes>
+      <xt:envValueTypes>Service URI Weight</xt:envValueTypes>
+      <xt:envValueTypes>UDDI Auto Publish</xt:envValueTypes>
+      <xt:envValueTypes>Alert SNMP Trap</xt:envValueTypes>
+      <xt:envValueTypes>Service Retry Iteration Interval</xt:envValueTypes>
+      <xt:envValueTypes>Service Retry Count</xt:envValueTypes>
+      <xt:envValueTypes>Alert To Reporting Data</xt:envValueTypes>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/RequestCreditLimitModificationLocal</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/AdministracionAbonado</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/CUS_Aumento_de_Limite_de_Credito_Tigo_Online</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModification_PUB</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>AlertDestination</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/AD/RequestCreditLimitModification</xt:path>
+      </xt:refsToSearch>
+      <xt:refsToSearch xsi:type="xt:ResourceRefType">
+        <xt:type>ProxyService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModificationLocal_PUB</xt:path>
+      </xt:refsToSearch>
+      <xt:includeOnlyModifiedResources>false</xt:includeOnlyModifiedResources>
+      <xt:searchString>Search String</xt:searchString>
+      <xt:isCompleteMatch>false</xt:isCompleteMatch>
+    </cus:query>
+    <cus:replacement>Replacement String</cus:replacement>
+  </cus:customization>
+  <cus:customization xsi:type="cus:ReferenceCustomizationType">
+    <cus:description/>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>BusinessService</xt:type>
+      <xt:path>TigoOnline/RequestCreditLimitModification/BS/RequestCreditLimitModificationLocal</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>BusinessService</xt:type>
+      <xt:path>TigoOnline/RequestCreditLimitModification/BS/AdministracionAbonado</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>BusinessService</xt:type>
+      <xt:path>TigoOnline/RequestCreditLimitModification/BS/CUS_Aumento_de_Limite_de_Credito_Tigo_Online</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>ProxyService</xt:type>
+      <xt:path>TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModification_PUB</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>WSDL</xt:type>
+      <xt:path>TigoOnline/RequestCreditLimitModification/WSDL/BS_AdministracionAbonado</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>XMLSchema</xt:type>
+      <xt:path>TigoOnline/RequestCreditLimitModification/XSD/RequestCreditLimitModificationResponse</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>WSDL</xt:type>
+      <xt:path>TigoOnline/RequestCreditLimitModification/WSDL/BS_GetSubscriberGeneralInfo</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>XMLSchema</xt:type>
+      <xt:path>TigoOnline/RequestCreditLimitModification/XSD/RequestCreditLimitModificationRequest</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>XMLSchema</xt:type>
+      <xt:path>TigoOnline/RequestCreditLimitModification/XSD/AdministracionAbonado2</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>WSDL</xt:type>
+      <xt:path>TigoOnline/RequestCreditLimitModification/WSDL/PS_RequestCreditLimitModification</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>ProxyService</xt:type>
+      <xt:path>TigoOnline/RequestCreditLimitModification/PS/RequestCreditLimitModificationLocal_PUB</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:refsToBeConsidered xsi:type="xt:ResourceRefType">
+      <xt:type>WSDL</xt:type>
+      <xt:path>TigoOnline/RequestCreditLimitModification/WSDL/PS_RequestCreditLimitModificationLocal</xt:path>
+    </cus:refsToBeConsidered>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/RequestCreditLimitModificationLocal</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/RequestCreditLimitModificationLocal</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/CUS_Aumento_de_Limite_de_Credito_Tigo_Online</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/CUS_Aumento_de_Limite_de_Credito_Tigo_Online</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformToErrorRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformToErrorRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XQUERY/Productos</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XQUERY/Productos</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/MapResponse</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/MapResponse</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/Accesos</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/Accesos</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/ResponseHeaderV3</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/ResponseHeaderV3</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/Accesos</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/Accesos</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/RequestHeaderV3</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/RequestHeaderV3</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/WSDL/BS_AdministracionAbonado</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/WSDL/BS_AdministracionAbonado</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XSD/AdministracionAbonado</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XSD/AdministracionAbonado</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XSD/GetSubscriberGeneralInfo</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XSD/GetSubscriberGeneralInfo</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>GetSubscriberInfo/BusinessServices/GetSubscriberGeneralInfoBS</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>GetSubscriberInfo/BusinessServices/GetSubscriberGeneralInfoBS</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/WSDL/BS_CUS_Aumento_de_Limite_de_Credito_Tigo_Online</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/WSDL/BS_CUS_Aumento_de_Limite_de_Credito_Tigo_Online</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/WSDL/PS_RequestCreditLimitModificationLocal</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/WSDL/PS_RequestCreditLimitModificationLocal</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XQUERY/TransformToCreditLimitResponse</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XQUERY/TransformToCreditLimitResponse</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/AuditProducerOSB</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/AuditProducerOSB</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XSD/RequestCreditLimitModificationResponse</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XSD/RequestCreditLimitModificationResponse</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformToAuditRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformToAuditRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/WSDL/PS_RequestCreditLimitModification</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>WSDL</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/WSDL/PS_RequestCreditLimitModification</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XQUERY/TransformToAdminAbonadoRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XQUERY/TransformToAdminAbonadoRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformToAccesosRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformToAccesosRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformMapResponse</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformMapResponse</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/Accesos</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/Accesos</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/AdministracionAbonado</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/AdministracionAbonado</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformOKToResponseHeader</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformOKToResponseHeader</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformFaultToResponseHeader</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>Xquery</xt:type>
+        <xt:path>TigoOnline/Common/XQUERY/TransformFaultToResponseHeader</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/ParameterTypeV2</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/Common/XSD/ParameterTypeV2</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XSD/RequestCreditLimitModificationRequest</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XSD/RequestCreditLimitModificationRequest</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XSD/AdministracionAbonado1</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XSD/AdministracionAbonado1</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XSD/AdministracionAbonado2</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>XMLSchema</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/XSD/AdministracionAbonado2</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>ServiceAccount</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/RequestCreditLimitModificationLocal</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>ServiceAccount</xt:type>
+        <xt:path>TigoOnline/RequestCreditLimitModification/BS/RequestCreditLimitModificationLocal</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+    <cus:externalReferenceMap>
+      <xt:oldRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/ErrorProducerOSB</xt:path>
+      </xt:oldRef>
+      <xt:newRef>
+        <xt:type>BusinessService</xt:type>
+        <xt:path>TigoOnline/Common/BS/ErrorProducerOSB</xt:path>
+      </xt:newRef>
+    </cus:externalReferenceMap>
+  </cus:customization>
+</cus:Customizations>
