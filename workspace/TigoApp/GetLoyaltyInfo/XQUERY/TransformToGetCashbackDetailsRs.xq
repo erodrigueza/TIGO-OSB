@@ -23,7 +23,8 @@ declare function xf:TransformToGetCashbackDetailsRs($getCardBalanceSheetResponse
     		let $seq := tokenize($cardData, '\|')
     	
         	for $benefit in $seq
-        	return        
+        	return if (fn:string-length(fn:data($benefit)) > 0)
+        	then
         	<ns2:CashbackDetails>
             	<ns2:date>{ xf:GetData($benefit, 1) }</ns2:date>
             	<ns2:transaction>{ xf:GetData($benefit, 2) }</ns2:transaction>
@@ -31,6 +32,7 @@ declare function xf:TransformToGetCashbackDetailsRs($getCardBalanceSheetResponse
             	<ns2:balance>{ xf:GetData($benefit, 5) }</ns2:balance>
             	<ns2:reference>{ xf:GetData($benefit, 4) }</ns2:reference>
             </ns2:CashbackDetails>
+            else ''
         }    
         </ns2:getCashbackDetailsResponse>
 };

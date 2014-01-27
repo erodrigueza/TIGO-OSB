@@ -31,13 +31,15 @@ declare function xf:TransformToGetBenefitsRs($getCardDataResponse as element(ns1
     		let $seq := tokenize($cardData, '\|')
     	
         	for $benefit in $seq
-        	return
-			<ns2:Benefits>
+        	return if (fn:string-length(fn:data($benefit)) > 0)
+        	then
+        	<ns2:Benefits>
 				<ns2:prize>{ xf:GetData($benefit, 2) }</ns2:prize>
 				<ns2:benefit>{ xf:GetData($benefit, 3) }</ns2:benefit>
 				<ns2:date>{ xf:yyyymmdd-to-date(xf:GetData($benefit, 4)) }</ns2:date>
 				<ns2:expireDate>{ xf:yyyymmdd-to-date(xf:GetData($benefit, 5)) }</ns2:expireDate>
 			</ns2:Benefits>
+			else ''
         }
         </ns2:getBenefitsResponse>
 };

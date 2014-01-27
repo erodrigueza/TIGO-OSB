@@ -459,7 +459,7 @@
           </con4:assign>
         </con:actions>
       </con:stage>
-      <con:stage name="invokeGetCardStatusLocal">
+      <con:stage name="invokeGetBenefitsLocal">
         <con:context>
           <con2:varNsDecl namespace="http://xmlns.tigo.com/TigoAPI/GetLoyaltyInfoRequest/V1/schema" prefix="sch"/>
         </con:context>
@@ -508,7 +508,7 @@
       </con:stage>
     </con:pipeline>
     <con:pipeline type="response" name="GetBenefitsPipeline_response">
-      <con:stage name="responseGetCardStatus">
+      <con:stage name="responseGetBenefits">
         <con:context xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config">
           <con2:varNsDecl namespace="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationRequest/V1/schema" prefix="sch"/>
         </con:context>
@@ -764,7 +764,7 @@
           </con4:assign>
         </con:actions>
       </con:stage>
-      <con:stage name="invokeGetCardStatusLocal">
+      <con:stage name="invokeGetCashbackInfoLocal">
         <con:context>
           <con2:varNsDecl namespace="http://xmlns.tigo.com/TigoAPI/GetLoyaltyInfoRequest/V1/schema" prefix="sch"/>
         </con:context>
@@ -813,7 +813,7 @@
       </con:stage>
     </con:pipeline>
     <con:pipeline type="response" name="GetCashbackInfoPipeline_response">
-      <con:stage name="responseGetCardStatus">
+      <con:stage name="responseGetCashbackInfo">
         <con:context xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config">
           <con2:varNsDecl namespace="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationRequest/V1/schema" prefix="sch"/>
         </con:context>
@@ -1069,7 +1069,7 @@
           </con4:assign>
         </con:actions>
       </con:stage>
-      <con:stage name="invokeGetCardStatusLocal">
+      <con:stage name="invokeGetCashbackDetailsLocal">
         <con:context>
           <con2:varNsDecl namespace="http://xmlns.tigo.com/TigoAPI/GetLoyaltyInfoRequest/V1/schema" prefix="sch"/>
         </con:context>
@@ -1118,7 +1118,7 @@
       </con:stage>
     </con:pipeline>
     <con:pipeline type="response" name="GetCashbackDetailsPipeline_response">
-      <con:stage name="responseGetCardStatus">
+      <con:stage name="responseGetCashbackDetails">
         <con:context xmlns:con3="http://www.bea.com/wli/sb/stages/publish/config">
           <con2:varNsDecl namespace="http://xmlns.tigo.com/TigoBussines/RequestCreditLimitModificationRequest/V1/schema" prefix="sch"/>
         </con:context>
